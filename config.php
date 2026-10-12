@@ -74,6 +74,23 @@ return [
         ],
     ],
 
+    // Verbatim from echocyber.io (_partials/home/track-record), 2026-10-12. Anonymized; never add names.
+    // Attorney-hour item: confirm none breaches Crayon/SWO confidentiality (severance §10).
+    'cases' => [
+        ['sector' => 'Pharma sciences CRO &middot; regulated data', 'title' => 'Growing Life-Sciences CRO', 'tags' => ['GxP-validated tools', 'Per-seat licensing', 'Acquired'],
+         'challenge' => 'No security program, thin validation documentation, outdated servers, and a critical per-seat analysis tool whose licenses had drifted away from who actually used it.',
+         'outcome' => 'Security program built from the ground up. An access review turned license sprawl into savings. At acquisition, the buyer called IT and security one of the easiest they\'d ever done.',
+         'stats' => [['0&rarr;1', 'security program'], ['1', 'easy acquisition'], ['$500K', 'saved per year']]],
+        ['sector' => 'National retail chain &middot; brick-and-mortar', 'title' => 'Fortune 500 Retailer', 'tags' => ['5,000+ employees', 'Hundreds of locations', 'Edge POS'],
+         'challenge' => 'Security enforcement was nonexistent at the edge. POS systems across stores required manual intervention with no centralized governance.',
+         'outcome' => 'Cloud-native device governance framework. Enforceable, auditable security posture for the first time.',
+         'stats' => [['15', 'policies migrated'], ['4', 'platforms automated'], ['0', 'store outages']]],
+        ['sector' => 'DTC ecommerce &middot; rapid scale', 'title' => 'High-Growth Ecommerce Brand', 'tags' => ['900+ users', '32TB data', '40 sites'],
+         'challenge' => 'Outgrew their collaboration platform but couldn\'t afford downtime during a migration touching every employee and every business-critical site.',
+         'outcome' => 'Zero-disruption platform migration. Identity sync, policy-driven device reconfiguration, legacy infrastructure eliminated.',
+         'stats' => [['893', 'active users moved'], ['1,200+', 'accounts archived'], ['0', 'downtime']]],
+    ],
+
     'faqs' => [
         ['q' => 'Are you a CTO or a CISO?', 'a' => 'Both. At a company your size the questions overlap: the app, the IT contract and the insurance form are one conversation. Splitting them across two part-time people is how gaps happen.'],
         ['q' => 'Do we actually need SOC 2?', 'a' => 'Maybe not yet. Plenty of customers will accept a completed questionnaire and a credible plan instead. Part of the diagnostic is finding out what the person asking actually needs, so you don\'t buy an audit before you need one.'],

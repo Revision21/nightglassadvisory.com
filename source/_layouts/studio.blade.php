@@ -1,6 +1,7 @@
 @php
     $nav = [
         ['label' => 'Why', 'href' => '#why'],
+        ['label' => 'Results', 'href' => '#track-record'],
         ['label' => 'The Diagnostic', 'href' => '#diagnostic'],
         ['label' => 'About', 'href' => '#about'],
         ['label' => 'FAQ', 'href' => '#faq'],

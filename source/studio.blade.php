@@ -111,6 +111,42 @@ noindex: true
         </div>
     </div>
 
+    {{-- Track record (verbatim from echocyber.io), cream band --}}
+    <section id="track-record" class="mt-24 scroll-mt-12 border-y border-st-ink/5 bg-st-wash py-24 sm:mt-32 sm:py-32 lg:mt-40">
+        <div class="{{ $c }}">
+            <div class="st-fade max-w-2xl">
+                <h2>
+                    <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">Track record</span>
+                    <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Proof beats prose.</span>
+                </h2>
+                <p class="mt-6 text-xl text-st-text">Names withheld. NDAs are a feature, not a limitation.</p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+                @foreach ($page->cases as $i => $k)
+                    <article class="st-fade flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8" style="transition-delay: {{ $i * 80 }}ms">
+                        <p class="text-xs font-semibold tracking-wider text-st-gold-ink uppercase">{!! $k['sector'] !!}</p>
+                        <h3 class="st-display mt-3 text-2xl font-semibold text-st-ink">{{ $k['title'] }}</h3>
+                        <ul class="mt-4 flex flex-wrap gap-2">
+                            @foreach ($k['tags'] as $tag)
+                                <li class="rounded-full bg-st-indigo-tint px-2.5 py-0.5 text-xs font-medium text-st-indigo">{{ $tag }}</li>
+                            @endforeach
+                        </ul>
+                        <p class="mt-6 text-sm text-st-text"><strong class="font-semibold text-st-ink">Challenge.</strong> {{ $k['challenge'] }}</p>
+                        <p class="mt-4 flex-auto text-sm text-st-text"><strong class="font-semibold text-st-ink">Outcome.</strong> {{ $k['outcome'] }}</p>
+                        <dl class="mt-8 grid grid-cols-3 gap-4 border-t border-st-ink/10 pt-6">
+                            @foreach ($k['stats'] as [$v, $l])
+                                <div class="st-border-left st-gold-tick flex flex-col-reverse pl-3">
+                                    <dt class="mt-1 text-xs text-st-text">{{ $l }}</dt>
+                                    <dd class="st-display text-xl font-semibold text-st-ink">{!! $v !!}</dd>
+                                </div>
+                            @endforeach
+                        </dl>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     {{-- Services with the stylized image -> The Diagnostic (indigo-tint band) --}}
     <section class="mt-24 border-y border-st-indigo/10 bg-st-indigo-tint py-24 sm:mt-32 sm:py-32 lg:mt-40">
     <div id="diagnostic" class="{{ $c }} scroll-mt-12">
