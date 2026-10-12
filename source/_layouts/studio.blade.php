@@ -22,7 +22,17 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ $page->getUrl() }}">
     <meta property="og:description" content="{{ $page->description ?? $page->siteDescription }}">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/brand/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nightglass Advisory: Fractional CTO and CISO for founder-led companies.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png">
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2a2d4a">
     @if ($page->noindex)
     <meta name="robots" content="noindex, nofollow">
     @endif
@@ -38,14 +48,17 @@
     <header class="relative z-40">
         <div class="mx-auto max-w-7xl px-6 pt-10 lg:px-8">
             <div class="flex items-center justify-between">
-                <a href="{{ $home ?: '/' }}" aria-label="Home" class="st-display text-lg font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span></a>
-                <div class="flex items-center gap-x-8">
+                <a href="{{ $home ?: '/' }}" aria-label="Nightglass Advisory, home" class="flex items-center gap-x-2.5 sm:gap-x-3">
+                    <img src="/assets/brand/nightglass-mark-header.svg" alt="" class="h-8 w-8 sm:h-9 sm:w-9">
+                    <span class="st-display text-[0.95rem] font-semibold tracking-[0.12em] text-st-ink uppercase sm:text-lg sm:tracking-[0.18em]">Night<span class="text-st-gold-ink">glass</span></span>
+                </a>
+                <div class="flex items-center gap-x-4 sm:gap-x-8">
                     <nav class="hidden items-center gap-x-8 md:flex" aria-label="Main">
                         @foreach ($nav as $item)
                             <a href="{{ $item['href'] }}" class="text-sm font-semibold text-st-ink transition hover:text-st-gold-ink">{{ $item['label'] }}</a>
                         @endforeach
                     </nav>
-                    <a href="{{ $page->bookingUrl }}" class="inline-flex rounded-full bg-st-ink px-4 py-1.5 text-sm font-semibold text-st-page transition hover:bg-st-panel-2"><span class="relative top-px">Book a call</span></a>
+                    <a href="{{ $page->bookingUrl }}" class="inline-flex rounded-full bg-st-ink px-3 py-1.5 text-sm font-semibold whitespace-nowrap text-st-page transition hover:bg-st-panel-2 sm:px-4"><span class="relative top-px">Book a call</span></a>
                     <div class="relative md:hidden">
                         <button type="button" command="--toggle" commandfor="st-menu" aria-label="Toggle navigation" class="-m-2.5 rounded-full p-2.5 transition hover:bg-st-ink/10">
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-st-ink"><path d="M2 6h20v2H2zM2 16h20v2H2z" /></svg>
@@ -69,7 +82,10 @@
 
     <footer class="mx-auto mt-24 w-full max-w-7xl px-6 pb-16 sm:mt-32 lg:mt-40 lg:px-8">
         <div class="st-border flex flex-col items-start justify-between gap-6 pt-12 sm:flex-row sm:items-center">
-            <a href="{{ $home ?: '/' }}" class="st-display text-base font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span> Advisory</a>
+            <a href="{{ $home ?: '/' }}" class="flex items-center gap-x-3">
+                <img src="/assets/brand/nightglass-mark-header.svg" alt="" class="h-8 w-8">
+                <span class="st-display text-base font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span> Advisory</span>
+            </a>
             <nav class="flex gap-x-6 text-sm font-semibold text-st-ink" aria-label="Footer">
                 <a href="{{ $page->bookingUrl }}" class="hover:text-st-gold-ink">Book a call</a>
                 <a href="{{ $page->linkedin }}" class="hover:text-st-gold-ink">LinkedIn</a>
