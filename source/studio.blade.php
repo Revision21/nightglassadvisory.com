@@ -68,7 +68,7 @@ noindex: true
 
     {{-- Testimonial band -> the thesis, as a pull quote --}}
     <div class="relative isolate mt-24 bg-st-wash py-16 sm:mt-32 sm:py-28 md:py-32 lg:mt-40">
-        @include('_partials.studio-grid', ['class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-ink/[0.04] stroke-st-ink/10'])
+        @include('_partials.studio-grid', ['id' => 'st-grid-quote', 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-ink/[0.04] stroke-st-ink/10'])
         <div class="{{ $c }}">
             <figure class="st-fade mx-auto max-w-4xl">
                 <blockquote class="st-display relative text-3xl font-medium tracking-tight text-st-ink sm:text-4xl">
