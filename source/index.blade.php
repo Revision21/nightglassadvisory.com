@@ -23,7 +23,7 @@ title:
     {!! $open !!}
         <div class="mt-9 max-w-2xl">
             <img src="/assets/img/mike-faas-square.jpg" alt="Mike Faas" class="h-16 w-16 rounded-full bg-sp-raise object-cover ring-1 ring-sp-line">
-            <h1 class="mt-8 font-display text-4xl font-bold tracking-tight text-sp-ink sm:text-5xl">Fractional CTO and CISO for founder-led companies.</h1>
+            <h1 class="mt-8 font-display text-4xl font-bold tracking-tight text-sp-ink sm:text-5xl">Fractional CTO and CISO for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
             <p class="mt-6 text-base text-sp-text">{{ $page->tagline }}</p>
             <div class="mt-6 flex flex-wrap items-center gap-6">
                 <a href="{{ $page->bookingUrl }}" class="{{ $btn }} bg-sp-btn text-sp-btn-fg hover:opacity-90">Book a 30-minute call</a>

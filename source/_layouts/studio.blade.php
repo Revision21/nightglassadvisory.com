@@ -29,24 +29,27 @@
             <div class="flex items-center justify-between">
                 <a href="/studio" aria-label="Home" class="st-display text-lg font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span></a>
                 <div class="flex items-center gap-x-8">
+                    <nav class="hidden items-center gap-x-8 md:flex" aria-label="Main">
+                        @foreach ($nav as $item)
+                            <a href="{{ $item['href'] }}" class="text-sm font-semibold text-st-ink transition hover:text-st-gold-ink">{{ $item['label'] }}</a>
+                        @endforeach
+                    </nav>
                     <a href="{{ $page->bookingUrl }}" class="inline-flex rounded-full bg-st-ink px-4 py-1.5 text-sm font-semibold text-st-page transition hover:bg-st-panel-2"><span class="relative top-px">Book a call</span></a>
-                    <button type="button" command="--toggle" commandfor="st-menu" aria-label="Toggle navigation" class="group -m-2.5 rounded-full p-2.5 transition hover:bg-st-ink/10">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-st-ink"><path d="M2 6h20v2H2zM2 16h20v2H2z" /></svg>
-                    </button>
+                    <div class="relative md:hidden">
+                        <button type="button" command="--toggle" commandfor="st-menu" aria-label="Toggle navigation" class="-m-2.5 rounded-full p-2.5 transition hover:bg-st-ink/10">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-st-ink"><path d="M2 6h20v2H2zM2 16h20v2H2z" /></svg>
+                        </button>
+                        <el-disclosure id="st-menu" hidden>
+                            <nav class="absolute right-0 top-full z-50 mt-4 w-56 rounded-2xl bg-st-page p-2 shadow-xl ring-1 ring-st-ink/10" aria-label="Mobile">
+                                @foreach ($nav as $item)
+                                    <a href="{{ $item['href'] }}" command="--toggle" commandfor="st-menu" class="block rounded-lg px-3 py-2 text-sm font-semibold text-st-ink hover:bg-st-wash">{{ $item['label'] }}</a>
+                                @endforeach
+                            </nav>
+                        </el-disclosure>
+                    </div>
                 </div>
             </div>
         </div>
-        <el-disclosure id="st-menu" hidden class="contents">
-            <div class="mt-10 bg-st-panel">
-                <nav class="st-display mx-auto max-w-7xl px-6 py-14 text-4xl font-medium tracking-tight text-white sm:text-5xl lg:px-8">
-                    <div class="grid grid-cols-1 sm:grid-cols-2">
-                        @foreach ($nav as $item)
-                            <a href="{{ $item['href'] }}" command="--toggle" commandfor="st-menu" class="block border-white/10 py-8 transition hover:text-st-gold sm:even:border-l sm:even:pl-16">{{ $item['label'] }}</a>
-                        @endforeach
-                    </div>
-                </nav>
-            </div>
-        </el-disclosure>
     </header>
 
     <main class="flex-auto">

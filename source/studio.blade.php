@@ -26,27 +26,14 @@ noindex: true
     {{-- Hero --}}
     <div class="{{ $c }} mt-24 sm:mt-32 md:mt-48">
         <div class="st-fade max-w-3xl">
-            <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl">Fractional CTO and CISO for founder-led companies.</h1>
+            <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl">Fractional CTO and CISO for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
             <p class="mt-6 text-xl text-st-text">{{ $page->tagline }}</p>
         </div>
     </div>
 
-    {{-- Dark panel (Studio's client-logo band): where the questions come from --}}
-    <div class="mt-24 rounded-4xl bg-st-panel py-20 sm:mt-32 sm:py-28 lg:mt-48">
-        <div class="{{ $c }}">
-            <div class="st-fade flex items-center gap-x-8">
-                <h2 class="st-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">Where the questions come from</h2>
-                <div class="h-px flex-auto bg-white/10"></div>
-            </div>
-            <ul role="list" class="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
-                @foreach ($topics as $i => [$icon, $label])
-                    <li class="st-fade flex items-center gap-x-3" style="transition-delay: {{ $i * 60 }}ms">
-                        @include('_partials.icon', ['name' => $icon, 'class' => 'h-6 w-6 flex-none text-st-gold'])
-                        <span class="st-display text-base font-medium text-white">{{ $label }}</span>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+    {{-- Was a dark 'where the questions come from' panel; Mike: bland. Spotlight's paperwork strip instead. --}}
+    <div class="mt-16 sm:mt-24 lg:mt-32">
+        @include('_partials.sp.paperwork')
     </div>
 
     {{-- Case-study cards -> founder situations --}}
