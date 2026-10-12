@@ -100,13 +100,15 @@ return [
          'stats' => [['893', 'active users moved'], ['1,200+', 'accounts archived'], ['0', 'downtime']]],
     ],
 
+    // Questions 1-5: verbatim from the CTOx referral one-pager, "Questions to ask me" (2026-09-14).
+    // Answers: Jane drafts 2026-10-12 for Mike to edit. No em dashes. Feeds the FAQPage schema too.
     'faqs' => [
+        ['q' => 'Our cyber insurance premium just doubled. Is that about us or about everyone?', 'a' => 'Usually some of both. Part of it is the market. The rest is your application: insurers price what you tell them about MFA, backups and incident planning. I\'ll read it with you and tell you which answers are costing you money, and what it takes to change them.'],
+        ['q' => 'We\'ve got two technical recommendations and can\'t tell which is right. How do you decide?', 'a' => 'I start with the decision, not the technology: what it has to do, what it costs to run for three years, who owns it when the person who proposed it leaves, and what it changes about your security. Usually one option falls out quickly. Sometimes the answer is neither.'],
+        ['q' => 'We\'re doing well, but I couldn\'t tell you how exposed we are. Where would you start?', 'a' => 'With the question that has money attached: the questionnaire, the renewal, the deal. That\'s the diagnostic. In three weeks you know what\'s exposed, what depends on what, and which gap shows up in the most places. Then you decide what to fix first.'],
+        ['q' => 'Our board asked what we\'re doing about cybersecurity. What do I tell them on Monday?', 'a' => 'The truth, in their language: what you\'ve decided, what you\'re accepting on purpose, and what you\'re doing next. A board doesn\'t need a list of tools. It needs to see that someone is making the calls. If you can\'t say that yet, that\'s the first thing we fix.'],
+        ['q' => 'Be honest: will you tell me if we don\'t actually need you yet?', 'a' => 'Yes. If a good IT provider and a few decisions will cover you for now, I\'ll say so on the first call and point you to who can help. That\'s better for both of us than a retainer you don\'t need.'],
         ['q' => 'Are you a CTO or a CISO?', 'a' => 'Both. At a company your size the questions overlap: the app, the IT contract and the insurance form are one conversation. Splitting them across two part-time people is how gaps happen.'],
-        ['q' => 'Do we actually need SOC 2?', 'a' => 'Maybe not yet. Plenty of customers will accept a completed questionnaire and a credible plan instead. Part of the diagnostic is finding out what the person asking actually needs, so you don\'t buy an audit before you need one.'],
-        ['q' => 'We already have an IT provider. Is this a replacement?', 'a' => 'No. Your IT provider keeps running the tools. I help you decide what the tools are for, answer the questions they can\'t sign their name to, and hand them a plan they can execute.'],
-        ['q' => 'What happens after the three weeks?', 'a' => 'You leave with the answers and a plan you can run yourself. If you want help running it, I offer a monthly advisory retainer at the readout. It\'s offered once, with no pressure to take it.'],
-        ['q' => 'Who is this for?', 'a' => 'Founder-led companies between $2.5M and $25M in revenue that don\'t have a full-time technology or security executive. If you already have a CTO and a CISO, you probably don\'t need me.'],
-        ['q' => 'Do you work remotely?', 'a' => 'Mostly. I\'m based in Raleigh, North Carolina, and most of the work happens remotely. In the Triangle, I\'m glad to meet in person.'],
         ['q' => 'Why "Nightglass"?', 'a' => 'A night glass is a telescope built for seeing in the dark: a wide field of view at low magnification. That\'s the job. Look across the whole company, find what\'s hard to see, and point at it.'],
     ],
 ];
