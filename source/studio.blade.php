@@ -47,20 +47,19 @@ noindex: true
         </div>
     </div>
     <div class="{{ $c }} mt-16">
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            @foreach ($page->triggers as $i => $t)
-                <article class="st-fade relative flex w-full flex-col rounded-3xl p-6 bg-white shadow-sm ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 3) * 80 }}ms">
-                    <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="{{ $t['title'] }}: book a call"></a>
-                    <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-st-indigo shadow-sm">
-                        @include('_partials.icon', ['name' => $t['icon'], 'class' => 'h-6 w-6 text-st-gold'])
-                    </span>
-                    @php $rolePill = ['cto' => 'bg-st-indigo text-white', 'ciso' => 'bg-st-gold text-st-ink', 'both' => 'bg-st-indigo text-st-gold ring-2 ring-st-gold'][$t['role']]; @endphp
-                    <p class="mt-6 flex items-center gap-x-3 text-sm text-st-text">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            @foreach ($page->problems as $i => $t)
+                <article class="st-fade relative flex w-full flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 2) * 80 }}ms">
+                    <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="Talk it through: book a call"></a>
+                    <div class="flex items-center gap-x-4">
+                        <span class="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-st-indigo shadow-sm">
+                            @include('_partials.icon', ['name' => $t['icon'], 'class' => 'h-6 w-6 text-st-gold'])
+                        </span>
+                        @php $rolePill = ['cto' => 'bg-st-indigo text-white', 'ciso' => 'bg-st-gold text-st-ink', 'both' => 'bg-st-indigo text-st-gold ring-2 ring-st-gold'][$t['role']]; @endphp
                         <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $rolePill }}">{{ $badge($t['role']) }}</span>
-                        <span>Situation</span>
-                    </p>
-                    <p class="st-display mt-6 text-2xl font-semibold text-st-ink">{{ $t['title'] }}</p>
-                    <p class="mt-4 text-base text-st-text">{{ $t['body'] }}</p>
+                    </div>
+                    <p class="st-display mt-6 text-2xl/9 font-medium text-st-ink">{{ $t['text'] }}</p>
+                    <p class="mt-auto flex items-center pt-6 text-sm font-semibold text-st-gold-ink">Talk it through <span aria-hidden="true" class="ml-1">&rarr;</span></p>
                 </article>
             @endforeach
         </div>
