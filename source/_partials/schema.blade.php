@@ -67,6 +67,15 @@
             ],
         ],
         [
+            '@type' => 'Service',
+            '@id' => $base . '/#advisory',
+            'name' => $page->retainer['name'],
+            'serviceType' => 'Fractional CTO and CISO advisory retainer',
+            'description' => $page->retainer['body'],
+            'provider' => ['@id' => $base . '/#organization'],
+            'isRelatedTo' => ['@id' => $base . '/#diagnostic'],
+        ],
+        [
             '@type' => 'Offer',
             '@id' => $base . '/#diagnostic-offer',
             'name' => $page->diagnostic['name'] . ': ' . $page->diagnostic['weeks'] . ' weeks, fixed price',

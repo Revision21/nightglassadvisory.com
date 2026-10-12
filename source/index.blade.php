@@ -172,9 +172,28 @@ title:
                 <li class="st-fade mt-10">
                     <div class="st-border pt-10">
                         <strong class="font-semibold text-st-ink">{{ $page->diagnostic['priceLabel'] }}, fixed.</strong> Agreed before we begin. No retainer to start and no open-ended hours.
+                    </div>
+                </li>
+                <li class="st-fade mt-10">
+                    <div class="st-border pt-10">
+                        <strong class="font-semibold text-st-ink">After the readout.</strong> {{ $page->retainer['body'] }}
                         <div class="mt-6"><a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-ink text-st-page hover:bg-st-panel-2"><span class="relative top-px">Start with a 30-minute call</span></a></div>
                     </div>
                 </li>
+            </ul>
+        </div>
+    </div>
+    {{-- What the $7,500 buys (config 'included'; also in the Service schema). --}}
+    <div class="{{ $c }} mt-16 sm:mt-20">
+        <div class="st-fade rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-10">
+            <h3 class="st-display text-xl font-semibold text-st-ink">What&rsquo;s included</h3>
+            <ul role="list" class="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 text-base text-st-text sm:grid-cols-2 lg:grid-cols-3">
+                @foreach ($page->included as $item)
+                    <li class="flex gap-x-3">
+                        @include('_partials.icon', ['name' => 'check-circle', 'class' => 'mt-0.5 h-6 w-6 flex-none text-st-gold-ink'])
+                        <span>{{ $item }}</span>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>

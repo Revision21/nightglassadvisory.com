@@ -56,6 +56,12 @@ return [
         ['week' => 'Week 3', 'title' => 'Readout', 'body' => 'An answer to the question that started it, a short list of what to build, buy and stop, and a plan your team can run, in order.'],
     ],
 
+    // Council 10/08: retainer offered ONLY at the readout, no on-call. Mike 10/12: named on the site, NO price, 3-month minimum.
+    'retainer' => [
+        'name' => 'Ongoing advisory',
+        'body' => 'Most clients run the plan themselves. If you\'d rather have me in the room while you do, I stay on as your part-time CTO and CISO: a monthly retainer with a three-month minimum and no on-call promise. I only offer it at the readout, once we both know what the job is.',
+    ],
+
     'included' => [
         'An answer to the question that started it, technology or security',
         'A map of how your systems, vendors and security depend on each other',
