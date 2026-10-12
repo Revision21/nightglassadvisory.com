@@ -135,9 +135,9 @@ noindex: true
                         <p class="mt-4 flex-auto text-sm text-st-text"><strong class="font-semibold text-st-ink">Outcome.</strong> {{ $k['outcome'] }}</p>
                         <dl class="mt-8 grid grid-cols-3 gap-4 border-t border-st-ink/10 pt-6">
                             @foreach ($k['stats'] as [$v, $l])
-                                <div class="st-border-left st-gold-tick flex flex-col-reverse pl-3">
+                                <div class="st-border-left st-gold-tick flex flex-col justify-start pl-3">
                                     <dt class="mt-1 text-xs text-st-text">{{ $l }}</dt>
-                                    <dd class="st-display text-xl font-semibold text-st-ink">{!! $v !!}</dd>
+                                    <dd class="st-display order-first text-xl/7 font-semibold text-st-ink">{!! $v !!}</dd>
                                 </div>
                             @endforeach
                         </dl>
@@ -194,9 +194,9 @@ noindex: true
         </div>
         <dl class="mt-16 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2">
             @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in']] as [$v, $l])
-                <div class="st-fade st-border-left st-gold-tick flex flex-col-reverse pl-8">
+                <div class="st-fade st-border-left st-gold-tick flex flex-col justify-start pl-8">
                     <dt class="mt-2 text-base text-st-text">{!! $l !!}</dt>
-                    <dd class="st-display text-3xl font-semibold text-st-ink sm:text-4xl">{{ $v }}</dd>
+                    <dd class="st-display order-first text-3xl font-semibold text-st-ink sm:text-4xl">{{ $v }}</dd>
                 </div>
             @endforeach
         </dl>
