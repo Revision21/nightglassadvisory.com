@@ -20,8 +20,9 @@
                 'addressCountry' => 'US',
             ],
             'knowsAbout' => [
-                'Fractional CISO', 'Virtual CISO', 'Fractional CTO', 'Security questionnaires',
-                'SOC 2 readiness', 'Cyber insurance', 'Security governance', 'Technology strategy',
+                'Fractional CTO', 'Fractional CISO', 'Virtual CISO', 'Technology strategy',
+                'Build versus buy decisions', 'IT vendor and contract management', 'AI adoption',
+                'Security questionnaires', 'SOC 2 readiness', 'Cyber insurance', 'Security governance',
                 'Cascade failure',
             ],
             'makesOffer' => ['@id' => $base . '/#diagnostic-offer'],
@@ -50,8 +51,8 @@
             '@type' => 'Service',
             '@id' => $base . '/#diagnostic',
             'name' => $page->diagnostic['name'],
-            'serviceType' => 'Security and technology diagnostic',
-            'description' => $page->declaration,
+            'serviceType' => 'Technology and security diagnostic',
+            'description' => 'A three-week, fixed-price diagnostic that answers the technology or security question in front of a founder-led company, maps how its systems, vendors and security depend on each other, and produces a build, buy and stop plan.',
             'provider' => ['@id' => $base . '/#organization'],
             'audience' => [
                 '@type' => 'BusinessAudience',
@@ -76,7 +77,7 @@
             '@type' => 'DefinedTermSet',
             '@id' => $base . '/#vocabulary',
             'name' => 'Nightglass vocabulary',
-            'description' => 'How Nightglass Advisory describes the way security and technology failures move through a company.',
+            'description' => 'How Nightglass Advisory describes the way technology and security failures move through a company.',
             'hasDefinedTerm' => [
                 [
                     '@type' => 'DefinedTerm',

@@ -4,7 +4,7 @@
         <div class="mx-auto max-w-4xl sm:text-center">
             <h2 class="text-base/7 font-semibold text-star-400">{{ $page->diagnostic['name'] }}</h2>
             <p class="mt-2 font-display text-5xl font-semibold tracking-tight text-pretty text-white sm:text-6xl sm:text-balance">Three weeks. Fixed price. A clear answer.</p>
-            <p class="mx-auto mt-6 max-w-2xl text-lg font-medium text-pretty text-night-300 sm:text-xl/8">Start with the question that&rsquo;s keeping you up. Leave with the answer, and a plan for everything it touches.</p>
+            <p class="mx-auto mt-6 max-w-2xl text-lg font-medium text-pretty text-night-300 sm:text-xl/8">Start with the question that&rsquo;s keeping you up, technology or security. Leave with the answer, and a plan for everything it touches.</p>
         </div>
 
         {{-- Timeline --}}

@@ -10,7 +10,7 @@ return [
     'baseUrl' => '',
     'production' => false,
     'siteName' => 'Nightglass Advisory',
-    'siteDescription' => 'Fractional CTO and CISO for founder-led companies between $2.5M and $25M. Get through your first security questionnaire, SOC 2 ask or insurance renewal in three weeks, without hiring a full-time security exec.',
+    'siteDescription' => 'Fractional CTO and CISO for founder-led companies between $2.5M and $25M. Technology decisions and security answers, without a full-time executive.',
     'siteAuthor' => 'Mike Faas',
     // 'dark' or 'light' (P7 Twilight on cream). Preview the other with ?theme=light.
     'theme' => 'dark',
@@ -22,7 +22,11 @@ return [
     // Commercial lane (Mike, 2026-10-12): every booking CTA goes to /schedule.
     'bookingUrl' => '/schedule',
 
-    // The declaration (locked 2026-10-09). Every headline starts from this.
+    // Hero line (2026-10-12, Mike: "I need both CTO and CISO"). Balanced on purpose.
+    'tagline' => 'I\'m a fractional CTO and CISO for founder-led companies between $2.5M and $25M. I help you decide what to build, buy and stop, get through the security questionnaire or insurance renewal in front of you, and work out who to hire next, without a full-time executive.',
+
+    // The declaration (locked 2026-10-09) is security-only. Kept for reference;
+    // the site no longer leads with it. Revisit with Mike.
     'declaration' => 'I help founder-led companies between $2.5M and $25M get through their first security questionnaire, SOC 2 ask or insurance renewal in three weeks, without hiring a full-time security exec.',
 
     'diagnostic' => [
@@ -33,24 +37,25 @@ return [
         'weeks' => 3,
     ],
 
+    // role: 'cto' | 'ciso' | 'both' (renders a badge). Keep it balanced.
     'triggers' => [
-        ['icon' => 'document-check', 'title' => 'A security questionnaire from a big customer', 'body' => 'The deal is real, the questionnaire is long, and nobody inside can answer half of it with a straight face.'],
-        ['icon' => 'shield-check', 'title' => 'A SOC 2 ask', 'body' => 'A prospect wants a report you don\'t have, and you can\'t tell whether you need the audit or just a credible plan.'],
-        ['icon' => 'clipboard-document-list', 'title' => 'A cyber insurance renewal', 'body' => 'The application asks questions your IT provider won\'t sign their name to, and the premium depends on the answers.'],
-        ['icon' => 'presentation-chart-line', 'title' => '"Are we secure?"', 'body' => 'The board, an investor or a buyer asks, and the honest answer is "I think so."'],
-        ['icon' => 'user-plus', 'title' => 'A first security hire', 'body' => 'You know you need someone. You don\'t know what to hire for, or whether it\'s a full-time job yet.'],
-        ['icon' => 'scale', 'title' => 'A technology bet', 'body' => 'An AI tool, a platform switch or an acquisition needs a decision, and nobody on the team has the time or the context to make it.'],
+        ['role' => 'cto', 'icon' => 'scale', 'title' => 'A technology bet', 'body' => 'An AI tool, a platform switch or a build-versus-buy call needs a decision, and nobody on the team has the time or the context to make it.'],
+        ['role' => 'ciso', 'icon' => 'document-check', 'title' => 'A security questionnaire from a big customer', 'body' => 'The deal is real, the questionnaire is long, and nobody inside can answer half of it with a straight face.'],
+        ['role' => 'cto', 'icon' => 'clipboard-document-list', 'title' => 'An IT contract up for renewal', 'body' => 'It lists what your provider does. Nobody has read it for what it doesn\'t. Renewal is the one day a year you have leverage.'],
+        ['role' => 'ciso', 'icon' => 'shield-check', 'title' => 'A SOC 2 ask or an insurance renewal', 'body' => 'A prospect wants a report you don\'t have, or the insurance application asks questions your IT provider won\'t sign their name to.'],
+        ['role' => 'cto', 'icon' => 'code-bracket', 'title' => 'An app that "works"', 'body' => 'Someone built it. It logs in and sends the email. Nobody has checked what a stranger can see, or what it will cost to run next year.'],
+        ['role' => 'both', 'icon' => 'user-plus', 'title' => 'A first senior hire', 'body' => 'You know you need someone in technology or security. You don\'t know what to hire for, or whether it\'s a full-time job yet.'],
     ],
 
     'steps' => [
-        ['week' => 'Week 1', 'title' => 'Listen', 'body' => 'Conversations with you and the people who actually run things. We gather what exists: policies, tools, vendors, and the questionnaire or application in front of you.'],
-        ['week' => 'Week 2', 'title' => 'Map', 'body' => 'I map how your security and technology depend on each other, then find the gap that shows up in the most places.'],
-        ['week' => 'Week 3', 'title' => 'Readout', 'body' => 'Answers to the question that started it, a short list of what to build, buy and stop, and a plan your team can run, in order.'],
+        ['week' => 'Week 1', 'title' => 'Listen', 'body' => 'Conversations with you and the people who actually run things. We gather what exists: systems, contracts, vendors, policies, and the question in front of you.'],
+        ['week' => 'Week 2', 'title' => 'Map', 'body' => 'I map how your technology and security depend on each other, then find the gap that shows up in the most places.'],
+        ['week' => 'Week 3', 'title' => 'Readout', 'body' => 'An answer to the question that started it, a short list of what to build, buy and stop, and a plan your team can run, in order.'],
     ],
 
     'included' => [
-        'Answers to the questionnaire, SOC 2 ask or application in front of you',
-        'A map of how your security and technology depend on each other',
+        'An answer to the question that started it, technology or security',
+        'A map of how your systems, vendors and security depend on each other',
         'What to build, what to buy, and what to stop',
         'A plan your team can run, in order',
         'A readout with you, and your board if you want one',
@@ -58,10 +63,11 @@ return [
     ],
 
     'faqs' => [
+        ['q' => 'Are you a CTO or a CISO?', 'a' => 'Both. At a company your size the questions overlap: the app, the IT contract and the insurance form are one conversation. Splitting them across two part-time people is how gaps happen.'],
         ['q' => 'Do we actually need SOC 2?', 'a' => 'Maybe not yet. Plenty of customers will accept a completed questionnaire and a credible plan instead. Part of the diagnostic is finding out what the person asking actually needs, so you don\'t buy an audit before you need one.'],
         ['q' => 'We already have an IT provider. Is this a replacement?', 'a' => 'No. Your IT provider keeps running the tools. I help you decide what the tools are for, answer the questions they can\'t sign their name to, and hand them a plan they can execute.'],
         ['q' => 'What happens after the three weeks?', 'a' => 'You leave with the answers and a plan you can run yourself. If you want help running it, I offer a monthly advisory retainer at the readout. It\'s offered once, with no pressure to take it.'],
-        ['q' => 'Who is this for?', 'a' => 'Founder-led companies between $2.5M and $25M in revenue that don\'t have a full-time security or technology executive. If you already have a CISO, you probably don\'t need me.'],
+        ['q' => 'Who is this for?', 'a' => 'Founder-led companies between $2.5M and $25M in revenue that don\'t have a full-time technology or security executive. If you already have a CTO and a CISO, you probably don\'t need me.'],
         ['q' => 'Do you work remotely?', 'a' => 'Mostly. I\'m based in Raleigh, North Carolina, and most of the work happens remotely. In the Triangle, I\'m glad to meet in person.'],
         ['q' => 'Why "Nightglass"?', 'a' => 'A night glass is a telescope built for seeing in the dark: a wide field of view at low magnification. That\'s the job. Look across the whole company, find what\'s hard to see, and point at it.'],
     ],

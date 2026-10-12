@@ -17,7 +17,7 @@ description: Book a free 30-minute call with Mike Faas about the security questi
         <section class="mx-auto max-w-3xl px-6 pt-10 pb-6 text-center lg:px-8">
             <p class="text-base/7 font-semibold text-star-400">Book a call</p>
             <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight text-balance text-white sm:text-6xl">Bring the question. We&rsquo;ll find the answer.</h1>
-            <p class="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-night-300">Thirty minutes, free, on Google Meet. Bring the questionnaire, the SOC 2 ask or the renewal form. If the diagnostic isn&rsquo;t the right fit, you&rsquo;ll hear that on the call.</p>
+            <p class="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-night-300">Thirty minutes, free, on Google Meet. Bring the question: the contract, the app, the questionnaire or the renewal form. If the diagnostic isn&rsquo;t the right fit, you&rsquo;ll hear that on the call.</p>
         </section>
 
         {{-- GHL "Strategy Session" calendar (same one echocyber.io/schedule uses). --}}

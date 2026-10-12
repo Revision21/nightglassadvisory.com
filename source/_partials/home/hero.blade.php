@@ -73,8 +73,8 @@
                 </div>
             </div>
             <div class="text-center">
-                <h1 class="font-display text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">Answer the security questions you can&rsquo;t answer <span class="text-star-400">in-house.</span></h1>
-                <p class="mt-8 text-lg font-medium text-pretty text-night-300 sm:text-xl/8">{{ $page->declaration }}</p>
+                <h1 class="font-display text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">Answer the technology and security questions you can&rsquo;t answer <span class="text-star-400">in-house.</span></h1>
+                <p class="mt-8 text-lg font-medium text-pretty text-night-300 sm:text-xl/8">{{ $page->tagline }}</p>
                 <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
                     <a href="{{ $page->bookingUrl }}" class="ng-btn rounded-md bg-star-400 px-4 py-2.5 text-sm font-semibold text-night-950 shadow-xs hover:bg-star-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-star-400">Book a 30-minute call</a>
                     <a href="#diagnostic" class="text-sm/6 font-semibold text-white hover:text-star-300">How the diagnostic works <span aria-hidden="true">&rarr;</span></a>

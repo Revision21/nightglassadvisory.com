@@ -17,6 +17,10 @@
                     <p>I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000: through acquisitions, building teams of up to 30, and finding six-figure savings along the way.</p>
                     <ul role="list" class="mt-8 space-y-8 text-night-300">
                         <li class="flex gap-x-3">
+                            @include('_partials.icon', ['name' => 'arrows-right-left', 'set' => '20/solid', 'class' => 'mt-1 size-5 flex-none text-star-400'])
+                            <span><strong class="font-semibold text-white">Both chairs.</strong> Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.</span>
+                        </li>
+                        <li class="flex gap-x-3">
                             @include('_partials.icon', ['name' => 'eye', 'set' => '20/solid', 'class' => 'mt-1 size-5 flex-none text-star-400'])
                             <span><strong class="font-semibold text-white">Wide field, low magnification.</strong> I look across the whole company before I zoom in, because the problem is rarely where it first shows up.</span>
                         </li>
