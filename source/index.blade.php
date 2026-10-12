@@ -33,7 +33,7 @@ title:
                 </div>
             </div>
             <div class="st-fade mx-auto mt-16 w-full max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
-                @include('_partials.hero-' . ($heroArt ?? 'readout'))
+                @include('_partials.hero-readout')
             </div>
         </div>
     </div>
@@ -225,7 +225,7 @@ title:
                 </dl>
             </div>
             <figure class="st-fade mx-auto mt-16 w-full max-w-xs sm:max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
-                @include('_partials.studio-image', ['src' => '/assets/img/mike-faas.jpg'])
+                @include('_partials.studio-image', ['src' => '/assets/img/mike-faas.jpg', 'color' => true])
             </figure>
         </div>
     </div>

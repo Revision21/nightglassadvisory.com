@@ -1,9 +1,9 @@
-{{-- Studio's StylizedImage: photo clipped to the template's slanted shape 0, grayscale until hover. $src required. --}}
+{{-- Studio's StylizedImage: photo clipped to the template's slanted shape 0, grayscale until hover. $src required; $color = true keeps it in full color. --}}
 @php $sid = 'st-img-' . substr(md5($src), 0, 6); @endphp
 <div class="group relative flex aspect-719/680 w-full">
     <svg viewBox="0 0 655 680" fill="none" class="h-full w-full" aria-hidden="true">
         <g clip-path="url(#{{ $sid }}-clip)">
-            <g class="origin-center grayscale transition duration-500 motion-safe:group-hover:scale-105 group-hover:grayscale-0">
+            <g class="{{ ($color ?? false) ? '' : 'origin-center grayscale transition duration-500 motion-safe:group-hover:scale-105 group-hover:grayscale-0' }}">
                 <image href="{{ $src }}" width="655" height="680" preserveAspectRatio="xMidYMin slice" />
             </g>
             <use href="#{{ $sid }}-shape" stroke-width="2" class="stroke-st-ink/10" />
