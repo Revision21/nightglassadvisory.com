@@ -121,19 +121,20 @@ noindex: true
                 </h2>
                 <p class="mt-6 text-xl text-st-text">Names withheld. NDAs are a feature, not a limitation.</p>
             </div>
-            <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {{-- Subgrid: all three cards share the same 6 row tracks, so every row lines up across cards. --}}
+            <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-y-0">
                 @foreach ($page->cases as $i => $k)
-                    <article class="st-fade flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8" style="transition-delay: {{ $i * 80 }}ms">
+                    <article class="st-fade flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8 lg:row-span-6 lg:grid lg:grid-rows-subgrid" style="transition-delay: {{ $i * 80 }}ms">
                         <p class="text-xs font-semibold tracking-wider text-st-gold-ink uppercase">{!! $k['sector'] !!}</p>
-                        <h3 class="st-display mt-3 text-2xl font-semibold text-st-ink">{{ $k['title'] }}</h3>
-                        <ul class="mt-4 flex flex-wrap gap-2">
+                        <h3 class="st-display mt-3 text-2xl font-semibold text-st-ink lg:self-start">{{ $k['title'] }}</h3>
+                        <ul class="mt-4 flex flex-wrap content-start gap-2">
                             @foreach ($k['tags'] as $tag)
                                 <li class="rounded-full bg-st-indigo-tint px-2.5 py-0.5 text-xs font-medium text-st-indigo">{{ $tag }}</li>
                             @endforeach
                         </ul>
                         <p class="mt-6 text-sm text-st-text"><strong class="font-semibold text-st-ink">Challenge.</strong> {{ $k['challenge'] }}</p>
-                        <p class="mt-4 flex-auto text-sm text-st-text"><strong class="font-semibold text-st-ink">Outcome.</strong> {{ $k['outcome'] }}</p>
-                        <dl class="mt-8 grid grid-cols-3 gap-4 border-t border-st-ink/10 pt-6">
+                        <p class="mt-4 text-sm text-st-text"><strong class="font-semibold text-st-ink">Outcome.</strong> {{ $k['outcome'] }}</p>
+                        <dl class="mt-8 grid grid-cols-3 gap-4 self-end border-t border-st-ink/10 pt-6">
                             @foreach ($k['stats'] as [$v, $l])
                                 <div class="st-border-left st-gold-tick flex flex-col justify-start pl-3">
                                     <dt class="mt-1 text-xs text-st-text">{{ $l }}</dt>
