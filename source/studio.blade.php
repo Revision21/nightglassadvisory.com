@@ -89,8 +89,8 @@ noindex: true
             <p class="mt-6 text-xl text-st-text">The insurance question is usually an IT question in disguise. Fix the symptoms one at a time and you buy three tools and hire three consultants. Find the missing piece first, and the rest gets easier.</p>
         </div>
         <div class="mt-16 lg:flex lg:items-center lg:justify-between lg:gap-x-16">
-            <div class="st-fade mx-auto w-full max-w-md lg:mx-0 lg:w-1/2 lg:max-w-none" data-theme="light">
-                @include('_partials.cascade-diagram')
+            <div class="st-fade mx-auto w-full max-w-md lg:mx-0 lg:w-1/2 lg:max-w-none">
+                @include('_partials.cascade-diagram', ['colorful' => true])
             </div>
             <ul role="list" class="mt-16 text-base text-st-text lg:mt-0 lg:w-1/2">
                 @foreach ([
