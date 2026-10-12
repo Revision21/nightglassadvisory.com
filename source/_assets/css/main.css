@@ -241,3 +241,51 @@
 /* theme toggle shows the icon for the OTHER theme */
 .sp-sun { display: block; } .sp-moon { display: none; }
 [data-theme="dark"] .sp-sun { display: none; } [data-theme="dark"] .sp-moon { display: block; }
+
+/* =====================================================================
+ * STUDIO LAYOUT (Tailwind Plus "Studio" template, ported to Jigsaw).
+ * neutral-950 panels -> P7 ink family; white page -> P7 cream. Light only,
+ * like the original. Mona Sans (OFL) ships with the template.
+ * ===================================================================== */
+@font-face {
+    font-family: 'Mona Sans';
+    font-weight: 200 900;
+    font-display: swap;
+    font-style: normal;
+    font-stretch: 75% 125%;
+    src: url('/assets/fonts/Mona-Sans.var.woff2') format('woff2');
+}
+@theme inline {
+    --color-st-page: #f7f6f2;     /* white */
+    --color-st-wash: #efece3;     /* neutral-50 */
+    --color-st-ink: #2a2d4a;      /* neutral-950 (deepened P7 ink for contrast) */
+    --color-st-panel: #2a2d4a;    /* dark panels */
+    --color-st-panel-2: #353959;  /* neutral-900 hover */
+    --color-st-text: #565a78;     /* neutral-600 */
+    --color-st-muted: #8a8da8;    /* neutral-400 */
+    --color-st-gold: #d6bd7a;
+    --color-st-gold-ink: #7d6730;
+    --radius-4xl: 2.5rem;
+}
+.st-body {
+    font-family: 'Mona Sans', ui-sans-serif, system-ui, sans-serif;
+    background: var(--color-st-page);
+    color: var(--color-st-text);
+}
+.st-display {
+    font-family: 'Mona Sans', ui-sans-serif, system-ui, sans-serif;
+    font-variation-settings: 'wdth' 125;
+}
+/* Studio's <Border>: a short dark tick, then a faint hairline. */
+.st-border { position: relative; }
+.st-border::before { content: ''; position: absolute; top: 0; left: 0; height: 1px; width: 1.5rem; background: var(--color-st-ink); }
+.st-border::after { content: ''; position: absolute; top: 0; left: 2rem; right: 0; height: 1px; background: color-mix(in oklab, var(--color-st-ink) 10%, transparent); }
+.st-border-invert::before { background: #fff; }
+.st-border-invert::after { background: rgb(255 255 255 / 0.12); }
+/* Studio's <FadeIn>: rise on scroll (script in _layouts/studio). */
+.st-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.st-fade.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .st-fade { opacity: 1; transform: none; transition: none; } }
+.st-border-left { position: relative; }
+.st-border-left::before { content: ''; position: absolute; top: 0; left: 0; width: 1px; height: 1.5rem; background: var(--color-st-ink); }
+.st-border-left::after { content: ''; position: absolute; top: 2rem; bottom: 0; left: 0; width: 1px; background: color-mix(in oklab, var(--color-st-ink) 10%, transparent); }

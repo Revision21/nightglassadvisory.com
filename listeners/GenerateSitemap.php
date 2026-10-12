@@ -13,7 +13,8 @@ class GenerateSitemap
         '*/favicon.ico',
         '*/404*',
         '/talk*',
-        '/infosecon*'
+        '/infosecon*',
+        '/studio*'
     ];
 
     public function handle(Jigsaw $jigsaw)
