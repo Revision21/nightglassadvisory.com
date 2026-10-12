@@ -1,227 +1,277 @@
 ---
 title:
 ---
-@extends('_layouts.spotlight')
+@extends('_layouts.studio')
 
 {{--
-    Home, in the Tailwind Plus "Spotlight" layout (2026-10-12).
-    The previous full-bleed layout (_layouts/main + _partials/home/*) is kept in
-    git and still used by nothing; delete once Mike signs off on this one.
+    Home page, Tailwind Plus "Studio" layout ported to Jigsaw (chosen 2026-10-12;
+    Spotlight and the earlier full-bleed layout were retired, see git history).
 --}}
 @php
-    $open = '<div class="sm:px-8"><div class="mx-auto w-full max-w-7xl lg:px-8"><div class="relative px-4 sm:px-8 lg:px-12"><div class="mx-auto max-w-2xl lg:max-w-5xl">';
-    $close = '</div></div></div></div>';
+    $c = 'mx-auto max-w-7xl px-6 lg:px-8';
     $badge = fn ($r) => ['cto' => 'CTO', 'ciso' => 'CISO', 'both' => 'CTO + CISO'][$r];
-    $btn = 'inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 transition active:transition-none';
-    $box = 'rounded-2xl border border-sp-line p-6';
-    $boxTitle = 'flex items-center text-sm font-semibold text-sp-ink';
+    $pill = 'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition';
+    $topics = [
+        ['document-check', 'Security questionnaires'], ['clipboard-document-list', 'IT contracts'],
+        ['shield-check', 'Cyber insurance and SOC 2'], ['scale', 'Build, buy or stop'],
+        ['cpu-chip', 'AI tools and agents'], ['banknotes', 'The cloud bill'],
+        ['user-plus', 'First senior hires'], ['presentation-chart-line', '"Are we secure?"'],
+    ];
 @endphp
 
 @section('body')
 
     {{-- Hero --}}
-    {!! $open !!}
-        <div class="mt-9 max-w-2xl">
-            <img src="/assets/img/mike-faas-square.jpg" alt="Mike Faas" class="h-16 w-16 rounded-full bg-sp-raise object-cover ring-1 ring-sp-line">
-            <h1 class="mt-8 font-display text-4xl font-bold tracking-tight text-sp-ink sm:text-5xl">Fractional CTO and CISO for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
-            <p class="mt-6 text-base text-sp-text">{{ $page->tagline }}</p>
-            <div class="mt-6 flex flex-wrap items-center gap-6">
-                <a href="{{ $page->bookingUrl }}" class="{{ $btn }} bg-sp-btn text-sp-btn-fg hover:opacity-90">Book a 30-minute call</a>
-                <a href="{{ $page->linkedin }}" aria-label="LinkedIn" class="group -m-1 p-1">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-sp-muted transition group-hover:fill-sp-accent"><path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z"/></svg>
-                </a>
-                <a href="mailto:{{ $page->email }}" aria-label="Email" class="group -m-1 p-1 text-sp-muted transition hover:text-sp-accent">
-                    @include('_partials.icon', ['name' => 'envelope'])
-                </a>
+    <div class="{{ $c }} mt-24 sm:mt-32 md:mt-48">
+        <div class="st-fade max-w-3xl">
+            <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl">Fractional <span class="st-mark">CTO and CISO</span> for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
+            <p class="mt-6 text-xl text-st-text">{{ $page->tagline }}</p>
+        </div>
+    </div>
+
+    {{-- Was a dark 'where the questions come from' panel; Mike: bland. Spotlight's paperwork strip instead. --}}
+    <div class="mt-16 sm:mt-24 lg:mt-32">
+        @include('_partials.paperwork')
+    </div>
+
+    {{-- Case-study cards -> founder situations --}}
+    <div id="why" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
+        <div class="st-fade st-border max-w-2xl pt-12">
+            <h2>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">When founders call</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">It usually starts with a question nobody inside can answer.</span>
+            </h2>
+            <p class="mt-6 text-xl text-st-text">And it&rsquo;s attached to money: a deal, a contract, a renewal or a hire. Half are technology. Half are security. Most are both.</p>
+        </div>
+    </div>
+    <div class="{{ $c }} mt-16">
+        <div class="grid grid-cols-1 gap-8 md:auto-rows-fr md:grid-cols-2">
+            @foreach ($page->problems as $i => $t)
+                <article class="st-fade relative flex w-full flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 2) * 80 }}ms">
+                    <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="Talk it through: book a call"></a>
+                    <div class="flex items-center gap-x-4">
+                        <span class="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-st-indigo shadow-sm">
+                            @include('_partials.icon', ['name' => $t['icon'], 'class' => 'h-6 w-6 text-st-gold'])
+                        </span>
+                        @php $rolePill = ['cto' => 'bg-st-indigo text-white', 'ciso' => 'bg-st-gold text-st-ink', 'both' => 'bg-st-indigo text-st-gold ring-2 ring-st-gold'][$t['role']]; @endphp
+                        <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $rolePill }}">{{ $badge($t['role']) }}</span>
+                    </div>
+                    <p class="st-display mt-6 text-2xl/9 font-medium text-st-ink">{{ $t['text'] }}</p>
+                    <p class="mt-auto flex items-center pt-6 text-sm font-semibold text-st-gold-ink">Talk it through <span aria-hidden="true" class="ml-1">&rarr;</span></p>
+                </article>
+            @endforeach
+        </div>
+    </div>
+
+    {{-- Testimonial band: featured quote (JD Helms) --}}
+    <div class="relative isolate mt-24 bg-st-gold-tint py-16 sm:mt-32 sm:py-28 md:py-32 lg:mt-40">
+        @include('_partials.studio-grid', ['id' => 'st-grid-quote', 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-gold/25 stroke-st-gold-ink/15'])
+        <div class="{{ $c }}">
+            <figure class="st-fade mx-auto max-w-4xl">
+                @php $ft = $page->testimonials['featured']; @endphp
+                <blockquote class="st-display relative text-3xl font-medium tracking-tight text-st-ink sm:text-4xl">
+                    <p class="before:text-st-gold-ink before:content-['\201C'] after:text-st-gold-ink after:content-['\201D'] sm:before:absolute sm:before:right-full">{{ $ft['quote'] }}</p>
+                </blockquote>
+                <figcaption class="mt-10 flex items-center gap-x-4">
+                    <span class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-st-indigo text-sm font-semibold text-st-gold">{{ $ft['initials'] }}</span>
+                    <span><span class="block font-semibold text-st-ink">{{ $ft['name'] }}</span><span class="block text-sm text-st-text">{{ $ft['title'] }}</span></span>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+    {{-- Services -> how it fails (diagram) --}}
+    <div class="{{ $c }} mt-24 sm:mt-32 lg:mt-40">
+        <div class="st-fade st-border max-w-2xl pt-12">
+            <h2>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">How companies get stuck</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Technology and security don&rsquo;t fail in silos. They fail in cascades.</span>
+            </h2>
+            <p class="mt-6 text-xl text-st-text">One missing piece shows up in five places. The insurance question is usually an IT question in disguise. Fix the symptoms one at a time and you buy three tools and hire three consultants. Find the missing piece first, and the rest gets easier.</p>
+        </div>
+        <div class="mt-16 lg:flex lg:items-center lg:justify-between lg:gap-x-16">
+            <div class="st-fade mx-auto w-full max-w-md lg:mx-0 lg:w-1/2 lg:max-w-none">
+                @include('_partials.cascade-diagram', ['colorful' => true])
+            </div>
+            <ul role="list" class="mt-16 text-base text-st-text lg:mt-0 lg:w-1/2">
+                @foreach ([
+                    ['Build, buy or stop', 'Most of the answer is a decision, not a project: what to build, what to buy, and what to stop paying for.'],
+                    ['Find the root, not the symptoms', 'The app nobody tested is a security finding. The contract nobody read is why nobody owns the backups.'],
+                    ['Order beats volume', 'A short list in the order that unlocks the most, not a findings report you file and forget.'],
+                    ['Plain language', 'Every recommendation says what it costs, what it fixes and what happens if you wait.'],
+                ] as $i => [$k, $v])
+                    <li class="st-fade mt-10 first:mt-0">
+                        <div class="st-border pt-10 {{ $i === 0 ? 'pt-0 before:hidden after:hidden' : '' }}"><strong class="font-semibold text-st-ink">{{ $k }}.</strong> {{ $v }}</div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+    {{-- Track record (verbatim from echocyber.io), cream band --}}
+    <section id="track-record" class="mt-24 scroll-mt-12 border-y border-st-ink/5 bg-st-wash py-24 sm:mt-32 sm:py-32 lg:mt-40">
+        <div class="{{ $c }}">
+            <div class="st-fade max-w-2xl">
+                <h2>
+                    <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">Track record</span>
+                    <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Proof beats prose.</span>
+                </h2>
+                <p class="mt-6 text-xl text-st-text">Names withheld. NDAs are a feature, not a limitation.</p>
+            </div>
+            {{-- Subgrid: all three cards share the same 6 row tracks, so every row lines up across cards. --}}
+            <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-y-0">
+                @foreach ($page->cases as $i => $k)
+                    <article class="st-fade flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8 lg:row-span-6 lg:grid lg:grid-rows-subgrid" style="transition-delay: {{ $i * 80 }}ms">
+                        <p class="text-xs font-semibold tracking-wider text-st-gold-ink uppercase">{!! $k['sector'] !!}</p>
+                        <h3 class="st-display mt-3 text-2xl font-semibold text-st-ink lg:self-start">{{ $k['title'] }}</h3>
+                        <ul class="mt-4 flex flex-wrap content-start gap-2">
+                            @foreach ($k['tags'] as $tag)
+                                <li class="rounded-full bg-st-indigo-tint px-2.5 py-0.5 text-xs font-medium text-st-indigo">{{ $tag }}</li>
+                            @endforeach
+                        </ul>
+                        <p class="mt-6 text-sm text-st-text"><strong class="font-semibold text-st-ink">Challenge.</strong> {{ $k['challenge'] }}</p>
+                        <p class="mt-4 text-sm text-st-text"><strong class="font-semibold text-st-ink">Outcome.</strong> {{ $k['outcome'] }}</p>
+                        <dl class="mt-8 grid grid-cols-3 gap-4 self-end border-t border-st-ink/10 pt-6">
+                            @foreach ($k['stats'] as [$v, $l])
+                                <div class="st-border-left st-gold-tick flex flex-col justify-start pl-3">
+                                    <dt class="mt-1 text-xs text-st-text">{{ $l }}</dt>
+                                    <dd class="st-display order-first text-xl/7 font-semibold text-st-ink">{!! $v !!}</dd>
+                                </div>
+                            @endforeach
+                        </dl>
+                    </article>
+                @endforeach
             </div>
         </div>
-    {!! $close !!}
+    </section>
 
-    @include('_partials.sp.paperwork')
-
-    {{-- Body: situations (left) and sidebar boxes (right) --}}
-    <div class="mt-24 md:mt-28">{!! $open !!}
-        <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-            <div>
-                <h2 class="text-sm font-semibold text-sp-ink">When founders call</h2>
-                <p class="mt-2 text-sm text-sp-text">A question lands that nobody inside can answer, and it&rsquo;s attached to money. Half are technology. Half are security. Most are both.</p>
-                <div class="mt-12 flex flex-col gap-14">
-                    @foreach ($page->triggers as $t)
-                        <article class="group relative flex flex-col items-start">
-                            <h3 class="text-base font-semibold tracking-tight text-sp-ink">
-                                <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-sp-raise opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
-                                <a href="{{ $page->bookingUrl }}">
-                                    <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
-                                    <span class="relative z-10">{{ $t['title'] }}</span>
-                                </a>
-                            </h3>
-                            <p class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-sp-muted">
-                                <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true"><span class="h-4 w-0.5 rounded-full bg-sp-gold"></span></span>
-                                {{ $badge($t['role']) }}
-                            </p>
-                            <p class="relative z-10 mt-2 text-sm text-sp-text">{{ $t['body'] }}</p>
-                            <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-sp-accent">
-                                Talk it through
-                                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current"><path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                            </div>
-                        </article>
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="space-y-10 lg:pl-16 xl:pl-24">
-                {{-- Book a call (Spotlight's newsletter box) --}}
-                <div class="{{ $box }}">
-                    <h2 class="{{ $boxTitle }}">
-                        @include('_partials.icon', ['name' => 'calendar-days', 'class' => 'h-6 w-6 flex-none text-sp-muted'])
-                        <span class="ml-3">Start with 30 minutes</span>
-                    </h2>
-                    <p class="mt-2 text-sm text-sp-text">Free, on Google Meet. Bring the question: the contract, the app, the questionnaire or the renewal form. If it&rsquo;s not the right fit, I&rsquo;ll point you to who is.</p>
-                    <a href="{{ $page->bookingUrl }}" class="{{ $btn }} mt-6 w-full bg-sp-btn text-sp-btn-fg hover:opacity-90">Book a call</a>
-                </div>
-
-                {{-- The Diagnostic (Spotlight's resume box) --}}
-                <div class="{{ $box }}">
-                    <h2 class="{{ $boxTitle }}">
-                        @include('_partials.icon', ['name' => 'briefcase', 'class' => 'h-6 w-6 flex-none text-sp-muted'])
-                        <span class="ml-3">{{ $page->diagnostic['name'] }}</span>
-                    </h2>
-                    <ol class="mt-6 space-y-4">
-                        @foreach ($page->steps as $i => $s)
-                            <li class="flex gap-4">
-                                <div class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full bg-sp-paper font-display text-sm font-semibold text-sp-accent shadow-md ring-1 shadow-black/5 ring-sp-line">{{ $i + 1 }}</div>
-                                <dl class="flex flex-auto flex-wrap gap-x-2">
-                                    <dt class="sr-only">Step</dt>
-                                    <dd class="w-full flex-none text-sm font-medium text-sp-ink">{{ $s['title'] }}</dd>
-                                    <dt class="sr-only">When</dt>
-                                    <dd class="text-xs text-sp-muted">{{ $s['week'] }}</dd>
-                                </dl>
-                            </li>
-                        @endforeach
-                    </ol>
-                    <p class="mt-6 flex items-baseline gap-x-2 border-t border-sp-line pt-5">
-                        <span class="font-display text-2xl font-semibold tracking-tight text-sp-ink">{{ $page->diagnostic['priceLabel'] }}</span>
-                        <span class="text-sm text-sp-muted">fixed, {{ $page->diagnostic['weeks'] }} weeks</span>
-                    </p>
-                    <a href="#diagnostic" class="{{ $btn }} group mt-5 w-full bg-sp-raise font-medium text-sp-ink hover:bg-sp-line">
-                        How it works
-                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="h-4 w-4 stroke-sp-muted"><path d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                    </a>
-                </div>
-
-                {{-- Track record --}}
-                <div class="{{ $box }}">
-                    <h2 class="{{ $boxTitle }}">
-                        @include('_partials.icon', ['name' => 'chart-bar', 'class' => 'h-6 w-6 flex-none text-sp-muted'])
-                        <span class="ml-3">Track record</span>
-                    </h2>
-                    <dl class="mt-6 grid grid-cols-2 gap-x-4 gap-y-5">
-                        @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in']] as [$v, $l])
-                            <div>
-                                <dd class="font-display text-xl font-semibold tracking-tight text-sp-ink">{{ $v }}</dd>
-                                <dt class="mt-0.5 text-xs text-sp-muted">{!! $l !!}</dt>
-                            </div>
-                        @endforeach
-                    </dl>
-                    <ul class="mt-6 space-y-2 border-t border-sp-line pt-5 text-sm text-sp-text">
-                        <li><span class="mr-2 text-xs font-semibold tracking-wider text-sp-accent uppercase">Speaking</span>Triangle InfoSeCon 2026</li>
-                        <li><span class="mr-2 text-xs font-semibold tracking-wider text-sp-accent uppercase">Writing</span>Signal vs. Noise, weekly</li>
-                    </ul>
-                </div>
-            </div>
+    {{-- Services with the stylized image -> The Diagnostic (indigo-tint band) --}}
+    <section class="border-b border-st-indigo/10 bg-st-indigo-tint py-24 sm:py-32">
+    <div id="diagnostic" class="{{ $c }} scroll-mt-12">
+        <div class="st-fade max-w-2xl">
+            <h2>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">{{ $page->diagnostic['name'] }}</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Three weeks. Fixed price. A clear answer.</span>
+            </h2>
+            <p class="mt-6 text-xl text-st-text">Start with the question that&rsquo;s keeping you up, technology or security. Leave with the answer, and a plan for everything it touches.</p>
         </div>
-    {!! $close !!}</div>
+    </div>
+    <div class="{{ $c }} mt-16">
+        <div class="lg:flex lg:items-center lg:justify-end">
+            <div class="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
+                <div class="st-fade w-full max-w-[33rem] flex-none lg:max-w-[40rem]">
+                    @include('_partials.studio-image', ['src' => '/assets/img/mike-faas.jpg'])
+                </div>
+            </div>
+            <ul role="list" class="mt-16 text-base text-st-text lg:mt-0 lg:w-1/2 lg:pl-4">
+                @foreach ($page->steps as $i => $s)
+                    <li class="st-fade mt-10 first:mt-0">
+                        <div class="st-border pt-10 {{ $i === 0 ? 'pt-0 before:hidden after:hidden' : '' }}"><strong class="font-semibold text-st-ink">{{ $s['week'] }}: {{ $s['title'] }}.</strong> {{ $s['body'] }}</div>
+                    </li>
+                @endforeach
+                <li class="st-fade mt-10">
+                    <div class="st-border pt-10">
+                        <strong class="font-semibold text-st-ink">{{ $page->diagnostic['priceLabel'] }}, fixed.</strong> Agreed before we begin. No retainer to start and no open-ended hours.
+                        <div class="mt-6"><a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-ink text-st-page hover:bg-st-panel-2"><span class="relative top-px">Start with a 30-minute call</span></a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </section>
 
-    {{-- Long-form sections, Spotlight "Section" style (left rule, title column) --}}
-    @php
-        $secOpen = fn ($id, $title) => '<section id="' . $id . '" aria-labelledby="' . $id . '-t" class="scroll-mt-24 md:border-l md:border-sp-line md:pl-6"><div class="grid grid-cols-1 items-baseline gap-y-8 md:grid-cols-4"><h2 id="' . $id . '-t" class="text-sm font-semibold text-sp-ink">' . $title . '</h2><div class="md:col-span-3">';
-        $secClose = '</div></div></section>';
-    @endphp
-    <div class="mt-24 md:mt-32">{!! $open !!}
-        <div class="space-y-20">
+    {{-- About: stats (Studio's StatList) --}}
+    <div id="about" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
+        <div class="st-fade st-border max-w-2xl pt-12">
+            <h2>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">About</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Both chairs. One plan.</span>
+            </h2>
+            <p class="mt-6 text-xl text-st-text">I&rsquo;m Mike Faas. Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.</p>
+            <p class="mt-4 text-base text-st-text">I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000: through acquisitions, building teams of up to 30, and finding six-figure savings along the way. CISSP, based in Raleigh.</p>
+        </div>
+        <dl class="mt-16 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2">
+            @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in']] as [$v, $l])
+                <div class="st-fade st-border-left st-gold-tick flex flex-col justify-start pl-8">
+                    <dt class="mt-2 text-base text-st-text">{!! $l !!}</dt>
+                    <dd class="st-display order-first text-3xl font-semibold text-st-ink sm:text-4xl">{{ $v }}</dd>
+                </div>
+            @endforeach
+        </dl>
+    </div>
 
-            {!! $secOpen('why', 'How companies get stuck') !!}
-                <p class="font-display text-2xl font-semibold tracking-tight text-sp-ink sm:text-3xl">Technology and security don&rsquo;t fail in silos. They fail in cascades.</p>
-                <p class="mt-4 text-base text-sp-text">Most companies run technology and security as a list: the IT contract, the apps, the cloud bill, the questionnaire, the insurance form. Each has its own owner and its own vendor. But they depend on each other, and the insurance question is usually an IT question in disguise. Fix them one at a time and you buy three tools and hire three consultants. Find the missing piece first, and the rest gets easier.</p>
-                <div class="mx-auto mt-10 max-w-md">@include('_partials.cascade-diagram')</div>
-            {!! $secClose !!}
+    {{-- More testimonials --}}
+    <div class="{{ $c }} mt-24 sm:mt-32">
+        <div class="st-fade st-border max-w-2xl pt-12">
+            <h2>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">What people say</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">What it&rsquo;s like to work with me.</span>
+            </h2>
+        </div>
+        <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            @foreach ($page->testimonials['more'] as $i => $t)
+                <figure class="st-fade relative flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8" style="transition-delay: {{ $i * 80 }}ms">
+                    @if ($t['tag'] !== '')
+                        <span class="absolute top-6 right-6 rounded-full bg-st-gold-tint px-2.5 py-0.5 text-xs font-semibold text-st-gold-ink ring-1 ring-st-gold/40">{{ $t['tag'] }}</span>
+                    @endif
+                    <span aria-hidden="true" class="st-display -mb-4 block text-6xl/none font-semibold text-st-gold">&ldquo;</span>
+                    <blockquote class="mt-4 flex-auto text-base text-st-ink"><p>{{ $t['quote'] }}&rdquo;</p></blockquote>
+                    <figcaption class="mt-6 flex items-center gap-x-4 border-t border-st-ink/10 pt-6">
+                        <span class="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-st-indigo text-xs font-semibold text-st-gold">{{ $t['initials'] }}</span>
+                        <span><span class="block text-sm font-semibold text-st-ink">{{ $t['name'] }}</span><span class="block text-xs text-st-text">{{ $t['title'] }}</span></span>
+                    </figcaption>
+                </figure>
+            @endforeach
+        </div>
+    </div>
 
-            {!! $secOpen('diagnostic', $page->diagnostic['name']) !!}
-                <p class="font-display text-2xl font-semibold tracking-tight text-sp-ink sm:text-3xl">Three weeks. Fixed price. A clear answer.</p>
-                <p class="mt-4 text-base text-sp-text">Start with the question that&rsquo;s keeping you up, technology or security. Leave with the answer, and a plan for everything it touches.</p>
-                <ol class="mt-8 space-y-8">
-                    @foreach ($page->steps as $s)
-                        <li class="relative pl-6">
-                            <span class="absolute inset-y-1 left-0 w-0.5 rounded-full bg-sp-gold"></span>
-                            <p class="text-xs font-semibold tracking-wider text-sp-accent uppercase">{{ $s['week'] }}</p>
-                            <p class="mt-1 text-base font-semibold text-sp-ink">{{ $s['title'] }}</p>
-                            <p class="mt-1 text-sm text-sp-text">{{ $s['body'] }}</p>
-                        </li>
-                    @endforeach
-                </ol>
-                <div class="mt-10 rounded-2xl border border-sp-line p-6">
-                    <h3 class="text-sm font-semibold text-sp-ink">What you walk away with</h3>
-                    <ul class="mt-4 grid grid-cols-1 gap-3 text-sm text-sp-text sm:grid-cols-2">
-                        @foreach ($page->included as $item)
-                            <li class="flex gap-x-3">@include('_partials.icon', ['name' => 'check', 'set' => '20/solid', 'class' => 'h-5 w-5 flex-none text-sp-accent']){{ $item }}</li>
-                        @endforeach
-                    </ul>
-                    <div class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-sp-line pt-5">
-                        <p class="flex items-baseline gap-x-2"><span class="font-display text-2xl font-semibold text-sp-ink">{{ $page->diagnostic['priceLabel'] }}</span><span class="text-sm text-sp-muted">USD, fixed</span></p>
-                        <a href="{{ $page->bookingUrl }}" class="{{ $btn }} bg-sp-btn text-sp-btn-fg hover:opacity-90">Start with a 30-minute call</a>
+    {{-- FAQ (cream band) --}}
+    <section class="mt-24 border-y border-st-ink/5 bg-st-wash py-24 sm:mt-32 sm:py-32 lg:mt-40">
+    <div id="faq" class="{{ $c }} scroll-mt-12">
+        <div class="st-fade max-w-2xl">
+            <h2 class="st-display text-4xl font-medium tracking-tight text-st-ink sm:text-5xl">Questions founders ask</h2>
+        </div>
+        <dl class="mt-12 max-w-3xl">
+            @foreach ($page->faqs as $i => $f)
+                <div class="st-fade st-border mt-8 pt-8 first:mt-0">
+                    <dt>
+                        <button type="button" command="--toggle" commandfor="faq-{{ $i }}" class="flex w-full items-start justify-between text-left">
+                            <span class="st-display text-lg font-semibold text-st-ink">{{ $f['q'] }}</span>
+                            <span class="ml-6 flex h-7 items-center text-st-gold-ink">
+                                @include('_partials.icon', ['name' => 'plus-small', 'class' => 'size-6 in-aria-expanded:hidden'])
+                                @include('_partials.icon', ['name' => 'minus-small', 'class' => 'size-6 not-in-aria-expanded:hidden'])
+                            </span>
+                        </button>
+                    </dt>
+                    <el-disclosure id="faq-{{ $i }}" hidden class="contents">
+                        <dd class="mt-3 pr-12 text-base text-st-text">{{ $f['a'] }}</dd>
+                    </el-disclosure>
+                </div>
+            @endforeach
+        </dl>
+    </div>
+    </section>
+
+    {{-- Contact panel --}}
+    <div class="{{ $c }} mt-24 sm:mt-32 lg:mt-40">
+        <div class="st-fade relative isolate -mx-6 overflow-hidden rounded-4xl bg-st-panel px-6 py-20 sm:mx-0 sm:py-32 md:px-12">
+            @include('_partials.studio-grid', ['id' => 'st-grid-cta', 'y' => -64, 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_top_left,white_35%,transparent_70%)] fill-st-gold/10 stroke-st-gold/15'])
+            <div class="mx-auto max-w-4xl">
+                <div class="max-w-xl">
+                    <h2 class="st-display text-3xl font-medium text-balance text-white sm:text-4xl">Got a question nobody inside can answer?</h2>
+                    <p class="mt-4 text-base text-white/70">Thirty minutes is enough to tell whether the diagnostic fits. If it&rsquo;s not the right fit, I&rsquo;ll point you to who is.</p>
+                    <div class="mt-6 flex">
+                        <a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-gold text-st-ink hover:bg-white"><span class="relative top-px">Book a 30-minute call</span></a>
+                    </div>
+                    <div class="st-border st-border-invert mt-10 pt-10">
+                        <h3 class="st-display text-base font-semibold text-white">Reach me directly</h3>
+                        <ul role="list" class="mt-6 grid grid-cols-1 gap-8 text-sm text-white/70 sm:grid-cols-2">
+                            <li><strong class="block font-semibold text-white">Email</strong><a href="mailto:{{ $page->email }}" class="hover:text-st-gold">{{ $page->email }}</a></li>
+                            <li><strong class="block font-semibold text-white">LinkedIn</strong><a href="{{ $page->linkedin }}" class="hover:text-st-gold">linkedin.com/in/mfaas</a></li>
+                        </ul>
                     </div>
                 </div>
-            {!! $secClose !!}
-
-            {!! $secOpen('about', 'About') !!}
-                <p class="font-display text-2xl font-semibold tracking-tight text-sp-ink sm:text-3xl">I translate how systems behave into decisions a founder can make.</p>
-                <p class="mt-4 text-base text-sp-text">I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000: through acquisitions, building teams of up to 30, and finding six-figure savings along the way.</p>
-                <dl class="mt-8 space-y-6">
-                    @foreach ([
-                        ['Both chairs.', 'Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.'],
-                        ['Wide field, low magnification.', 'I look across the whole company before I zoom in, because the problem is rarely where it first shows up.'],
-                        ['No jargon in the readout.', 'If I can&rsquo;t explain it to your CFO in five minutes, I haven&rsquo;t finished the work.'],
-                        ['CISSP, based in Raleigh.', 'Most of the work happens remotely. In the Triangle, I&rsquo;m glad to meet in person.'],
-                    ] as [$k, $v])
-                        <div><dt class="text-sm font-semibold text-sp-ink">{{ $k }}</dt><dd class="mt-1 text-sm text-sp-text">{!! $v !!}</dd></div>
-                    @endforeach
-                </dl>
-                <a href="{{ $page->linkedin }}" class="mt-8 inline-flex items-center text-sm font-medium text-sp-accent">Find me on LinkedIn<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current"><path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
-            {!! $secClose !!}
-
-            {!! $secOpen('faq', 'Questions founders ask') !!}
-                <dl class="-mt-2 divide-y divide-sp-line">
-                    @foreach ($page->faqs as $i => $f)
-                        <div class="py-5 first:pt-0">
-                            <dt>
-                                <button type="button" command="--toggle" commandfor="faq-{{ $i }}" class="flex w-full items-start justify-between text-left text-sp-ink">
-                                    <span class="text-base font-semibold">{{ $f['q'] }}</span>
-                                    <span class="ml-6 flex h-7 items-center text-sp-accent">
-                                        @include('_partials.icon', ['name' => 'plus-small', 'class' => 'size-6 in-aria-expanded:hidden'])
-                                        @include('_partials.icon', ['name' => 'minus-small', 'class' => 'size-6 not-in-aria-expanded:hidden'])
-                                    </span>
-                                </button>
-                            </dt>
-                            <el-disclosure id="faq-{{ $i }}" hidden class="contents">
-                                <dd class="mt-2 pr-12 text-sm text-sp-text">{{ $f['a'] }}</dd>
-                            </el-disclosure>
-                        </div>
-                    @endforeach
-                </dl>
-            {!! $secClose !!}
-
-        </div>
-    {!! $close !!}</div>
-
-    {{-- Closing call to action --}}
-    <div class="mt-24">{!! $open !!}
-        <div class="rounded-2xl border border-sp-line bg-sp-raise/60 px-6 py-12 text-center sm:px-12">
-            <h2 class="font-display text-2xl font-semibold tracking-tight text-sp-ink sm:text-3xl">Got a question nobody inside can answer?</h2>
-            <p class="mx-auto mt-4 max-w-xl text-base text-sp-text">Thirty minutes is enough to tell whether the diagnostic fits. If it&rsquo;s not the right fit, I&rsquo;ll point you to who is.</p>
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-6">
-                <a href="{{ $page->bookingUrl }}" class="{{ $btn }} bg-sp-btn text-sp-btn-fg hover:opacity-90">Book a 30-minute call</a>
-                <a href="mailto:{{ $page->email }}" class="text-sm font-medium text-sp-accent">{{ $page->email }}</a>
             </div>
         </div>
-    {!! $close !!}</div>
+    </div>
 @stop

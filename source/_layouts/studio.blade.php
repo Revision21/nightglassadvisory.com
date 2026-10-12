@@ -14,8 +14,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $page->title ? $page->title . ' | ' . $page->siteName : $page->siteName }}</title>
+    <title>{{ $page->title ? $page->title . ' | ' . $page->siteName : $page->siteName . ' | Fractional CTO and CISO for founder-led companies' }}</title>
     <meta name="description" content="{{ $page->description ?? $page->siteDescription }}">
+    <link rel="canonical" href="{{ $page->getUrl() }}">
+    <meta property="og:site_name" content="{{ $page->siteName }}">
+    <meta property="og:title" content="{{ $page->title ? $page->title . ' | ' . $page->siteName : $page->siteName }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $page->getUrl() }}">
+    <meta property="og:description" content="{{ $page->description ?? $page->siteDescription }}">
+    <meta name="twitter:card" content="summary">
     @if ($page->noindex)
     <meta name="robots" content="noindex, nofollow">
     @endif

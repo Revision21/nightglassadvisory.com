@@ -12,17 +12,11 @@ return [
     'siteName' => 'Nightglass Advisory',
     'siteDescription' => 'Fractional CTO and CISO for founder-led companies between $2.5M and $25M. Technology decisions and security answers, without a full-time executive.',
     'siteAuthor' => 'Mike Faas',
-    // 'dark' or 'light' (P7 Twilight on cream). Preview the other with ?theme=light.
-    'theme' => 'dark',
-    // Decorative starfield behind the hero and /schedule. Off (Mike, 2026-10-12).
-    'stars' => false,
-    // Hero variant: 'lens' (option B, the night glass) or 'portrait' (option A).
-    'hero' => 'portrait',
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
 
-    // Where the Studio home lives. Flip to '/' when Studio replaces Spotlight.
-    'homeUrl' => '/studio',
+    // Home page path (Studio became the home page 2026-10-12).
+    'homeUrl' => '/',
 
     // Commercial lane (Mike, 2026-10-12): every booking CTA goes to /schedule.
     'bookingUrl' => '/schedule',
@@ -40,16 +34,6 @@ return [
         'price' => 7500,
         'priceLabel' => '$7,500',
         'weeks' => 3,
-    ],
-
-    // role: 'cto' | 'ciso' | 'both' (renders a badge). Keep it balanced.
-    'triggers' => [
-        ['role' => 'cto', 'icon' => 'scale', 'title' => 'A technology bet', 'body' => 'An AI tool, a platform switch or a build-versus-buy call needs a decision, and nobody on the team has the time or the context to make it.'],
-        ['role' => 'ciso', 'icon' => 'document-check', 'title' => 'A security questionnaire from a big customer', 'body' => 'The deal is real, the questionnaire is long, and nobody inside can answer half of it with a straight face.'],
-        ['role' => 'cto', 'icon' => 'clipboard-document-list', 'title' => 'An IT contract up for renewal', 'body' => 'It lists what your provider does. Nobody has read it for what it doesn\'t. Renewal is the one day a year you have leverage.'],
-        ['role' => 'ciso', 'icon' => 'shield-check', 'title' => 'A SOC 2 ask or an insurance renewal', 'body' => 'A prospect wants a report you don\'t have, or the insurance application asks questions your IT provider won\'t sign their name to.'],
-        ['role' => 'cto', 'icon' => 'code-bracket', 'title' => 'An app that "works"', 'body' => 'Someone built it. It logs in and sends the email. Nobody has checked what a stranger can see, or what it will cost to run next year.'],
-        ['role' => 'both', 'icon' => 'user-plus', 'title' => 'A first senior hire', 'body' => 'You know you need someone in technology or security. You don\'t know what to hire for, or whether it\'s a full-time job yet.'],
     ],
 
     // Verbatim from the CTOx referral one-pager, "The problems I solve" (echo-cyber/partners/ctox-referral-one-pager-copy.md, printed 2026-09-14).
