@@ -21,7 +21,7 @@ title:
 
 @section('body')
 
-    {{-- Hero: text + CTAs left, Mike right (review 10/12: the person is the product; photo moved up from The Diagnostic). --}}
+    {{-- Hero: text + CTAs left, art right. Mike's photo moved to About (10/12). --}}
     <div class="{{ $c }} mt-16 sm:mt-24 md:mt-32">
         <div class="lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-12">
             <div class="st-fade lg:col-span-7">
@@ -32,10 +32,9 @@ title:
                     <a href="#diagnostic" class="text-base font-semibold text-st-ink transition hover:text-st-gold-ink">How the diagnostic works <span aria-hidden="true">&rarr;</span></a>
                 </div>
             </div>
-            <figure class="st-fade mx-auto mt-16 w-full max-w-xs sm:max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
-                @include('_partials.studio-image', ['src' => '/assets/img/mike-faas.jpg'])
-                <figcaption class="mt-4 text-sm text-st-text"><strong class="font-semibold text-st-ink">Mike Faas</strong> &middot; Raleigh, North Carolina</figcaption>
-            </figure>
+            <div class="st-fade mx-auto mt-16 w-full max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
+                @include('_partials.hero-' . ($heroArt ?? 'readout'))
+            </div>
         </div>
     </div>
 
@@ -206,22 +205,29 @@ title:
 
     {{-- About: stats (Studio's StatList) --}}
     <div id="about" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
-        <div class="st-fade st-border max-w-2xl pt-12">
-            <h2>
-                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">About</span>
-                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Both chairs. One plan.</span>
-            </h2>
-            <p class="mt-6 text-xl text-st-text">I&rsquo;m Mike Faas. Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.</p>
-            <p class="mt-4 text-base text-st-text">I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000: through acquisitions, building teams of up to 30, and finding six-figure savings along the way. CISSP, based in Raleigh.</p>
-        </div>
-        <dl class="mt-16 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2">
-            @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in']] as [$v, $l])
-                <div class="st-fade st-border-left st-gold-tick flex flex-col justify-start pl-8">
-                    <dt class="mt-2 text-base text-st-text">{!! $l !!}</dt>
-                    <dd class="st-display order-first text-3xl font-semibold text-st-ink sm:text-4xl">{{ $v }}</dd>
+        <div class="lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-12">
+            <div class="lg:col-span-7">
+                <div class="st-fade st-border max-w-2xl pt-12">
+                    <h2>
+                        <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">About</span>
+                        <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Both chairs. One plan.</span>
+                    </h2>
+                    <p class="mt-6 text-xl text-st-text">I&rsquo;m Mike Faas. Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.</p>
+                    <p class="mt-4 text-base text-st-text">I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000: through acquisitions, building teams of up to 30, and finding six-figure savings along the way. CISSP, based in Raleigh.</p>
                 </div>
-            @endforeach
-        </dl>
+                <dl class="mt-16 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2">
+                    @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in']] as [$v, $l])
+                        <div class="st-fade st-border-left st-gold-tick flex flex-col justify-start pl-8">
+                            <dt class="mt-2 text-base text-st-text">{!! $l !!}</dt>
+                            <dd class="st-display order-first text-3xl font-semibold text-st-ink sm:text-4xl">{{ $v }}</dd>
+                        </div>
+                    @endforeach
+                </dl>
+            </div>
+            <figure class="st-fade mx-auto mt-16 w-full max-w-xs sm:max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
+                @include('_partials.studio-image', ['src' => '/assets/img/mike-faas.jpg'])
+            </figure>
+        </div>
     </div>
 
     {{-- More testimonials --}}
