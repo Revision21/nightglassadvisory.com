@@ -15,7 +15,7 @@
                 <label for="nl-email" class="sr-only">Email address</label>
                 <input id="nl-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"
                        class="min-w-0 flex-auto rounded-full bg-white px-5 py-2.5 text-base text-st-ink ring-1 ring-st-ink/15 outline-none placeholder:text-st-muted focus:ring-2 focus:ring-st-gold">
-                <button type="submit" id="nl-submit" class="inline-flex flex-none justify-center rounded-full bg-st-ink px-5 py-2.5 text-sm font-semibold text-st-page transition hover:bg-st-panel-2 disabled:opacity-60">Subscribe</button>
+                <button type="submit" id="nl-submit" class="inline-flex flex-none items-center justify-center rounded-full bg-st-ink px-5 py-2.5 text-sm font-semibold text-st-page transition hover:bg-st-panel-2 disabled:opacity-60"><span class="relative top-px">Subscribe</span></button>
                 <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;opacity:0">
             </form>
             @if ($page->turnstileSiteKey)
@@ -41,7 +41,7 @@
             e.preventDefault(); err.classList.add('hidden');
             var email = form.email.value.trim();
             if (!form.checkValidity()) { form.reportValidity(); return; }
-            btn.disabled = true; btn.textContent = 'Subscribing...';
+            btn.disabled = true; btn.firstElementChild.textContent = 'Subscribing...';
             fetch('/.netlify/functions/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: email, source: 'nightglassadvisory.com', hp: form.company_website.value, ts: loaded, turnstileToken: token }) })
                 .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
@@ -50,7 +50,7 @@
                     else { err.textContent = (res.j && res.j.error) || 'That didn’t go through. Try again in a minute.'; err.classList.remove('hidden'); if (window.turnstile) window.turnstile.reset(); }
                 })
                 .catch(function () { err.textContent = 'That didn’t go through. Try again in a minute.'; err.classList.remove('hidden'); })
-                .finally(function () { btn.disabled = false; btn.textContent = 'Subscribe'; });
+                .finally(function () { btn.disabled = false; btn.firstElementChild.textContent = 'Subscribe'; });
         });
     })();
 </script>
