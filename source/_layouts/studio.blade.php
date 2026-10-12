@@ -1,10 +1,11 @@
 @php
+    $home = rtrim($page->homeUrl ?? '/studio', '/');
     $nav = [
-        ['label' => 'Why', 'href' => '#why'],
-        ['label' => 'Results', 'href' => '#track-record'],
-        ['label' => 'The Diagnostic', 'href' => '#diagnostic'],
-        ['label' => 'About', 'href' => '#about'],
-        ['label' => 'FAQ', 'href' => '#faq'],
+        ['label' => 'Why', 'href' => $home . '/#why'],
+        ['label' => 'Results', 'href' => $home . '/#track-record'],
+        ['label' => 'The Diagnostic', 'href' => $home . '/#diagnostic'],
+        ['label' => 'About', 'href' => $home . '/#about'],
+        ['label' => 'FAQ', 'href' => $home . '/#faq'],
     ];
 @endphp
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
     <header class="relative z-40">
         <div class="mx-auto max-w-7xl px-6 pt-10 lg:px-8">
             <div class="flex items-center justify-between">
-                <a href="/studio" aria-label="Home" class="st-display text-lg font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span></a>
+                <a href="{{ $home ?: '/' }}" aria-label="Home" class="st-display text-lg font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span></a>
                 <div class="flex items-center gap-x-8">
                     <nav class="hidden items-center gap-x-8 md:flex" aria-label="Main">
                         @foreach ($nav as $item)
@@ -61,7 +62,7 @@
 
     <footer class="mx-auto mt-24 w-full max-w-7xl px-6 pb-16 sm:mt-32 lg:mt-40 lg:px-8">
         <div class="st-border flex flex-col items-start justify-between gap-6 pt-12 sm:flex-row sm:items-center">
-            <a href="/studio" class="st-display text-base font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span> Advisory</a>
+            <a href="{{ $home ?: '/' }}" class="st-display text-base font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span> Advisory</a>
             {{-- DECISION (Mike): legal line. DBA/rename isn't filed until build step 5. --}}
             <p class="text-sm text-st-text">&copy; {{ date('Y') }} Nightglass Advisory. Raleigh, North Carolina.</p>
         </div>

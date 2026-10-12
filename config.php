@@ -21,6 +21,9 @@ return [
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
 
+    // Where the Studio home lives. Flip to '/' when Studio replaces Spotlight.
+    'homeUrl' => '/studio',
+
     // Commercial lane (Mike, 2026-10-12): every booking CTA goes to /schedule.
     'bookingUrl' => '/schedule',
 
