@@ -18,6 +18,11 @@ return [
     // Home page path (Studio became the home page 2026-10-12).
     'homeUrl' => '/',
 
+    // Cloudflare Turnstile site key (public) for the newsletter form. Leave '' until the widget's
+    // Hostnames list includes nightglassadvisory.com + nightglassadvisory.netlify.app; then set it
+    // (echocyber.io uses 0x4AAAAAADG_poOR76T-jTV5) and set TURNSTILE_SECRET_KEY in Netlify env.
+    'turnstileSiteKey' => '',
+
     // Commercial lane (Mike, 2026-10-12): every booking CTA goes to /schedule.
     'bookingUrl' => '/schedule',
 

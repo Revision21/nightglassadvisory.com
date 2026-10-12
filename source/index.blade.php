@@ -252,6 +252,8 @@ title:
     </div>
     </section>
 
+    @include('_partials.newsletter')
+
     {{-- Contact panel --}}
     <div class="{{ $c }} mt-24 sm:mt-32 lg:mt-40">
         <div class="st-fade relative isolate -mx-6 overflow-hidden rounded-4xl bg-st-panel px-6 py-20 sm:mx-0 sm:py-32 md:px-12">
