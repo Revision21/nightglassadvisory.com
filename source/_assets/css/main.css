@@ -187,3 +187,57 @@
 @media (prefers-reduced-motion: reduce) {
     .ng-field-sharp, .ng-lens .ng-found { animation: none; }
 }
+
+/* =====================================================================
+ * SPOTLIGHT LAYOUT (Tailwind Plus "Spotlight" template, ported to Jigsaw).
+ * Semantic tokens: zinc/teal in the original -> P7 Twilight here.
+ * Light is the default; [data-theme="dark"] is set by the toggle or the
+ * visitor's system preference (see _layouts/spotlight.blade.php).
+ * ===================================================================== */
+:root {
+    --sp-outer: #ebe8de;      /* page behind the paper (zinc-50) */
+    --sp-paper: #f7f6f2;      /* P7 ground (white) */
+    --sp-ink: #3b3f63;        /* P7 ink: headings (zinc-800) */
+    --sp-text: #555978;       /* body (zinc-600) */
+    --sp-muted: #868aa6;      /* eyebrows, meta (zinc-400) */
+    --sp-line: #e3dfd3;       /* borders (zinc-100) */
+    --sp-raise: #efece3;      /* hover wash, chips (zinc-50) */
+    --sp-accent: #7d6730;     /* P7 deep gold: links, eyebrows (teal-500) */
+    --sp-accent-fill: #d6bd7a;/* P7 star-gold: fills, rules */
+    --sp-btn: #3b3f63;        /* primary button (zinc-800) */
+    --sp-btn-fg: #f7f6f2;
+    --sp-pill: rgb(247 246 242 / 0.9);
+}
+[data-theme="dark"] {
+    --sp-outer: #07080f;
+    --sp-paper: #121427;
+    --sp-ink: #f2efe6;
+    --sp-text: #aeb0cc;
+    --sp-muted: #7f83a6;
+    --sp-line: #262944;
+    --sp-raise: #1b1d36;
+    --sp-accent: #d6bd7a;
+    --sp-accent-fill: #d6bd7a;
+    --sp-btn: #d6bd7a;
+    --sp-btn-fg: #0c0d1a;
+    --sp-pill: rgb(27 29 54 / 0.9);
+}
+@theme inline {
+    --color-sp-outer: var(--sp-outer);
+    --color-sp-paper: var(--sp-paper);
+    --color-sp-ink: var(--sp-ink);
+    --color-sp-text: var(--sp-text);
+    --color-sp-muted: var(--sp-muted);
+    --color-sp-line: var(--sp-line);
+    --color-sp-raise: var(--sp-raise);
+    --color-sp-accent: var(--sp-accent);
+    --color-sp-gold: var(--sp-accent-fill);
+    --color-sp-btn: var(--sp-btn);
+    --color-sp-btn-fg: var(--sp-btn-fg);
+    --color-sp-pill: var(--sp-pill);
+}
+.sp-body { background: var(--sp-outer); color: var(--sp-text); }
+.sp-body ::selection { background: var(--sp-accent-fill); color: #3b3f63; }
+/* theme toggle shows the icon for the OTHER theme */
+.sp-sun { display: block; } .sp-moon { display: none; }
+[data-theme="dark"] .sp-sun { display: none; } [data-theme="dark"] .sp-moon { display: block; }
