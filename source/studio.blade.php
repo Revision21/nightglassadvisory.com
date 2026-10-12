@@ -148,7 +148,7 @@ noindex: true
     </section>
 
     {{-- Services with the stylized image -> The Diagnostic (indigo-tint band) --}}
-    <section class="mt-24 border-y border-st-indigo/10 bg-st-indigo-tint py-24 sm:mt-32 sm:py-32 lg:mt-40">
+    <section class="border-b border-st-indigo/10 bg-st-indigo-tint py-24 sm:py-32">
     <div id="diagnostic" class="{{ $c }} scroll-mt-12">
         <div class="st-fade max-w-2xl">
             <h2>
