@@ -256,8 +256,8 @@
     src: url('/assets/fonts/Mona-Sans.var.woff2') format('woff2');
 }
 @theme inline {
-    --color-st-page: #f7f6f2;     /* white */
-    --color-st-wash: #efece3;     /* neutral-50 */
+    --color-st-page: #ffffff;     /* white page; cream moved to accents (Mike: cream was clobbering) */
+    --color-st-wash: #f7f6f2;     /* P7 cream as the wash (neutral-50) */
     --color-st-ink: #2a2d4a;      /* neutral-950 (deepened P7 ink for contrast) */
     --color-st-panel: #2a2d4a;    /* dark panels */
     --color-st-panel-2: #353959;  /* neutral-900 hover */
@@ -289,3 +289,6 @@
 .st-border-left { position: relative; }
 .st-border-left::before { content: ''; position: absolute; top: 0; left: 0; width: 1px; height: 1.5rem; background: var(--color-st-ink); }
 .st-border-left::after { content: ''; position: absolute; top: 2rem; bottom: 0; left: 0; width: 1px; background: color-mix(in oklab, var(--color-st-ink) 10%, transparent); }
+
+/* On the white Studio page, the shared paperwork cards use cream so they read as paper. */
+.st-body { --sp-paper: #f7f6f2; --sp-line: #e6e1d3; --sp-raise: #efece3; }
