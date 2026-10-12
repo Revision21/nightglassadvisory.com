@@ -98,3 +98,27 @@
 [data-theme="light"] .ng-glow {
     opacity: 0.3;
 }
+
+/* Hero cascade diagram: edges draw out from the root, then symptoms appear. */
+@keyframes ng-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@keyframes ng-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes ng-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgb(214 189 122 / 0.35); } 50% { box-shadow: 0 0 0 12px rgb(214 189 122 / 0); } }
+
+.ng-cascade .ng-edge {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: ng-draw 0.7s ease-out forwards;
+}
+.ng-cascade .ng-node {
+    opacity: 0;
+    animation: ng-rise 0.5s ease-out forwards;
+}
+.ng-cascade .ng-root {
+    animation: ng-pulse 2.8s ease-in-out 3s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ng-cascade .ng-edge { animation: none; stroke-dashoffset: 0; }
+    .ng-cascade .ng-node { animation: none; opacity: 1; }
+    .ng-cascade .ng-root { animation: none; }
+}

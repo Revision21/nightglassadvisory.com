@@ -6,6 +6,7 @@ title:
 @section('body')
     @include('_partials.home.hero')
     <main>
+        @include('_partials.home.stats')
         @include('_partials.home.triggers')
         @include('_partials.home.cascade')
         @include('_partials.home.diagnostic')
