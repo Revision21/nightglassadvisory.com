@@ -66,15 +66,19 @@ noindex: true
         </div>
     </div>
 
-    {{-- Testimonial band -> the thesis, as a pull quote --}}
+    {{-- Testimonial band: featured quote (JD Helms) --}}
     <div class="relative isolate mt-24 bg-st-gold-tint py-16 sm:mt-32 sm:py-28 md:py-32 lg:mt-40">
         @include('_partials.studio-grid', ['id' => 'st-grid-quote', 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-gold/25 stroke-st-gold-ink/15'])
         <div class="{{ $c }}">
             <figure class="st-fade mx-auto max-w-4xl">
+                @php $ft = $page->testimonials['featured']; @endphp
                 <blockquote class="st-display relative text-3xl font-medium tracking-tight text-st-ink sm:text-4xl">
-                    <p class="before:text-st-gold-ink before:content-['\201C'] after:text-st-gold-ink after:content-['\201D'] sm:before:absolute sm:before:right-full">Technology and security don&rsquo;t fail in silos. They fail in cascades.</p>
+                    <p class="before:text-st-gold-ink before:content-['\201C'] after:text-st-gold-ink after:content-['\201D'] sm:before:absolute sm:before:right-full">{{ $ft['quote'] }}</p>
                 </blockquote>
-                <figcaption class="mt-10 text-sm text-st-text"><span class="font-semibold text-st-ink">Mike Faas</span>, from &ldquo;When Everything Depends on Everything,&rdquo; Triangle InfoSeCon 2026</figcaption>
+                <figcaption class="mt-10 flex items-center gap-x-4">
+                    <span class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-st-indigo text-sm font-semibold text-st-gold">{{ $ft['initials'] }}</span>
+                    <span><span class="block font-semibold text-st-ink">{{ $ft['name'] }}</span><span class="block text-sm text-st-text">{{ $ft['title'] }}</span></span>
+                </figcaption>
             </figure>
         </div>
     </div>
@@ -84,9 +88,9 @@ noindex: true
         <div class="st-fade st-border max-w-2xl pt-12">
             <h2>
                 <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">How companies get stuck</span>
-                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">One missing piece shows up in five places.</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Technology and security don&rsquo;t fail in silos. They fail in cascades.</span>
             </h2>
-            <p class="mt-6 text-xl text-st-text">The insurance question is usually an IT question in disguise. Fix the symptoms one at a time and you buy three tools and hire three consultants. Find the missing piece first, and the rest gets easier.</p>
+            <p class="mt-6 text-xl text-st-text">One missing piece shows up in five places. The insurance question is usually an IT question in disguise. Fix the symptoms one at a time and you buy three tools and hire three consultants. Find the missing piece first, and the rest gets easier.</p>
         </div>
         <div class="mt-16 lg:flex lg:items-center lg:justify-between lg:gap-x-16">
             <div class="st-fade mx-auto w-full max-w-md lg:mx-0 lg:w-1/2 lg:max-w-none">
@@ -160,6 +164,31 @@ noindex: true
                 </div>
             @endforeach
         </dl>
+    </div>
+
+    {{-- More testimonials --}}
+    <div class="{{ $c }} mt-24 sm:mt-32">
+        <div class="st-fade st-border max-w-2xl pt-12">
+            <h2>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">What people say</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">What it&rsquo;s like to work with me.</span>
+            </h2>
+        </div>
+        <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            @foreach ($page->testimonials['more'] as $i => $t)
+                <figure class="st-fade relative flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8" style="transition-delay: {{ $i * 80 }}ms">
+                    @if ($t['tag'] !== '')
+                        <span class="absolute top-6 right-6 rounded-full bg-st-gold-tint px-2.5 py-0.5 text-xs font-semibold text-st-gold-ink ring-1 ring-st-gold/40">{{ $t['tag'] }}</span>
+                    @endif
+                    <span aria-hidden="true" class="st-display -mb-4 block text-6xl/none font-semibold text-st-gold">&ldquo;</span>
+                    <blockquote class="mt-4 flex-auto text-base text-st-ink"><p>{{ $t['quote'] }}&rdquo;</p></blockquote>
+                    <figcaption class="mt-6 flex items-center gap-x-4 border-t border-st-ink/10 pt-6">
+                        <span class="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-st-indigo text-xs font-semibold text-st-gold">{{ $t['initials'] }}</span>
+                        <span><span class="block text-sm font-semibold text-st-ink">{{ $t['name'] }}</span><span class="block text-xs text-st-text">{{ $t['title'] }}</span></span>
+                    </figcaption>
+                </figure>
+            @endforeach
+        </div>
     </div>
 
     {{-- FAQ (cream band) --}}
