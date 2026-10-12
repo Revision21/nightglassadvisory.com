@@ -81,7 +81,7 @@ return [
         'featured' => ['initials' => 'JD', 'name' => 'JD Helms', 'title' => 'Technology Executive', 'quote' => 'Mike has the ability to communicate technical concepts to a non-technical audience. When assigned a task, you can trust it will be done with the same level of attention to detail as if you had done it yourself.'],
         'more' => [
             ['initials' => 'JJ', 'name' => 'James L. Jackson', 'title' => 'Cybersecurity Leader', 'tag' => '', 'quote' => 'A key contributor to both strategic direction and client engagement. Exceptional at building authentic, trust-based relationships with customers.'],
-            ['initials' => 'JV', 'name' => 'Jennifer Vosburgh', 'title' => 'B2B Marketing Executive, Tego', 'tag' => 'Colleague', 'quote' => 'A natural problem-solver who remains cool under pressure. A born leader who continuously takes on more responsibility.'],
+            ['initials' => 'JV', 'name' => 'Jennifer Vosburgh', 'title' => 'B2B Marketing Executive, Tego', 'tag' => '', 'quote' => 'A natural problem-solver who remains cool under pressure. A born leader who continuously takes on more responsibility.'],
             ['initials' => 'KS', 'name' => 'Karan Sorensen', 'title' => 'Innovation & Technology Executive', 'tag' => '', 'quote' => 'Strategic leader who builds trust with customers, vendors, and direct reports alike. One of the good guys.'],
         ],
     ],
