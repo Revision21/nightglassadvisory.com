@@ -213,7 +213,7 @@ title:
                         <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Both chairs. One plan.</span>
                     </h2>
                     <p class="mt-6 text-xl text-st-text">I&rsquo;m Mike Faas. Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.</p>
-                    <p class="mt-4 text-base text-st-text">I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000: through acquisitions and finding six-figure savings along the way. CISSP, based in Raleigh.</p>
+                    <p class="mt-4 text-base text-st-text">I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000, through more than one acquisition, finding six-figure savings along the way. CISSP, based in Raleigh.</p>
                 </div>
                 <dl class="mt-16 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2">
                     @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in']] as [$v, $l])
