@@ -88,14 +88,15 @@ return [
          'challenge' => 'No security program, thin validation documentation, outdated servers, and a critical per-seat analysis tool whose licenses had drifted away from who actually used it.',
          'outcome' => 'Security program built from the ground up. An access review turned license sprawl into savings. At acquisition, the buyer called IT and security one of the easiest they\'d ever done.',
          'stats' => [['0&rarr;1', 'security program'], ['1', 'easy acquisition'], ['$500K', 'saved per year']]],
+        // Echo client work (Mike 10/12), not Crayon/SWO: no §10 question. Savings were real but fuzzy, so no number. Replaced the 893-user ecommerce migration (enterprise IT-project shape).
+        ['sector' => 'Engineering services &middot; professional firm', 'title' => 'Engineering Firm', 'tags' => ['50 users', 'Google Workspace → Microsoft 365', 'Security-first'],
+         'challenge' => 'The security controls the firm needed weren\'t in place, and its collaboration tools didn\'t fit how the team actually worked.',
+         'outcome' => 'Moved all 50 users to Microsoft 365 with MFA, Conditional Access and Defender on from day one. Tools matched to the work, a lower monthly bill, and nobody lost a day.',
+         'stats' => [['50', 'users moved'], ['3', 'controls on day one'], ['0', 'downtime']]],
         ['sector' => 'National retail chain &middot; brick-and-mortar', 'title' => 'Fortune 500 Retailer', 'tags' => ['5,000+ employees', 'Hundreds of locations', 'Edge POS'],
          'challenge' => 'Security enforcement was nonexistent at the edge. POS systems across stores required manual intervention with no centralized governance.',
          'outcome' => 'Cloud-native device governance framework. Enforceable, auditable security posture for the first time.',
          'stats' => [['15', 'policies migrated'], ['4', 'platforms automated'], ['0', 'store outages']]],
-        ['sector' => 'DTC ecommerce &middot; rapid scale', 'title' => 'High-Growth Ecommerce Brand', 'tags' => ['900+ users', '32TB data', '40 sites'],
-         'challenge' => 'Outgrew their collaboration platform but couldn\'t afford downtime during a migration touching every employee and every business-critical site.',
-         'outcome' => 'Zero-disruption platform migration. Identity sync, policy-driven device reconfiguration, legacy infrastructure eliminated.',
-         'stats' => [['893', 'active users moved'], ['1,200+', 'accounts archived'], ['0', 'downtime']]],
     ],
 
     // Questions 1-5: verbatim from the CTOx referral one-pager, "Questions to ask me" (2026-09-14).
