@@ -292,3 +292,12 @@
 
 /* On the white Studio page, the shared paperwork cards use cream so they read as paper. */
 .st-body { --sp-paper: #f7f6f2; --sp-line: #e6e1d3; --sp-raise: #efece3; }
+/* Studio color pass (2026-10-12, Mike: "we need more color"). Tints of the two P7 hues. */
+@theme inline {
+    --color-st-indigo-tint: #eceef7;   /* light indigo band */
+    --color-st-gold-tint: #f7efd9;     /* warm gold band */
+    --color-st-indigo: #3b3f63;        /* P7 ink, as a surface */
+}
+.st-mark { background: linear-gradient(transparent 60%, rgb(214 189 122 / 0.55) 60%, rgb(214 189 122 / 0.55) 92%, transparent 92%); padding: 0 0.08em; }
+.st-eyebrow::before { content: ''; display: inline-block; width: 0.5rem; height: 0.5rem; margin-right: 0.6rem; border-radius: 9999px; background: var(--color-st-gold); vertical-align: 0.12em; }
+.st-border-left.st-gold-tick::before { background: var(--color-st-gold); height: 2rem; width: 2px; }

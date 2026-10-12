@@ -26,7 +26,7 @@ noindex: true
     {{-- Hero --}}
     <div class="{{ $c }} mt-24 sm:mt-32 md:mt-48">
         <div class="st-fade max-w-3xl">
-            <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl">Fractional CTO and CISO for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
+            <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl">Fractional <span class="st-mark">CTO and CISO</span> for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
             <p class="mt-6 text-xl text-st-text">{{ $page->tagline }}</p>
         </div>
     </div>
@@ -38,9 +38,9 @@ noindex: true
 
     {{-- Case-study cards -> founder situations --}}
     <div id="why" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
-        <div class="st-fade max-w-2xl">
+        <div class="st-fade st-border max-w-2xl pt-12">
             <h2>
-                <span class="st-display mb-6 block text-base font-semibold text-st-ink">When founders call</span>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">When founders call</span>
                 <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">It usually starts with a question nobody inside can answer.</span>
             </h2>
             <p class="mt-6 text-xl text-st-text">And it&rsquo;s attached to money: a deal, a contract, a renewal or a hire. Half are technology. Half are security. Most are both.</p>
@@ -49,14 +49,14 @@ noindex: true
     <div class="{{ $c }} mt-16">
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
             @foreach ($page->triggers as $i => $t)
-                <article class="st-fade relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 3) * 80 }}ms">
+                <article class="st-fade relative flex w-full flex-col rounded-3xl p-6 bg-white shadow-sm ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 3) * 80 }}ms">
                     <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="{{ $t['title'] }}: book a call"></a>
-                    <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-st-wash ring-1 ring-st-ink/10">
-                        @include('_partials.icon', ['name' => $t['icon'], 'class' => 'h-6 w-6 text-st-gold-ink'])
+                    <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-st-indigo shadow-sm">
+                        @include('_partials.icon', ['name' => $t['icon'], 'class' => 'h-6 w-6 text-st-gold'])
                     </span>
-                    <p class="mt-6 flex gap-x-2 text-sm text-st-ink">
-                        <span class="font-semibold">{{ $badge($t['role']) }}</span>
-                        <span class="text-st-muted" aria-hidden="true">/</span>
+                    @php $rolePill = ['cto' => 'bg-st-indigo text-white', 'ciso' => 'bg-st-gold text-st-ink', 'both' => 'bg-st-indigo text-st-gold ring-2 ring-st-gold'][$t['role']]; @endphp
+                    <p class="mt-6 flex items-center gap-x-3 text-sm text-st-text">
+                        <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $rolePill }}">{{ $badge($t['role']) }}</span>
                         <span>Situation</span>
                     </p>
                     <p class="st-display mt-6 text-2xl font-semibold text-st-ink">{{ $t['title'] }}</p>
@@ -67,12 +67,12 @@ noindex: true
     </div>
 
     {{-- Testimonial band -> the thesis, as a pull quote --}}
-    <div class="relative isolate mt-24 bg-st-wash py-16 sm:mt-32 sm:py-28 md:py-32 lg:mt-40">
-        @include('_partials.studio-grid', ['id' => 'st-grid-quote', 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-ink/[0.04] stroke-st-ink/10'])
+    <div class="relative isolate mt-24 bg-st-gold-tint py-16 sm:mt-32 sm:py-28 md:py-32 lg:mt-40">
+        @include('_partials.studio-grid', ['id' => 'st-grid-quote', 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-gold/25 stroke-st-gold-ink/15'])
         <div class="{{ $c }}">
             <figure class="st-fade mx-auto max-w-4xl">
                 <blockquote class="st-display relative text-3xl font-medium tracking-tight text-st-ink sm:text-4xl">
-                    <p class="before:content-['\201C'] after:content-['\201D'] sm:before:absolute sm:before:right-full">Technology and security don&rsquo;t fail in silos. They fail in cascades.</p>
+                    <p class="before:text-st-gold-ink before:content-['\201C'] after:text-st-gold-ink after:content-['\201D'] sm:before:absolute sm:before:right-full">Technology and security don&rsquo;t fail in silos. They fail in cascades.</p>
                 </blockquote>
                 <figcaption class="mt-10 text-sm text-st-text"><span class="font-semibold text-st-ink">Mike Faas</span>, from &ldquo;When Everything Depends on Everything,&rdquo; Triangle InfoSeCon 2026</figcaption>
             </figure>
@@ -81,9 +81,9 @@ noindex: true
 
     {{-- Services -> how it fails (diagram) --}}
     <div class="{{ $c }} mt-24 sm:mt-32 lg:mt-40">
-        <div class="st-fade max-w-2xl">
+        <div class="st-fade st-border max-w-2xl pt-12">
             <h2>
-                <span class="st-display mb-6 block text-base font-semibold text-st-ink">How companies get stuck</span>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">How companies get stuck</span>
                 <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">One missing piece shows up in five places.</span>
             </h2>
             <p class="mt-6 text-xl text-st-text">The insurance question is usually an IT question in disguise. Fix the symptoms one at a time and you buy three tools and hire three consultants. Find the missing piece first, and the rest gets easier.</p>
@@ -107,11 +107,12 @@ noindex: true
         </div>
     </div>
 
-    {{-- Services with the stylized image -> The Diagnostic --}}
-    <div id="diagnostic" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
+    {{-- Services with the stylized image -> The Diagnostic (indigo-tint band) --}}
+    <section class="mt-24 border-y border-st-indigo/10 bg-st-indigo-tint py-24 sm:mt-32 sm:py-32 lg:mt-40">
+    <div id="diagnostic" class="{{ $c }} scroll-mt-12">
         <div class="st-fade max-w-2xl">
             <h2>
-                <span class="st-display mb-6 block text-base font-semibold text-st-ink">{{ $page->diagnostic['name'] }}</span>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">{{ $page->diagnostic['name'] }}</span>
                 <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Three weeks. Fixed price. A clear answer.</span>
             </h2>
             <p class="mt-6 text-xl text-st-text">Start with the question that&rsquo;s keeping you up, technology or security. Leave with the answer, and a plan for everything it touches.</p>
@@ -139,12 +140,13 @@ noindex: true
             </ul>
         </div>
     </div>
+    </section>
 
     {{-- About: stats (Studio's StatList) --}}
     <div id="about" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
-        <div class="st-fade max-w-2xl">
+        <div class="st-fade st-border max-w-2xl pt-12">
             <h2>
-                <span class="st-display mb-6 block text-base font-semibold text-st-ink">About</span>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">About</span>
                 <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Both chairs. One plan.</span>
             </h2>
             <p class="mt-6 text-xl text-st-text">I&rsquo;m Mike Faas. Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.</p>
@@ -152,7 +154,7 @@ noindex: true
         </div>
         <dl class="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in'], ['Up to 30', 'people on teams I&rsquo;ve built'], ['CISSP', 'certified security professional']] as [$v, $l])
-                <div class="st-fade st-border-left flex flex-col-reverse pl-8">
+                <div class="st-fade st-border-left st-gold-tick flex flex-col-reverse pl-8">
                     <dt class="mt-2 text-base text-st-text">{!! $l !!}</dt>
                     <dd class="st-display text-3xl font-semibold text-st-ink sm:text-4xl">{{ $v }}</dd>
                 </div>
@@ -160,8 +162,9 @@ noindex: true
         </dl>
     </div>
 
-    {{-- FAQ --}}
-    <div id="faq" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
+    {{-- FAQ (cream band) --}}
+    <section class="mt-24 border-y border-st-ink/5 bg-st-wash py-24 sm:mt-32 sm:py-32 lg:mt-40">
+    <div id="faq" class="{{ $c }} scroll-mt-12">
         <div class="st-fade max-w-2xl">
             <h2 class="st-display text-4xl font-medium tracking-tight text-st-ink sm:text-5xl">Questions founders ask</h2>
         </div>
@@ -184,10 +187,12 @@ noindex: true
             @endforeach
         </dl>
     </div>
+    </section>
 
     {{-- Contact panel --}}
     <div class="{{ $c }} mt-24 sm:mt-32 lg:mt-40">
-        <div class="st-fade -mx-6 rounded-4xl bg-st-panel px-6 py-20 sm:mx-0 sm:py-32 md:px-12">
+        <div class="st-fade relative isolate -mx-6 overflow-hidden rounded-4xl bg-st-panel px-6 py-20 sm:mx-0 sm:py-32 md:px-12">
+            @include('_partials.studio-grid', ['id' => 'st-grid-cta', 'y' => -64, 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_top_left,white_35%,transparent_70%)] fill-st-gold/10 stroke-st-gold/15'])
             <div class="mx-auto max-w-4xl">
                 <div class="max-w-xl">
                     <h2 class="st-display text-3xl font-medium text-balance text-white sm:text-4xl">Got a question nobody inside can answer?</h2>
