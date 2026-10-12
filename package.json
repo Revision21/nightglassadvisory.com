@@ -1,0 +1,25 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "watch": "vite",
+        "build": "vite build",
+        "prod": "vite build",
+        "local:composer": "podman run --rm -v \"$PWD\":/app:Z -w /app docker.io/library/composer:2 composer install --no-interaction",
+        "local:prod": "PATH=\"$PWD/bin:$PATH\" vite build"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4.2.2",
+        "@tighten/jigsaw-vite-plugin": "^1.0.0",
+        "autoprefixer": "^10.4.13",
+        "postcss": "^8.5.15",
+        "postcss-import": "^14.0.2",
+        "tailwindcss": "^4.2.2",
+        "vite": "^6.0.0"
+    },
+    "dependencies": {
+        "@tailwindplus/elements": "^1.0.0",
+        "heroicons": "^2.2.0"
+    }
+}

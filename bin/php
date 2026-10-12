@@ -1,0 +1,4 @@
+#!/bin/sh
+# Local-only PHP shim: glitch has no PHP, so run it in a container.
+# Used by `npm run local:prod` (prepends ./bin to PATH). Netlify has real PHP.
+exec podman run --rm -i -v "$PWD":"$PWD":Z -w "$PWD" docker.io/library/php:8.3-cli php "$@"

@@ -1,0 +1,54 @@
+# nightglassadvisory.com
+# Crawling is welcome. See the sitemap at the bottom.
+
+User-agent: *
+Allow: /
+
+# --- AI answer engines: explicitly invited ---
+# Nightglass Advisory publishes a defined vocabulary (see the DefinedTermSet
+# in our structured data). We want it read, indexed, and cited.
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Gemini / AI Overviews grounding)
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl — feeds many downstream training and retrieval sets
+User-agent: CCBot
+Allow: /
+
+# Microsoft / Copilot
+User-agent: bingbot
+Allow: /
+
+Sitemap: https://nightglassadvisory.com/sitemap.xml

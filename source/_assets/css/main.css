@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@source "../../**/*.blade.php";
+
+/*
+ * Palette: P7 Twilight (projects/new-practice/logo, build_palettes.py).
+ * Brand ink #3b3f63 = night-600, star-gold #d6bd7a = star-400, deep gold #7d6730 = star-700.
+ * NOT locked yet. Every color on the site comes from these two ramps, so a
+ * palette change is an edit here and nowhere else.
+ */
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    --color-night-50: #f7f6f2;
+    --color-night-100: #e7e7f0;
+    --color-night-200: #d0d1e3;
+    --color-night-300: #aeb0cc;
+    --color-night-400: #8285aa;
+    --color-night-500: #5c6088;
+    --color-night-600: #3b3f63;
+    --color-night-700: #2d3050;
+    --color-night-800: #1f2139;
+    --color-night-900: #151729;
+    --color-night-950: #0c0d1a;
+
+    --color-star-200: #efe3c2;
+    --color-star-300: #e4d19f;
+    --color-star-400: #d6bd7a;
+    --color-star-500: #c3a55c;
+    --color-star-600: #a78a45;
+    --color-star-700: #7d6730;
+}
+
+@layer base {
+    html {
+        scroll-padding-top: 5rem;
+    }
+
+    body {
+        @apply bg-night-950 text-night-200 antialiased;
+    }
+
+    ::selection {
+        @apply bg-star-400 text-night-950;
+    }
+}
