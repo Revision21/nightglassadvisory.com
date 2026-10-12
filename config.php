@@ -15,10 +15,8 @@ return [
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
 
-    // DECISION (Mike): booking. Interim = email. Options: embed a GHL calendar
-    // here (new neutral calendar, or the existing Strategy Session one once
-    // BR #226 'You're booked' workflow is fixed).
-    'bookingUrl' => 'mailto:mike@nightglassadvisory.com?subject=Security%20question',
+    // Commercial lane (Mike, 2026-10-12): every booking CTA goes to /schedule.
+    'bookingUrl' => '/schedule',
 
     // The declaration (locked 2026-10-09). Every headline starts from this.
     'declaration' => 'I help founder-led companies between $2.5M and $25M get through their first security questionnaire, SOC 2 ask or insurance renewal in three weeks, without hiring a full-time security exec.',

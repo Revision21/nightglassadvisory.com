@@ -2,10 +2,10 @@
 <footer class="bg-night-950 border-t border-white/5">
     <div class="mx-auto max-w-7xl overflow-hidden px-6 py-16 sm:py-20 lg:px-8">
         <nav aria-label="Footer" class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6">
-            <a href="#cascade" class="text-night-400 hover:text-white">Why</a>
-            <a href="#diagnostic" class="text-night-400 hover:text-white">The Diagnostic</a>
-            <a href="#about" class="text-night-400 hover:text-white">About</a>
-            <a href="#faq" class="text-night-400 hover:text-white">FAQ</a>
+            <a href="/#cascade" class="text-night-400 hover:text-white">Why</a>
+            <a href="/#diagnostic" class="text-night-400 hover:text-white">The Diagnostic</a>
+            <a href="/#about" class="text-night-400 hover:text-white">About</a>
+            <a href="/#faq" class="text-night-400 hover:text-white">FAQ</a>
         </nav>
         <div class="mt-12 flex justify-center gap-x-10">
             <a href="{{ $page->linkedin }}" class="text-night-400 hover:text-white">
