@@ -27,7 +27,8 @@ return [
     'bookingUrl' => '/schedule',
 
     // Hero line (2026-10-12, Mike: "I need both CTO and CISO"). Balanced on purpose.
-    'tagline' => 'I\'m a fractional CTO and CISO for founder-led companies between $2.5M and $25M. I help you decide what to build, buy and stop, get through the security questionnaire or insurance renewal in front of you, and work out who to hire next, without a full-time executive.',
+    // Hero lede, cut 55 -> 27 words (review 10/12). H1 already says 'fractional CTO and CISO' and 'founder-led'.
+    'tagline' => 'For companies between $2.5M and $25M: I help you decide what to build, buy and stop, and answer the security questions holding up your deals and renewals.',
 
     // The declaration (locked 2026-10-09) is security-only. Kept for reference;
     // the site no longer leads with it. Revisit with Mike.

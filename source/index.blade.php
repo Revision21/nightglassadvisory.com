@@ -21,11 +21,21 @@ title:
 
 @section('body')
 
-    {{-- Hero --}}
-    <div class="{{ $c }} mt-24 sm:mt-32 md:mt-48">
-        <div class="st-fade max-w-3xl">
-            <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl">Fractional <span class="st-mark">CTO and CISO</span> for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
-            <p class="mt-6 text-xl text-st-text">{{ $page->tagline }}</p>
+    {{-- Hero: text + CTAs left, Mike right (review 10/12: the person is the product; photo moved up from The Diagnostic). --}}
+    <div class="{{ $c }} mt-16 sm:mt-24 md:mt-32">
+        <div class="lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-12">
+            <div class="st-fade lg:col-span-7">
+                <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl lg:text-6xl xl:text-7xl">Fractional <span class="st-mark">CTO and CISO</span> for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
+                <p class="mt-6 max-w-2xl text-xl text-st-text">{{ $page->tagline }}</p>
+                <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+                    <a href="{{ $page->bookingUrl }}" class="inline-flex rounded-full bg-st-ink px-5 py-2.5 text-base font-semibold text-st-page transition hover:bg-st-panel-2"><span class="relative top-px">Book a 30-minute call</span></a>
+                    <a href="#diagnostic" class="text-base font-semibold text-st-ink transition hover:text-st-gold-ink">How the diagnostic works <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+            <figure class="st-fade mx-auto mt-16 w-full max-w-xs sm:max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
+                @include('_partials.studio-image', ['src' => '/assets/img/mike-faas.jpg'])
+                <figcaption class="mt-4 text-sm text-st-text"><strong class="font-semibold text-st-ink">Mike Faas</strong> &middot; Raleigh, North Carolina</figcaption>
+            </figure>
         </div>
     </div>
 
@@ -157,10 +167,19 @@ title:
         </div>
     </div>
     <div class="{{ $c }} mt-16">
-        <div class="lg:flex lg:items-center lg:justify-end">
-            <div class="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-                <div class="st-fade w-full max-w-[33rem] flex-none lg:max-w-[40rem]">
-                    @include('_partials.studio-image', ['src' => '/assets/img/mike-faas.jpg'])
+        <div class="lg:flex lg:items-start lg:justify-end">
+            {{-- What the $7,500 buys (config 'included'; also in the Service schema). Took the photo's place 10/12. --}}
+            <div class="lg:sticky lg:top-12 lg:w-1/2 lg:self-start lg:pr-16">
+                <div class="st-fade rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-10">
+                    <h3 class="st-display text-xl font-semibold text-st-ink">What&rsquo;s included</h3>
+                    <ul role="list" class="mt-6 space-y-4 text-base text-st-text">
+                        @foreach ($page->included as $item)
+                            <li class="flex gap-x-3">
+                                @include('_partials.icon', ['name' => 'check-circle', 'class' => 'mt-0.5 h-6 w-6 flex-none text-st-gold-ink'])
+                                <span>{{ $item }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
             <ul role="list" class="mt-16 text-base text-st-text lg:mt-0 lg:w-1/2 lg:pl-4">
@@ -180,20 +199,6 @@ title:
                         <div class="mt-6"><a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-ink text-st-page hover:bg-st-panel-2"><span class="relative top-px">Start with a 30-minute call</span></a></div>
                     </div>
                 </li>
-            </ul>
-        </div>
-    </div>
-    {{-- What the $7,500 buys (config 'included'; also in the Service schema). --}}
-    <div class="{{ $c }} mt-16 sm:mt-20">
-        <div class="st-fade rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-10">
-            <h3 class="st-display text-xl font-semibold text-st-ink">What&rsquo;s included</h3>
-            <ul role="list" class="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 text-base text-st-text sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($page->included as $item)
-                    <li class="flex gap-x-3">
-                        @include('_partials.icon', ['name' => 'check-circle', 'class' => 'mt-0.5 h-6 w-6 flex-none text-st-gold-ink'])
-                        <span>{{ $item }}</span>
-                    </li>
-                @endforeach
             </ul>
         </div>
     </div>
