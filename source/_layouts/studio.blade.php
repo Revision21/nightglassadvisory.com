@@ -72,7 +72,6 @@
             <a href="{{ $home ?: '/' }}" class="st-display text-base font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span> Advisory</a>
             <nav class="flex gap-x-6 text-sm font-semibold text-st-ink" aria-label="Footer">
                 <a href="{{ $page->bookingUrl }}" class="hover:text-st-gold-ink">Book a call</a>
-                <a href="/contact" class="hover:text-st-gold-ink">Contact</a>
                 <a href="{{ $page->linkedin }}" class="hover:text-st-gold-ink">LinkedIn</a>
             </nav>
             {{-- DECISION (Mike): legal line. DBA/rename isn't filed until build step 5. --}}
