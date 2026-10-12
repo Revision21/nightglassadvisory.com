@@ -14,6 +14,8 @@ return [
     'siteAuthor' => 'Mike Faas',
     // 'dark' or 'light' (P7 Twilight on cream). Preview the other with ?theme=light.
     'theme' => 'dark',
+    // Decorative starfield behind the hero and /schedule. Off (Mike, 2026-10-12).
+    'stars' => false,
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
 
