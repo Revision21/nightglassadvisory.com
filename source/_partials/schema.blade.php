@@ -11,7 +11,7 @@
             'description' => $page->siteDescription,
             'logo' => $base . '/assets/brand/icon-512.png',
             'image' => $base . '/assets/brand/og-image.png',
-            'slogan' => 'Security doesn\'t fail in silos. It fails in cascades.',
+            'slogan' => 'Technology and security don\'t fail in silos. They fail in cascades.',
             'email' => $page->email,
             'founder' => ['@id' => $base . '/#mike-faas'],
             'areaServed' => ['@type' => 'Country', 'name' => 'United States'],
