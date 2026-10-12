@@ -223,11 +223,11 @@ title:
     <div class="{{ $c }} mt-24 sm:mt-32">
         <div class="st-fade st-border max-w-2xl pt-12">
             <h2>
-                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">What people say</span>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">From people who&rsquo;ve worked with me</span>
                 <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">What it&rsquo;s like to work with me.</span>
             </h2>
         </div>
-        <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div class="mt-12 grid grid-cols-1 gap-8 {{ count($page->testimonials['more']) === 2 ? 'max-w-5xl md:grid-cols-2' : 'lg:grid-cols-3' }}">
             @foreach ($page->testimonials['more'] as $i => $t)
                 <figure class="st-fade relative flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8" style="transition-delay: {{ $i * 80 }}ms">
                     @if ($t['tag'] !== '')
