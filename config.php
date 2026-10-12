@@ -16,6 +16,8 @@ return [
     'theme' => 'dark',
     // Decorative starfield behind the hero and /schedule. Off (Mike, 2026-10-12).
     'stars' => false,
+    // Hero variant: 'lens' (option B, the night glass) or 'portrait' (option A).
+    'hero' => 'portrait',
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
 
