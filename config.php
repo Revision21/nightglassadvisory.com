@@ -30,9 +30,8 @@ return [
     // Hero lede, cut 55 -> 27 words (review 10/12). H1 already says 'fractional CTO and CISO' and 'founder-led'.
     'tagline' => 'For companies between $2.5M and $25M: I help you decide what to build, buy and stop, and answer the security questions holding up your deals and renewals.',
 
-    // The declaration (locked 2026-10-09) is security-only. Kept for reference;
-    // the site no longer leads with it. Revisit with Mike.
-    'declaration' => 'I help founder-led companies between $2.5M and $25M get through their first security questionnaire, SOC 2 ask or insurance renewal in three weeks, without hiring a full-time security exec.',
+    // The declaration (Mike, 2026-10-12, option A): CTO + CISO balanced. Not rendered on the page; the source line for outreach and bios.
+    'declaration' => 'I help founder-led companies between $2.5M and $25M answer the technology and security questions they can\'t answer in-house, in three weeks, without hiring a full-time CTO or CISO.',
 
     'diagnostic' => [
         'name' => 'The Diagnostic',
