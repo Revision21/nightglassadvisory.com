@@ -70,6 +70,11 @@
     <footer class="mx-auto mt-24 w-full max-w-7xl px-6 pb-16 sm:mt-32 lg:mt-40 lg:px-8">
         <div class="st-border flex flex-col items-start justify-between gap-6 pt-12 sm:flex-row sm:items-center">
             <a href="{{ $home ?: '/' }}" class="st-display text-base font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span> Advisory</a>
+            <nav class="flex gap-x-6 text-sm font-semibold text-st-ink" aria-label="Footer">
+                <a href="{{ $page->bookingUrl }}" class="hover:text-st-gold-ink">Book a call</a>
+                <a href="/contact" class="hover:text-st-gold-ink">Contact</a>
+                <a href="{{ $page->linkedin }}" class="hover:text-st-gold-ink">LinkedIn</a>
+            </nav>
             {{-- DECISION (Mike): legal line. DBA/rename isn't filed until build step 5. --}}
             <p class="text-sm text-st-text">&copy; {{ date('Y') }} Nightglass Advisory. Raleigh, North Carolina.</p>
         </div>
