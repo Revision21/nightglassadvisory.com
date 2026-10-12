@@ -45,3 +45,56 @@
         @apply bg-star-400 text-night-950;
     }
 }
+
+/*
+ * Starfield dots read this, so they work on both grounds.
+ */
+:root {
+    --ng-star: #efe3c2;
+}
+
+/*
+ * LIGHT THEME: P7 Twilight exactly as the palette sheet shows it.
+ * Ground = cream #f7f6f2, ink = indigo #3b3f63, accent text = deep gold #7d6730,
+ * accent fill = star-gold #d6bd7a. Implemented by re-pointing the same tokens
+ * the dark theme uses, so the markup is identical. Unlayered on purpose: it
+ * must beat Tailwind's @layer theme defaults.
+ */
+[data-theme="light"] {
+    --ng-star: #3b3f63;
+
+    /* grounds (dark ramp inverted onto cream) */
+    --color-night-950: #f7f6f2;
+    --color-night-900: #efede5;
+    --color-night-800: #e7e3d8;
+    --color-night-700: #dad6ca;
+    --color-night-500: #8a8db0;
+
+    /* text: headings and body in the P7 ink */
+    --color-white: #3b3f63;
+    --color-night-200: #3b3f63;
+    --color-night-300: #50547a;
+    --color-night-400: #6d7091;
+
+    /* accent: deep gold for text, icons and buttons (contrast on cream) */
+    --color-star-300: #6a5727;
+    --color-star-400: #7d6730;
+}
+
+[data-theme="light"] ::selection {
+    background-color: #d6bd7a;
+    color: #3b3f63;
+}
+
+/* Light theme: primary buttons are P7 ink on cream (gold stays an accent). */
+[data-theme="light"] .ng-btn {
+    background-color: #3b3f63;
+    color: #f7f6f2;
+}
+[data-theme="light"] .ng-btn:hover {
+    background-color: #2d3050;
+}
+/* The closing panel's gold/indigo glow muddies on cream; keep it a whisper. */
+[data-theme="light"] .ng-glow {
+    opacity: 0.3;
+}

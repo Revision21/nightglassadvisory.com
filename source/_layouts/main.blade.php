@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-night-950">
+<html lang="en" class="scroll-smooth bg-night-950" data-theme="{{ $page->theme ?? 'dark' }}">
 
 <head>
     <meta charset="utf-8">
@@ -17,6 +17,9 @@
     <meta property="og:url" content="{{ $page->getUrl() }}">
     <meta property="og:description" content="{{ $page->description ?? $page->siteDescription }}">
     <meta name="twitter:card" content="summary">
+
+    {{-- Preview only: ?theme=light|dark overrides the configured theme. --}}
+    <script>(function(){var t=new URLSearchParams(location.search).get('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}})();</script>
 
     @include('_partials.schema')
 

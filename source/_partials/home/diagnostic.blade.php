@@ -48,7 +48,7 @@
                             <span class="font-display text-5xl font-semibold tracking-tight text-white">{{ $page->diagnostic['priceLabel'] }}</span>
                             <span class="text-sm/6 font-semibold tracking-wide text-night-400">USD, fixed</span>
                         </p>
-                        <a href="{{ $page->bookingUrl }}" class="mt-10 block w-full rounded-md bg-star-400 px-3 py-2 text-center text-sm font-semibold text-night-950 hover:bg-star-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-star-400">Start with a 30-minute call</a>
+                        <a href="{{ $page->bookingUrl }}" class="ng-btn mt-10 block w-full rounded-md bg-star-400 px-3 py-2 text-center text-sm font-semibold text-night-950 hover:bg-star-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-star-400">Start with a 30-minute call</a>
                         <p class="mt-6 text-xs/5 text-night-400">The call is free. If the diagnostic isn&rsquo;t the right fit, I&rsquo;ll tell you, and point you to who is.</p>
                     </div>
                 </div>

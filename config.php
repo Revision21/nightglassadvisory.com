@@ -12,6 +12,8 @@ return [
     'siteName' => 'Nightglass Advisory',
     'siteDescription' => 'Fractional CTO and CISO for founder-led companies between $2.5M and $25M. Get through your first security questionnaire, SOC 2 ask or insurance renewal in three weeks, without hiring a full-time security exec.',
     'siteAuthor' => 'Mike Faas',
+    // 'dark' or 'light' (P7 Twilight on cream). Preview the other with ?theme=light.
+    'theme' => 'dark',
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
 

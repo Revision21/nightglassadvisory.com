@@ -25,7 +25,7 @@ description: Book a free 30-minute call with Mike Faas about the security questi
             <div class="mx-auto max-w-5xl px-4">
                 <iframe src="https://apicrm.ctox.com/widget/booking/KjGTZUQdoqLZpU5NtmNL"
                     style="width: 100%; min-height: 800px; border: none; overflow: hidden;" scrolling="no"
-                    id="ng-schedule-calendar" title="Book a 30-minute call with Mike Faas" class="rounded-2xl bg-white"></iframe>
+                    id="ng-schedule-calendar" title="Book a 30-minute call with Mike Faas" class="rounded-2xl bg-night-50"></iframe>
                 <p class="mt-8 text-center text-sm text-night-400">
                     None of these times work? Email <a href="mailto:{{ $page->email }}" class="font-semibold text-star-400 hover:text-star-300">{{ $page->email }}</a> and we&rsquo;ll find one.
                 </p>
