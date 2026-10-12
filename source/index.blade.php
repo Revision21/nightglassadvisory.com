@@ -116,7 +116,7 @@ title:
                         <span class="ml-3">Track record</span>
                     </h2>
                     <dl class="mt-6 grid grid-cols-2 gap-x-4 gap-y-5">
-                        @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in'], ['Up to 30', 'people on teams I&rsquo;ve built'], ['CISSP', 'certified security professional']] as [$v, $l])
+                        @foreach ([['25 years', 'leading technology and security'], ['50 to 5,000', 'people at the companies I&rsquo;ve led in']] as [$v, $l])
                             <div>
                                 <dd class="font-display text-xl font-semibold tracking-tight text-sp-ink">{{ $v }}</dd>
                                 <dt class="mt-0.5 text-xs text-sp-muted">{!! $l !!}</dt>

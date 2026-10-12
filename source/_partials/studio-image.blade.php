@@ -4,7 +4,7 @@
     <svg viewBox="0 0 655 680" fill="none" class="h-full w-full" aria-hidden="true">
         <g clip-path="url(#{{ $sid }}-clip)">
             <g class="origin-center grayscale transition duration-500 motion-safe:group-hover:scale-105 group-hover:grayscale-0">
-                <image href="{{ $src }}" width="655" height="680" preserveAspectRatio="xMidYMid slice" />
+                <image href="{{ $src }}" width="655" height="680" preserveAspectRatio="xMidYMin slice" />
             </g>
             <use href="#{{ $sid }}-shape" stroke-width="2" class="stroke-st-ink/10" />
         </g>
