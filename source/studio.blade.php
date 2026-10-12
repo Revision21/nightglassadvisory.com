@@ -47,7 +47,7 @@ noindex: true
         </div>
     </div>
     <div class="{{ $c }} mt-16">
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-8 md:auto-rows-fr md:grid-cols-2">
             @foreach ($page->problems as $i => $t)
                 <article class="st-fade relative flex w-full flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 2) * 80 }}ms">
                     <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="Talk it through: book a call"></a>
