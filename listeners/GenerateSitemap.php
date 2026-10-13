@@ -11,6 +11,7 @@ class GenerateSitemap
     protected $exclude = [
         '/assets/*',
         '/robots.txt',
+        '/site.webmanifest',
         '*/favicon.ico',
         '*/404*',
         '/talk*',
