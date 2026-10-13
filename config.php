@@ -35,7 +35,8 @@ return [
 
     'diagnostic' => [
         'name' => 'The Diagnostic',
-        // DECISION (Mike): show the price publicly? Council converged on $7,500 fixed.
+        // DECIDED (Mike 10/12): $7,500 shown publicly. Fixed price only reassures if it's visible. The retainer stays
+        // unpriced (value-priced, per CTOx); the partner sheet stays priceless (partners introduce, the site prices).
         'price' => 7500,
         'priceLabel' => '$7,500',
         'weeks' => 3,
