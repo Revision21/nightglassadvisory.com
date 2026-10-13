@@ -89,6 +89,7 @@
             <nav class="flex gap-x-6 text-sm font-semibold text-st-ink" aria-label="Footer">
                 <a href="{{ $page->bookingUrl }}" class="hover:text-st-gold-ink">Book a call</a>
                 <a href="{{ $page->linkedin }}" class="hover:text-st-gold-ink">LinkedIn</a>
+                <a href="/privacy" class="hover:text-st-gold-ink">Privacy</a>
             </nav>
             {{-- DECISION (Mike): legal line. DBA/rename isn't filed until build step 5. --}}
             <p class="text-sm text-st-text">&copy; {{ date('Y') }} Nightglass Advisory. Raleigh, North Carolina.</p>
