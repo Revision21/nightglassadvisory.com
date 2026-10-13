@@ -20,7 +20,7 @@ return [
 
     // Cloudflare Web Analytics beacon token (public; no cookies). '' = off. Setting it also turns on the
     // analytics line on /privacy, so the policy always matches the site.
-    'cfAnalyticsToken' => '',
+    'cfAnalyticsToken' => 'a9dc7591da6147458f18c4643c4b4486',
 
     // Cloudflare Turnstile site key (public) for the newsletter form. Leave '' until the widget's
     // Hostnames list includes nightglassadvisory.com + nightglassadvisory.netlify.app; then set it
