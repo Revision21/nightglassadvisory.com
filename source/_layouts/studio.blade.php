@@ -1,7 +1,7 @@
 @php
     $home = rtrim($page->homeUrl ?? '/studio', '/');
     $nav = [
-        ['label' => 'Why', 'href' => $home . '/#why'],
+        ['label' => 'Situations', 'href' => $home . '/#why'],
         ['label' => 'Results', 'href' => $home . '/#track-record'],
         ['label' => 'The Diagnostic', 'href' => $home . '/#diagnostic'],
         ['label' => 'About', 'href' => $home . '/#about'],
@@ -55,7 +55,7 @@
                 <div class="flex items-center gap-x-4 sm:gap-x-8">
                     <nav class="hidden items-center gap-x-8 md:flex" aria-label="Main">
                         @foreach ($nav as $item)
-                            <a href="{{ $item['href'] }}" class="text-sm font-semibold text-st-ink transition hover:text-st-gold-ink">{{ $item['label'] }}</a>
+                            <a href="{{ $item['href'] }}" class="st-display text-xs font-semibold tracking-[0.14em] text-st-ink uppercase decoration-st-gold decoration-2 underline-offset-[6px] transition hover:underline">{{ $item['label'] }}</a>
                         @endforeach
                     </nav>
                     <a href="{{ $page->bookingUrl }}" class="inline-flex rounded-full bg-st-ink px-3 py-1.5 text-sm font-semibold whitespace-nowrap text-st-page transition hover:bg-st-panel-2 sm:px-4"><span class="relative top-px">Book a call</span></a>
@@ -66,7 +66,7 @@
                         <el-disclosure id="st-menu" hidden>
                             <nav class="absolute right-0 top-full z-50 mt-4 w-56 rounded-2xl bg-st-page p-2 shadow-xl ring-1 ring-st-ink/10" aria-label="Mobile">
                                 @foreach ($nav as $item)
-                                    <a href="{{ $item['href'] }}" command="--toggle" commandfor="st-menu" class="block rounded-lg px-3 py-2 text-sm font-semibold text-st-ink hover:bg-st-wash">{{ $item['label'] }}</a>
+                                    <a href="{{ $item['href'] }}" command="--toggle" commandfor="st-menu" class="st-display block rounded-lg px-3 py-2 text-xs font-semibold tracking-[0.14em] text-st-ink uppercase decoration-st-gold decoration-2 underline-offset-[6px] hover:bg-st-wash hover:underline">{{ $item['label'] }}</a>
                                 @endforeach
                             </nav>
                         </el-disclosure>
