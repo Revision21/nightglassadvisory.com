@@ -34,6 +34,7 @@
             '@type' => 'Person',
             '@id' => $base . '/#mike-faas',
             'name' => 'Mike Faas',
+            'alternateName' => 'Michael Faas',
             'givenName' => 'Michael',
             'familyName' => 'Faas',
             'jobTitle' => 'Fractional CTO and CISO',
