@@ -1,7 +1,7 @@
 @php
     $home = rtrim($page->homeUrl ?? '/studio', '/');
     $nav = [
-        ['label' => 'Situations', 'href' => $home . '/#why'],
+        ['label' => 'Problems', 'href' => $home . '/#why'],
         ['label' => 'Results', 'href' => $home . '/#track-record'],
         ['label' => 'The Diagnostic', 'href' => $home . '/#diagnostic'],
         ['label' => 'About', 'href' => $home . '/#about'],
