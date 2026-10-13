@@ -289,7 +289,7 @@ title:
             {{-- Two columns on desktop (review #12: the right half was empty): the ask left, direct contact right. --}}
             <div class="mx-auto max-w-5xl lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-16">
                 <div class="lg:col-span-7">
-                    <h2 class="st-display text-3xl font-medium text-balance text-white sm:text-4xl">Got a question nobody inside can answer?</h2>
+                    <h2 class="st-display text-3xl font-medium text-balance text-white sm:text-4xl">Have a question nobody inside can answer?</h2>
                     <p class="mt-4 text-base text-white/70">Thirty minutes is enough to tell whether the Intensive fits. If it&rsquo;s not the right fit, I&rsquo;ll point you to who is.</p>
                     <div class="mt-6 flex">
                         <a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-gold text-st-ink hover:bg-white"><span class="relative top-px">Book a 30-minute call</span></a>
