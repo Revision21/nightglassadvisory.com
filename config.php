@@ -33,6 +33,10 @@ return [
     // The declaration (Mike, 2026-10-12, option A): CTO + CISO balanced. Not rendered on the page; the source line for outreach and bios.
     'declaration' => 'I help founder-led companies between $2.5M and $25M answer the technology and security questions they can\'t answer in-house, in three weeks, without hiring a full-time CTO or CISO.',
 
+    // /infosecon slides gate (Mike 10/12: post AFTER the talk, Fri 10/30 3:35pm). To publish: copy the deck PDF to
+    // source/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf, set true, push.
+    'talkSlidesLive' => false,
+
     'diagnostic' => [
         'name' => 'The Diagnostic',
         // DECIDED (Mike 10/12): $7,500 shown publicly. Fixed price only reassures if it's visible. The retainer stays

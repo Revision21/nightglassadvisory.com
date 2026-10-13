@@ -28,17 +28,25 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
         <div class="st-fade max-w-3xl">
             <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">Triangle InfoSeCon 2026 &middot; Leadership track</span>
             <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-6xl">When everything depends on everything.</h1>
-            <p class="mt-6 text-xl text-st-text">Security doesn&rsquo;t fail in silos. It fails in cascades. Here are the slides, the sources behind every claim, and three things to do Monday morning.</p>
+            <p class="mt-6 text-xl text-st-text">Security doesn&rsquo;t fail in silos. It fails in cascades. {{ $page->talkSlidesLive ? 'Here are the slides' : 'The slides go up here after the talk. For now:' }} the sources behind every claim, and three things to do Monday morning.</p>
             <ul role="list" class="mt-6 flex flex-wrap gap-2">
                 @foreach (['Raleigh Convention Center', 'October 30, 2026', 'Mike Faas'] as $tag)
                     <li class="rounded-full bg-st-indigo-tint px-3 py-1 text-sm font-medium text-st-indigo">{{ $tag }}</li>
                 @endforeach
             </ul>
             <div class="mt-10">
-                <a href="{{ $pdf }}" class="inline-flex items-center gap-x-2 rounded-full bg-st-ink px-5 py-2.5 text-base font-semibold text-st-page transition hover:bg-st-panel-2">
-                    @include('_partials.icon', ['name' => 'arrow-down-tray', 'class' => 'h-5 w-5'])
-                    <span class="relative top-px">Download the slides (PDF, 10 MB)</span>
-                </a>
+                @if ($page->talkSlidesLive)
+                    <a href="{{ $pdf }}" class="inline-flex items-center gap-x-2 rounded-full bg-st-ink px-5 py-2.5 text-base font-semibold text-st-page transition hover:bg-st-panel-2">
+                        @include('_partials.icon', ['name' => 'arrow-down-tray', 'class' => 'h-5 w-5'])
+                        <span class="relative top-px">Download the slides (PDF, 10 MB)</span>
+                    </a>
+                @else
+                    <p class="inline-flex items-center gap-x-3 rounded-full bg-st-wash px-5 py-2.5 text-base font-semibold text-st-ink ring-1 ring-st-ink/10">
+                        @include('_partials.icon', ['name' => 'calendar-days', 'class' => 'h-5 w-5 text-st-gold-ink'])
+                        <span class="relative top-px">Slides posted here after the talk on October 30</span>
+                    </p>
+                    <p class="mt-3 text-sm text-st-text">Subscribe below and you&rsquo;ll get a note when they&rsquo;re up.</p>
+                @endif
             </div>
         </div>
     </div>
