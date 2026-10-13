@@ -50,14 +50,14 @@ title:
                 <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">When founders call</span>
                 <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">It usually starts with a question nobody inside can answer.</span>
             </h2>
-            <p class="mt-6 text-xl text-st-text">And it&rsquo;s attached to money: a deal, a contract, a renewal or a hire. Half are technology. Half are security. Most are both.</p>
+            <p class="mt-6 text-xl text-st-text">And it&rsquo;s attached to money: a deal, a contract, a renewal or a hire. Some start as technology, some as security, and most turn out to be both.</p>
         </div>
     </div>
     <div class="{{ $c }} mt-16">
         <div class="grid grid-cols-1 gap-8 md:auto-rows-fr md:grid-cols-2">
             @foreach ($page->problems as $i => $t)
                 <article class="st-fade relative flex w-full flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 2) * 80 }}ms">
-                    <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="Talk it through: book a call"></a>
+                    <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="Talk it through: {{ $t['text'] }} Book a call."></a>
                     <div class="flex items-center gap-x-4">
                         <span class="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-st-indigo shadow-sm">
                             @include('_partials.icon', ['name' => $t['icon'], 'class' => 'h-6 w-6 text-st-gold'])
@@ -286,20 +286,21 @@ title:
     <div class="{{ $c }} mt-24 sm:mt-32 lg:mt-40">
         <div class="st-fade relative isolate -mx-6 overflow-hidden rounded-4xl bg-st-panel px-6 py-20 sm:mx-0 sm:py-32 md:px-12">
             @include('_partials.studio-grid', ['id' => 'st-grid-cta', 'y' => -64, 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_top_left,white_35%,transparent_70%)] fill-st-gold/10 stroke-st-gold/15'])
-            <div class="mx-auto max-w-4xl">
-                <div class="max-w-xl">
+            {{-- Two columns on desktop (review #12: the right half was empty): the ask left, direct contact right. --}}
+            <div class="mx-auto max-w-5xl lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-16">
+                <div class="lg:col-span-7">
                     <h2 class="st-display text-3xl font-medium text-balance text-white sm:text-4xl">Got a question nobody inside can answer?</h2>
                     <p class="mt-4 text-base text-white/70">Thirty minutes is enough to tell whether the diagnostic fits. If it&rsquo;s not the right fit, I&rsquo;ll point you to who is.</p>
                     <div class="mt-6 flex">
                         <a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-gold text-st-ink hover:bg-white"><span class="relative top-px">Book a 30-minute call</span></a>
                     </div>
-                    <div class="st-border st-border-invert mt-10 pt-10">
-                        <h3 class="st-display text-base font-semibold text-white">Reach me directly</h3>
-                        <ul role="list" class="mt-6 grid grid-cols-1 gap-8 text-sm text-white/70 sm:grid-cols-2">
-                            <li><strong class="block font-semibold text-white">Email</strong><a href="mailto:{{ $page->email }}" class="hover:text-st-gold">{{ $page->email }}</a></li>
-                            <li><strong class="block font-semibold text-white">LinkedIn</strong><a href="{{ $page->linkedin }}" class="hover:text-st-gold">linkedin.com/in/mfaas</a></li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="st-border st-border-invert mt-10 pt-10 lg:col-span-5 lg:mt-0 lg:border-l lg:border-white/10 lg:pt-0 lg:pl-12 lg:before:hidden lg:after:hidden">
+                    <h3 class="st-display text-base font-semibold text-white">Reach me directly</h3>
+                    <ul role="list" class="mt-6 space-y-6 text-sm text-white/70">
+                        <li><strong class="block font-semibold text-white">Email</strong><a href="mailto:{{ $page->email }}" class="hover:text-st-gold">{{ $page->email }}</a></li>
+                        <li><strong class="block font-semibold text-white">LinkedIn</strong><a href="{{ $page->linkedin }}" class="hover:text-st-gold">linkedin.com/in/mfaas</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
