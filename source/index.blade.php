@@ -29,7 +29,7 @@ title:
                 <p class="mt-6 max-w-2xl text-xl text-st-text">{{ $page->tagline }}</p>
                 <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
                     <a href="{{ $page->bookingUrl }}" class="inline-flex rounded-full bg-st-ink px-5 py-2.5 text-base font-semibold text-st-page transition hover:bg-st-panel-2"><span class="relative top-px">Book a 30-minute call</span></a>
-                    <a href="#diagnostic" class="text-base font-semibold text-st-ink transition hover:text-st-gold-ink">How the diagnostic works <span aria-hidden="true">&rarr;</span></a>
+                    <a href="#how-it-works" class="text-base font-semibold text-st-ink transition hover:text-st-gold-ink">How it works <span aria-hidden="true">&rarr;</span></a>
                 </div>
             </div>
             <div class="st-fade mx-auto mt-16 w-full max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
@@ -154,9 +154,9 @@ title:
         </div>
     </section>
 
-    {{-- Services with the stylized image -> The Diagnostic (indigo-tint band) --}}
+    {{-- How it works: The Intensive (indigo-tint band) --}}
     <section class="border-b border-st-indigo/10 bg-st-indigo-tint py-24 sm:py-32">
-    <div id="diagnostic" class="{{ $c }} scroll-mt-12">
+    <div id="how-it-works" class="{{ $c }} scroll-mt-12">
         <div class="st-fade max-w-2xl">
             <h2>
                 <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">{{ $page->diagnostic['name'] }}</span>
@@ -290,7 +290,7 @@ title:
             <div class="mx-auto max-w-5xl lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-16">
                 <div class="lg:col-span-7">
                     <h2 class="st-display text-3xl font-medium text-balance text-white sm:text-4xl">Got a question nobody inside can answer?</h2>
-                    <p class="mt-4 text-base text-white/70">Thirty minutes is enough to tell whether the diagnostic fits. If it&rsquo;s not the right fit, I&rsquo;ll point you to who is.</p>
+                    <p class="mt-4 text-base text-white/70">Thirty minutes is enough to tell whether the Intensive fits. If it&rsquo;s not the right fit, I&rsquo;ll point you to who is.</p>
                     <div class="mt-6 flex">
                         <a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-gold text-st-ink hover:bg-white"><span class="relative top-px">Book a 30-minute call</span></a>
                     </div>

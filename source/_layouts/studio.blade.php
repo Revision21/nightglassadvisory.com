@@ -3,7 +3,7 @@
     $nav = [
         ['label' => 'Problems', 'href' => $home . '/#why'],
         ['label' => 'Results', 'href' => $home . '/#track-record'],
-        ['label' => 'The Diagnostic', 'href' => $home . '/#diagnostic'],
+        ['label' => 'How it works', 'href' => $home . '/#how-it-works'],
         ['label' => 'About', 'href' => $home . '/#about'],
         ['label' => 'FAQ', 'href' => $home . '/#faq'],
     ];

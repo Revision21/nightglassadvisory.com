@@ -41,8 +41,10 @@ return [
     // source/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf, set true, push.
     'talkSlidesLive' => false,
 
+    // Offer name (Mike 10/12, 'for now'): The Intensive, CTOx's term for the one-time $7.5K-20K gateway slot.
+    // Config key stays 'diagnostic' (internal only); the page anchor is #how-it-works.
     'diagnostic' => [
-        'name' => 'The Diagnostic',
+        'name' => 'The Intensive',
         // DECIDED (Mike 10/12): $7,500 shown publicly. Fixed price only reassures if it's visible. The retainer stays
         // unpriced (value-priced, per CTOx); the partner sheet stays priceless (partners introduce, the site prices).
         'price' => 7500,
