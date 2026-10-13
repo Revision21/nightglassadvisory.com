@@ -130,6 +130,10 @@
         })();
     </script>
     <script type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
+    @if ($page->cfAnalyticsToken)
+        {{-- Cloudflare Web Analytics: cookieless page counts. Disclosed on /privacy. --}}
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ $page->cfAnalyticsToken }}"}'></script>
+    @endif
 </body>
 
 </html>

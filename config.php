@@ -18,6 +18,10 @@ return [
     // Home page path (Studio became the home page 2026-10-12).
     'homeUrl' => '/',
 
+    // Cloudflare Web Analytics beacon token (public; no cookies). '' = off. Setting it also turns on the
+    // analytics line on /privacy, so the policy always matches the site.
+    'cfAnalyticsToken' => '',
+
     // Cloudflare Turnstile site key (public) for the newsletter form. Leave '' until the widget's
     // Hostnames list includes nightglassadvisory.com + nightglassadvisory.netlify.app; then set it
     // (echocyber.io uses 0x4AAAAAADG_poOR76T-jTV5) and set TURNSTILE_SECRET_KEY in Netlify env.

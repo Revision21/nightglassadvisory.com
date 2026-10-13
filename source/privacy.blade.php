@@ -8,7 +8,7 @@ description: What Nightglass Advisory collects when you subscribe, book a call o
     Privacy page (review #11b, drafted by Jane 2026-10-12; Mike to approve; attorney-hour item, not a launch blocker).
     Written to match what the site ACTUALLY does. When something changes, change this page in the same commit:
       - Turnstile turned on (BR #240): add the Cloudflare spam-protection line (marked below).
-      - Analytics added: add the analytics line (marked below). Cloudflare Web Analytics = no cookies.
+      - Analytics: the line renders automatically when config 'cfAnalyticsToken' is set.
       - Legal entity: DBA/rename not filed yet (migration plan step 5). Then name "Revision21, LLC d/b/a Nightglass Advisory".
 --}}
 @php
@@ -55,7 +55,9 @@ description: What Nightglass Advisory collects when you subscribe, book a call o
                 <li><strong class="font-semibold text-st-ink">Google Workspace</strong> handles email and calendar invites.</li>
                 <li><strong class="font-semibold text-st-ink">Netlify</strong> hosts the site and the newsletter form, and keeps standard server logs.</li>
                 {{-- ADD when Turnstile is on (BR #240): <li><strong>Cloudflare</strong> checks that newsletter sign-ups come from a person, not a bot.</li> --}}
-                {{-- ADD when analytics are on: <li><strong>Cloudflare Web Analytics</strong> counts visits without cookies and without tracking you across sites.</li> --}}
+                @if ($page->cfAnalyticsToken)
+                    <li><strong class="font-semibold text-st-ink">Cloudflare Web Analytics</strong> counts page visits without cookies and without following you across other sites.</li>
+                @endif
             </ul>
 
             <h2 class="{{ $h2 }}">What this site doesn&rsquo;t do</h2>
