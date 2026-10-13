@@ -89,6 +89,8 @@ export default async (req, context) => {
   catch { return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers }); }
 
   const { email, source, hp, ts, turnstileToken } = data;
+  // utm_source is client-supplied: accept a short slug only (per-page tags like 'infosecon-2026'), else the default.
+  const src = typeof source === 'string' && /^[a-z0-9.-]{1,64}$/.test(source) ? source : 'nightglassadvisory.com';
 
   // Honeypot — bots fill, humans never see. Pretend success so bots don't learn.
   if (hp) {
@@ -146,7 +148,7 @@ export default async (req, context) => {
           email,
           reactivate_existing: true,
           send_welcome_email: true,
-          utm_source: source || 'nightglassadvisory.com',
+          utm_source: src,
           utm_medium: 'website',
         }),
       }
@@ -159,7 +161,7 @@ export default async (req, context) => {
     }
 
     const turnstileNote = turnstile.skipped ? ' [turnstile-skipped]' : '';
-    console.log(`[subscribe] ${email} subscribed (canonical=${canonical}, source=${source || 'nightglassadvisory.com'})${turnstileNote}`);
+    console.log(`[subscribe] ${email} subscribed (canonical=${canonical}, source=${src})${turnstileNote}`);
     return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
   } catch (err) {
     console.error(`[subscribe] fetch error: ${err.message}`);

@@ -26,3 +26,10 @@ NODE_VERSION = "20"
   for = "/site.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json"
+
+# Echo-era path (echocyber.io/infosecon2026) -> the Nightglass talk page.
+[[redirects]]
+  from = "/infosecon2026"
+  to = "/infosecon"
+  status = 301
+  force = true

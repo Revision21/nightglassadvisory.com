@@ -3,12 +3,18 @@
     Posts to /.netlify/functions/subscribe -> Beehiiv (Signal vs. Noise). Turnstile renders only
     when config 'turnstileSiteKey' is set (the widget must list this site's hostnames in Cloudflare).
 --}}
+@php
+    // Per-page overrides (optional): $nlHeading, $nlBody, $nlSource (utm_source slug, a-z0-9.-).
+    $nlHeading = $nlHeading ?? 'Not ready to talk? Read along.';
+    $nlBody = $nlBody ?? 'One short email every Sunday: the security and technology news worth your attention, and the one question to ask your team about it. No fluff, no vendor hype, no fear-mongering.';
+    $nlSource = $nlSource ?? 'nightglassadvisory.com';
+@endphp
 <section id="newsletter" class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32">
     <div class="st-fade st-border grid grid-cols-1 gap-10 pt-12 lg:grid-cols-12 lg:gap-8">
         <div class="lg:col-span-6">
             <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">Signal vs. Noise</span>
-            <h2 class="st-display text-3xl font-medium tracking-tight text-balance text-st-ink sm:text-4xl">Not ready to talk? Read along.</h2>
-            <p class="mt-4 text-lg text-st-text">One short email every Sunday: the security and technology news worth your attention, and the one question to ask your team about it. No fluff, no vendor hype, no fear-mongering.</p>
+            <h2 class="st-display text-3xl font-medium tracking-tight text-balance text-st-ink sm:text-4xl">{{ $nlHeading }}</h2>
+            <p class="mt-4 text-lg text-st-text">{{ $nlBody }}</p>
         </div>
         <div class="lg:col-span-5 lg:col-start-8 lg:self-end">
             <form id="nl-form" class="flex flex-col gap-3 sm:flex-row" novalidate>
@@ -43,7 +49,7 @@
             if (!form.checkValidity()) { form.reportValidity(); return; }
             btn.disabled = true; btn.firstElementChild.textContent = 'Subscribing...';
             fetch('/.netlify/functions/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email, source: 'nightglassadvisory.com', hp: form.company_website.value, ts: loaded, turnstileToken: token }) })
+                body: JSON.stringify({ email: email, source: @json($nlSource), hp: form.company_website.value, ts: loaded, turnstileToken: token }) })
                 .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
                 .then(function (res) {
                     if (res.ok && res.j.ok) { form.classList.add('hidden'); document.getElementById('nl-thanks').classList.remove('hidden'); var t = document.querySelector('.cf-turnstile'); if (t) t.classList.add('hidden'); }
