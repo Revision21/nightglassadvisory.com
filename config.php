@@ -105,11 +105,14 @@ return [
          'challenge' => 'The security controls the firm needed weren\'t in place, and its collaboration tools didn\'t fit how the team actually worked.',
          'outcome' => 'Moved all 50 users to Microsoft 365 with MFA, Conditional Access and Defender on from day one. Tools matched to the work, a lower monthly bill, and nobody lost a day.',
          'stats' => [['50', 'users moved'], ['3', 'controls on day one'], ['0', 'downtime']]],
-        ['sector' => 'National retail chain &middot; brick-and-mortar', 'title' => 'Fortune 500 Retailer', 'tags' => ['5,000+ employees', 'Hundreds of locations', 'Edge POS'],
-         'challenge' => 'Security enforcement was nonexistent at the edge. POS systems across stores required manual intervention with no centralized governance.',
-         'outcome' => 'Cloud-native device governance framework. Enforceable, auditable security posture for the first time.',
-         'stats' => [['15', 'policies migrated'], ['4', 'platforms automated'], ['0', 'store outages']]],
     ],
+
+    // PULLED 2026-10-13 (Mike): Fortune 500 retailer case, likely Crayon-era work. Off the site until the severance is signed
+    // (by 11/23) and Mike has read his offer-letter confidentiality terms (BR #233). To restore, move back into 'cases':
+    //         ['sector' => 'National retail chain &middot; brick-and-mortar', 'title' => 'Fortune 500 Retailer', 'tags' => ['5,000+ employees', 'Hundreds of locations', 'Edge POS'],
+    //          'challenge' => 'Security enforcement was nonexistent at the edge. POS systems across stores required manual intervention with no centralized governance.',
+    //          'outcome' => 'Cloud-native device governance framework. Enforceable, auditable security posture for the first time.',
+    //          'stats' => [['15', 'policies migrated'], ['4', 'platforms automated'], ['0', 'store outages']]],
 
     // Questions 1, 2, 5: verbatim from the CTOx referral one-pager (3 replaced, 4 reworded 10/12), "Questions to ask me" (2026-09-14).
     // Answers: Jane drafts, REVIEWED AND EDITED BY MIKE one by one 2026-10-12. No em dashes. Feeds the FAQPage schema too.

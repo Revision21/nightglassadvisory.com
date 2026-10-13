@@ -128,7 +128,7 @@ title:
                 <p class="mt-6 text-xl text-st-text">Names withheld. NDAs are a feature, not a limitation.</p>
             </div>
             {{-- Subgrid: all three cards share the same 6 row tracks, so every row lines up across cards. --}}
-            <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-y-0">
+            <div class="mt-16 grid grid-cols-1 gap-8 lg:gap-y-0 {{ count($page->cases) === 2 ? 'max-w-5xl lg:grid-cols-2' : 'lg:grid-cols-3' }}">
                 @foreach ($page->cases as $i => $k)
                     <article class="st-fade flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-8 lg:row-span-6 lg:grid lg:grid-rows-subgrid" style="transition-delay: {{ $i * 80 }}ms">
                         <p class="text-xs font-semibold tracking-wider text-st-gold-ink uppercase">{!! $k['sector'] !!}</p>
