@@ -31,3 +31,10 @@ NODE_VERSION = "20"
   to = "/infosecon"
   status = 301
   force = true
+
+# The old preview hostname -> the real domain (launched 2026-10-14). Deploy previews use other hostnames, unaffected.
+[[redirects]]
+  from = "https://nightglassadvisory.netlify.app/*"
+  to = "https://nightglassadvisory.com/:splat"
+  status = 301
+  force = true
