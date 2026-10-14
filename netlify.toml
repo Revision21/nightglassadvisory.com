@@ -13,8 +13,6 @@ NODE_VERSION = "20"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    # PRE-LAUNCH: keep the *.netlify.app preview out of search. REMOVE at launch (with the custom domain).
-    X-Robots-Tag = "noindex, nofollow"
 
 [[redirects]]
   from = "/studio"
