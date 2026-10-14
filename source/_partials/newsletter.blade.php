@@ -30,7 +30,7 @@
             @endif
             <div id="nl-thanks" class="hidden rounded-2xl bg-st-indigo-tint px-5 py-4 ring-1 ring-st-indigo/10" role="status">
                 <p class="font-semibold text-st-ink">You&rsquo;re in.</p>
-                <p class="mt-1 text-sm text-st-text">Check your inbox to confirm.</p>
+                <p class="mt-1 text-sm text-st-text">A welcome note is on its way. The first issue lands Sunday.</p>
             </div>
             <p id="nl-error" class="mt-3 hidden text-sm text-st-ink" role="alert"></p>
             <p class="mt-4 text-sm text-st-text">Weekly. Unsubscribe anytime. <a href="https://signal.echocyber.io" target="_blank" rel="noopener noreferrer" class="font-semibold text-st-gold-ink hover:text-st-ink">Browse past issues &rarr;</a></p>
