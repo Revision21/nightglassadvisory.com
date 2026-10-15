@@ -38,3 +38,10 @@ NODE_VERSION = "20"
   to = "https://nightglassadvisory.com/:splat"
   status = 301
   force = true
+
+# Podcast (Pulse) smart link, same target as echocyber.io/listen. Used in LinkedIn post footers (10/14).
+[[redirects]]
+  from = "/listen"
+  to = "https://pod.link/1894903133"
+  status = 301
+  force = true
