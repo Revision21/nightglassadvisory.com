@@ -45,3 +45,11 @@ NODE_VERSION = "20"
   to = "https://pod.link/1894903133"
   status = 301
   force = true
+
+# Signal vs. Noise "full edition" link (Mike 2026-10-18: no more echocyber.io in copy).
+# 302 on purpose: when Beehiiv moves to signal.nightglassadvisory.com, only this target changes.
+[[redirects]]
+  from = "/newsletter"
+  to = "https://signal.echocyber.io"
+  status = 302
+  force = true
