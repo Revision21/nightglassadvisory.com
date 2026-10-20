@@ -50,6 +50,6 @@ NODE_VERSION = "20"
 # 302 on purpose: when Beehiiv moves to signal.nightglassadvisory.com, only this target changes.
 [[redirects]]
   from = "/newsletter"
-  to = "https://signal.echocyber.io"
+  to = "https://echocyber.beehiiv.com"
   status = 302
   force = true
