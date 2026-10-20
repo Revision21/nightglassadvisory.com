@@ -52,6 +52,8 @@
                     <img src="/assets/brand/nightglass-mark-header.svg" alt="" class="h-8 w-8 sm:h-9 sm:w-9">
                     <span class="st-display text-[0.95rem] font-semibold tracking-[0.12em] text-st-ink uppercase sm:text-lg sm:tracking-[0.18em]">Night<span class="text-st-gold-ink">glass</span></span>
                 </a>
+                {{-- minimal: true (e.g. /talk) drops the nav and the "Book a call" button, which points at the wrong door. --}}
+                @unless ($page->minimal)
                 <div class="flex items-center gap-x-4 sm:gap-x-8">
                     <nav class="hidden items-center gap-x-8 md:flex" aria-label="Main">
                         @foreach ($nav as $item)
@@ -72,6 +74,7 @@
                         </el-disclosure>
                     </div>
                 </div>
+                @endunless
             </div>
         </div>
     </header>
@@ -87,7 +90,9 @@
                 <span class="st-display text-base font-semibold tracking-[0.18em] text-st-ink uppercase">Night<span class="text-st-gold-ink">glass</span> Advisory</span>
             </a>
             <nav class="flex gap-x-6 text-sm font-semibold text-st-ink" aria-label="Footer">
+                @unless ($page->minimal)
                 <a href="{{ $page->bookingUrl }}" class="hover:text-st-gold-ink">Book a call</a>
+                @endunless
                 <a href="{{ $page->linkedin }}" class="hover:text-st-gold-ink">LinkedIn</a>
                 <a href="/privacy" class="hover:text-st-gold-ink">Privacy</a>
             </nav>
