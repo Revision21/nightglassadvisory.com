@@ -8,7 +8,7 @@
             <img src="/assets/brand/nightglass-mark-header.svg" alt="" class="h-6 w-6">
         </div>
         <p class="mt-4 text-[0.65rem] font-semibold tracking-wider text-st-muted uppercase">The answer</p>
-        <p class="st-display mt-1 text-lg/6 font-semibold text-st-ink">The questionnaire stalls on one gap: <span class="st-mark">nobody owns the backups.</span></p>
+        <p class="st-display mt-1 text-lg/6 font-semibold text-st-ink">The renewal stalls on one gap: <span class="st-mark">nobody owns the backups.</span></p>
         <div class="mt-6 grid grid-cols-3 gap-3 border-y border-st-ink/10 py-4 text-[0.7rem] sm:text-xs">
             @foreach ([['Build', 'Offboarding checklist'], ['Buy', 'Managed backups'], ['Stop', 'Second file-share tool']] as [$k, $v])
                 <div><p class="font-semibold tracking-wider text-st-gold-ink uppercase">{{ $k }}</p><p class="mt-1 text-st-ink">{{ $v }}</p></div>

@@ -48,10 +48,10 @@ title:
         <div class="st-fade st-border max-w-2xl pt-12">
             <h2>
                 <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">When founders call</span>
-                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Your biggest customer sent a 10-page security questionnaire. It&rsquo;s due Friday, and nobody inside can answer it.</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">The one person who knows how everything works just gave notice.</span>
             </h2>
-            {{-- 10/23: '10-page' is Mike's real number (D3), not Abbi's 38 or the Todd-call 28. --}}
-            <p class="mt-6 text-xl text-st-text">Or it&rsquo;s 20 new hires and nobody has decided what they&rsquo;ll run on. Or the one person who knows how everything works just gave notice. Every one is attached to money, and most turn out to be technology and security at once.</p>
+            {{-- 10/23 (Mike): lead with a technology fire, never the questionnaire ("not the questionnaire guy"); it stays as one fire of three. --}}
+            <p class="mt-6 text-xl text-st-text">Or it&rsquo;s 20 new hires and nobody has decided what they&rsquo;ll run on. Or your biggest customer sent a security questionnaire, and the deal is waiting. Every one is attached to money, and most turn out to be technology and security at once.</p>
         </div>
     </div>
     <div class="{{ $c }} mt-16">
