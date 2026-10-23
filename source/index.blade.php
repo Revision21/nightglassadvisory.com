@@ -72,18 +72,17 @@ title:
         </div>
     </div>
 
-    {{-- Testimonial band: featured quote (JD Helms) --}}
+    {{-- Proof band: one verified result (was the JD Helms quote until 10/22) --}}
     <div class="relative isolate mt-24 bg-st-gold-tint py-16 sm:mt-32 sm:py-28 md:py-32 lg:mt-40">
         @include('_partials.studio-grid', ['id' => 'st-grid-quote', 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-gold/25 stroke-st-gold-ink/15'])
         <div class="{{ $c }}">
             <figure class="st-fade mx-auto max-w-4xl">
-                @php $ft = $page->testimonials['featured']; @endphp
-                <blockquote class="st-display relative text-3xl font-medium tracking-tight text-st-ink sm:text-4xl">
-                    <p class="before:text-st-gold-ink before:content-['\201C'] after:text-st-gold-ink after:content-['\201D'] sm:before:absolute sm:before:right-full">{{ $ft['quote'] }}</p>
-                </blockquote>
-                <figcaption class="mt-10 flex items-center gap-x-4">
-                    <span class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-st-indigo text-sm font-semibold text-st-gold">{{ $ft['initials'] }}</span>
-                    <span><span class="block font-semibold text-st-ink">{{ $ft['name'] }}</span><span class="block text-sm text-st-text">{{ $ft['title'] }}</span></span>
+                @php $pf = $page->proof; @endphp
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">The result</span>
+                <p class="st-display text-3xl font-medium tracking-tight text-balance text-st-ink sm:text-4xl">{!! $pf['statement'] !!}</p>
+                <figcaption class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+                    <span class="block text-sm font-semibold text-st-ink">{!! $pf['source'] !!}</span>
+                    <a href="{{ $pf['link']['href'] }}" class="text-sm font-semibold text-st-gold-ink hover:text-st-ink">{{ $pf['link']['label'] }} <span aria-hidden="true">&rarr;</span></a>
                 </figcaption>
             </figure>
         </div>

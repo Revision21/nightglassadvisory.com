@@ -84,10 +84,20 @@ return [
 
     // Verbatim from echocyber.io (_partials/home/trust-bar + testimonials), 2026-10-12. Never paraphrase a quote.
     // Colleague references, not clients: the section says so. Vosburgh dropped 10/12 (Tego is a partial competitor).
-    // Next: a client quote (engineering firm owner, Mike asking) takes 'featured'; JD moves into 'more'.
+    // JD trimmed to his first sentence 10/22: 'when assigned a task...' read as 'give me tasks' (Abbi Perets review).
+    // 10/22: the featured band is now PROOF (see 'proof' below), not a colleague quote; JD moved into 'more'.
+    // Next: a client quote (engineering firm owner, Mike asking) can take the band back.
+    // Featured band, 10/22 (Mike: the JD quote was 'blah'). A RESULT, not praise. Paraphrase of the CRO case below,
+    // so it renders WITHOUT quote marks. Keep it anonymized like 'cases' (never add names).
+    'proof' => [
+        'statement' => '$500K a year saved. And when the company was acquired, the buyer called IT and security one of the easiest they&rsquo;d ever done.',
+        'source' => 'Growing life-sciences CRO &middot; regulated data',
+        'link' => ['href' => '#track-record', 'label' => 'See the track record'],
+    ],
+
     'testimonials' => [
-        'featured' => ['initials' => 'JD', 'name' => 'JD Helms', 'title' => 'Technology Executive', 'quote' => 'Mike has the ability to communicate technical concepts to a non-technical audience. When assigned a task, you can trust it will be done with the same level of attention to detail as if you had done it yourself.'],
         'more' => [
+            ['initials' => 'JD', 'name' => 'JD Helms', 'title' => 'Technology Executive', 'tag' => '', 'quote' => 'Mike has the ability to communicate technical concepts to a non-technical audience.'],
             ['initials' => 'JJ', 'name' => 'James L. Jackson', 'title' => 'Cybersecurity Leader', 'tag' => '', 'quote' => 'A key contributor to both strategic direction and client engagement. Exceptional at building authentic, trust-based relationships with customers.'],
             ['initials' => 'KS', 'name' => 'Karan Sorensen', 'title' => 'Innovation & Technology Executive', 'tag' => '', 'quote' => 'Strategic leader who builds trust with customers, vendors, and direct reports alike. One of the good guys.'],
         ],
