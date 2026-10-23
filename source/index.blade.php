@@ -9,7 +9,6 @@ title:
 --}}
 @php
     $c = 'mx-auto max-w-7xl px-6 lg:px-8';
-    $badge = fn ($r) => ['cto' => 'CTO', 'ciso' => 'CISO', 'both' => 'CTO + CISO'][$r];
     $pill = 'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition';
     $topics = [
         ['document-check', 'Security questionnaires'], ['clipboard-document-list', 'IT contracts'],
@@ -25,7 +24,8 @@ title:
     <div class="{{ $c }} mt-16 sm:mt-24 md:mt-32">
         <div class="lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-12">
             <div class="st-fade lg:col-span-7">
-                <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-7xl lg:text-6xl xl:text-7xl">Fractional <span class="st-mark">CTO and CISO</span> for <span class="whitespace-nowrap">founder-led</span> companies.</h1>
+                {{-- H1 (10/23, D1-A): the fire, not the label. Abbi's favorite line, balanced to technology + security. --}}
+                <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-6xl lg:text-5xl xl:text-6xl">Answer the <span class="st-mark">technology and security</span> questions holding up your deals and renewals.</h1>
                 <p class="mt-6 max-w-2xl text-xl text-st-text">{{ $page->tagline }}</p>
                 <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
                     <a href="{{ $page->bookingUrl }}" class="inline-flex rounded-full bg-st-ink px-5 py-2.5 text-base font-semibold text-st-page transition hover:bg-st-panel-2"><span class="relative top-px">Book a 30-minute call</span></a>
@@ -48,9 +48,10 @@ title:
         <div class="st-fade st-border max-w-2xl pt-12">
             <h2>
                 <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">When founders call</span>
-                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">It usually starts with a question nobody inside can answer.</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Your biggest customer sent a 10-page security questionnaire. It&rsquo;s due Friday, and nobody inside can answer it.</span>
             </h2>
-            <p class="mt-6 text-xl text-st-text">And it&rsquo;s attached to money: a deal, a contract, a renewal or a hire. Some start as technology, some as security, and most turn out to be both.</p>
+            {{-- 10/23: '10-page' is Mike's real number (D3), not Abbi's 38 or the Todd-call 28. --}}
+            <p class="mt-6 text-xl text-st-text">Or it&rsquo;s 20 new hires and nobody has decided what they&rsquo;ll run on. Or the one person who knows how everything works just gave notice. Every one is attached to money, and most turn out to be technology and security at once.</p>
         </div>
     </div>
     <div class="{{ $c }} mt-16">
@@ -58,14 +59,8 @@ title:
             @foreach ($page->problems as $i => $t)
                 <article class="st-fade relative flex w-full flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 transition hover:bg-st-wash sm:p-8" style="transition-delay: {{ ($i % 2) * 80 }}ms">
                     <a href="{{ $page->bookingUrl }}" class="absolute inset-0 rounded-3xl" aria-label="Talk it through: {{ $t['text'] }} Book a call."></a>
-                    <div class="flex items-center gap-x-4">
-                        <span class="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-st-indigo shadow-sm">
-                            @include('_partials.icon', ['name' => $t['icon'], 'class' => 'h-6 w-6 text-st-gold'])
-                        </span>
-                        @php $rolePill = ['cto' => 'bg-st-indigo text-white', 'ciso' => 'bg-st-gold text-st-ink', 'both' => 'bg-st-indigo text-st-gold ring-2 ring-st-gold'][$t['role']]; @endphp
-                        <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $rolePill }}">{{ $badge($t['role']) }}</span>
-                    </div>
-                    <p class="st-display mt-6 text-2xl/9 font-medium text-st-ink">{{ $t['text'] }}</p>
+                    {{-- Icons + CTO/CISO badges removed 10/23 (Abbi: "Don't make me pick"). 'role'/'icon' stay in config for the partner sheet. --}}
+                    <p class="st-display text-2xl/9 font-medium text-st-ink">{{ $t['text'] }}</p>
                     <p class="mt-auto flex items-center pt-6 text-sm font-semibold text-st-gold-ink">Talk it through <span aria-hidden="true" class="ml-1">&rarr;</span></p>
                 </article>
             @endforeach
@@ -124,7 +119,7 @@ title:
                     <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">Track record</span>
                     <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Proof beats prose.</span>
                 </h2>
-                <p class="mt-6 text-xl text-st-text">Names withheld. NDAs are a feature, not a limitation.</p>
+                <p class="mt-6 text-xl text-st-text">What changed, in numbers.</p>
             </div>
             {{-- Subgrid: all three cards share the same 6 row tracks, so every row lines up across cards. --}}
             <div class="mt-16 grid grid-cols-1 gap-8 lg:gap-y-0 {{ count($page->cases) === 2 ? 'max-w-5xl lg:grid-cols-2' : 'lg:grid-cols-3' }}">
@@ -159,7 +154,7 @@ title:
         <div class="st-fade max-w-2xl">
             <h2>
                 <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">{{ $page->diagnostic['name'] }}</span>
-                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Three weeks. Fixed price. A clear answer.</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">How we start: one question, three weeks, a fixed price.</span>
             </h2>
             <p class="mt-6 text-xl text-st-text">Start with the question that&rsquo;s keeping you up, technology or security. Leave with the answer, and a plan for everything it touches.</p>
         </div>
@@ -193,7 +188,15 @@ title:
                 </li>
                 <li class="st-fade mt-10">
                     <div class="st-border pt-10">
-                        <strong class="font-semibold text-st-ink">After the readout.</strong> {{ $page->retainer['body'] }}
+                        <strong class="font-semibold text-st-ink">After the readout.</strong> {{ $page->retainer['lead'] }}
+                        <ul role="list" class="mt-4 space-y-3">
+                            @foreach ($page->retainer['paths'] as [$k, $v])
+                                <li class="flex gap-x-3">
+                                    @include('_partials.icon', ['name' => 'check-circle', 'class' => 'mt-0.5 h-5 w-5 flex-none text-st-gold-ink'])
+                                    <span><strong class="font-semibold text-st-ink">{!! $k !!}</strong> {!! $v !!}</span>
+                                </li>
+                            @endforeach
+                        </ul>
                         <div class="mt-6"><a href="{{ $page->bookingUrl }}" class="{{ $pill }} bg-st-ink text-st-page hover:bg-st-panel-2"><span class="relative top-px">Start with a 30-minute call</span></a></div>
                     </div>
                 </li>
@@ -212,6 +215,8 @@ title:
                         <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Both chairs. One plan.</span>
                     </h2>
                     <p class="mt-6 text-xl text-st-text">I&rsquo;m Mike Faas. Most companies get technology advice from one person and security advice from another, and then the two disagree. I sit in both, so the technology plan and the security plan are the same plan.</p>
+                    {{-- D2 (Mike 10/23): geek-to-human is the identity beat, carried by the story, not the hook. --}}
+                    <p class="mt-4 text-base text-st-text">I&rsquo;ve been introduced more times than I can count as &ldquo;the IT guy, but not a typical IT guy.&rdquo; I&rsquo;ll take it. I can talk to your investors, your engineers, and the developer who knows where everything is buried. I translate geek into human, and that middle ground is where I do my best work.</p>
                     <p class="mt-4 text-base text-st-text">I&rsquo;ve spent 25 years leading technology and security at companies from 50 people to 5,000, through more than one acquisition, finding six-figure savings along the way. CISSP, based in Raleigh.</p>
                 </div>
                 <dl class="mt-16 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2">

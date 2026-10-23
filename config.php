@@ -10,7 +10,8 @@ return [
     'baseUrl' => '',
     'production' => false,
     'siteName' => 'Nightglass Advisory',
-    'siteDescription' => 'Fractional CTO and CISO for founder-led companies between $2.5M and $25M. Technology decisions and security answers, without a full-time executive.',
+    // D1-A (Mike 10/23): the 'fractional CTO and CISO' label stays HERE (search, schema), leads with the problem.
+    'siteDescription' => 'Answers to the technology and security questions holding up your deals and renewals. Fractional CTO and CISO for founder-led companies between $2.5M and $25M.',
     'siteAuthor' => 'Mike Faas',
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
@@ -30,12 +31,13 @@ return [
     // Commercial lane (Mike, 2026-10-12): every booking CTA goes to /schedule.
     'bookingUrl' => '/schedule',
 
-    // Hero line (2026-10-12, Mike: "I need both CTO and CISO"). Balanced on purpose.
-    // Hero lede, cut 55 -> 27 words (review 10/12). H1 already says 'fractional CTO and CISO' and 'founder-led'.
-    'tagline' => 'For companies between $2.5M and $25M: I help you decide what to build, buy and stop, and answer the security questions holding up your deals and renewals.',
+    // Hero lede (10/23, Abbi + Todd plan W4): why now + the follow-through. The H1 carries the questions, so the lede doesn't repeat them.
+    // Mike 10/23: never claim hands-on-keyboard work ('I fix'); he makes sure it gets fixed.
+    'tagline' => 'Winging it worked at 20 people. At 60, with an enterprise customer asking and one person holding everything together, you can\'t. I get you the answers, then make sure what they expose actually gets fixed.',
 
-    // The declaration (Mike, 2026-10-12, option A): CTO + CISO balanced. Not rendered on the page; the source line for outreach and bios.
-    'declaration' => 'I help founder-led companies between $2.5M and $25M answer the technology and security questions they can\'t answer in-house, in three weeks, without hiring a full-time CTO or CISO.',
+    // The declaration (Mike, 10/12, CTO + CISO balanced; reworded 10/23, D1-A): no 'three weeks' (reads as 'you only need me for
+    // three weeks') and no 'CTO or CISO' label. Not rendered on the page; the source line for outreach and bios.
+    'declaration' => 'I help founder-led companies between $2.5M and $25M answer the technology and security questions holding up their deals, renewals and growth, and then make sure what the answers expose actually gets fixed.',
 
     // /infosecon slides gate (Mike 10/12: post AFTER the talk, Fri 10/30 3:35pm). To publish: copy the deck PDF to
     // source/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf, set true, push.
@@ -68,9 +70,17 @@ return [
     ],
 
     // Council 10/08: retainer offered ONLY at the readout, no on-call. Mike 10/12: named on the site, NO price, 3-month minimum.
+    // 10/23 (plan W9): 'After the readout' is three paths; path 3 is Todd's 'I'll hire my replacement'. 'help you hire' leaves room to price it.
     'retainer' => [
         'name' => 'Ongoing advisory',
-        'body' => 'Most clients run the plan themselves. If you\'d rather have me in the room while you do, I stay on as your part-time CTO and CISO: a monthly retainer with a three-month minimum and no on-call promise. I only offer it at the readout, once we both know what the job is.',
+        // Plain text for the Service schema only; the page renders 'lead' + 'paths'.
+        'body' => 'After the Intensive, I stay in it with your team as your part-time CTO and CISO until the plan is done: a monthly retainer with a three-month minimum and no on-call promise. When you are ready for a full-time leader, I help you hire them.',
+        'lead' => 'Three weeks is how it starts. After the readout, you pick how it goes from there.',
+        'paths' => [
+            ['You run the plan.', 'Most teams do. You leave with the answer, the order to do things in, and nothing left waiting on me.'],
+            ['I stay in it.', 'A monthly retainer, three-month minimum. I stay in it with your team until it\'s done, not as a to-do list left on your desk.'],
+            ['You&rsquo;re ready for a full-time leader.', 'I help you define the role, find the person and hand them the keys. Then I&rsquo;m out of a job, on purpose.'],
+        ],
     ],
 
     'included' => [
@@ -124,17 +134,17 @@ return [
     //          'outcome' => 'Cloud-native device governance framework. Enforceable, auditable security posture for the first time.',
     //          'stats' => [['15', 'policies migrated'], ['4', 'platforms automated'], ['0', 'store outages']]],
 
-    // Questions 1, 2, 5: verbatim from the CTOx referral one-pager (3 replaced, 4 reworded 10/12), "Questions to ask me" (2026-09-14).
-    // Answers: Jane drafts, REVIEWED AND EDITED BY MIKE one by one 2026-10-12. No em dashes. Feeds the FAQPage schema too.
+    // FAQ rebuilt 10/23 around OBJECTIONS (Abbi review 10/21 + Todd call). Echo draft, decisions by Mike 10/23. Feeds the FAQPage schema.
+    // Dropped: 'Are you a CTO or a CISO?', 'Why Nightglass?' (Abbi: important to you, not them), insurance premium + 'someone we
+    // answer to' (questions, not objections; one question kept: two-recommendations, the technology half).
+    // Kept verbatim (Mike-reviewed 10/12): IT provider, don't-need-you-yet. Trust answer cites only what's checkable on the page
+    // (Mike 10/23: not many references yet, so don't offer them). Never claim hands-on-keyboard work. No em dashes.
     'faqs' => [
-        ['q' => 'Our cyber insurance premium just doubled. Is that about us or about everyone?', 'a' => 'Usually some of both. Part of it is the market. The rest is your application: insurers price what you tell them about MFA, backups and incident planning. I\'ll read it with you and tell you which answers are costing you money, and what it takes to change them.'],
-        ['q' => 'We\'ve got two technical recommendations and can\'t tell which is right. How do you decide?', 'a' => 'I start with the decision, not the technology: what it has to do, what it costs to run for the life of the contract, who owns it when the person who proposed it leaves, and what it changes about your security. Usually one option falls out quickly. Sometimes the answer is neither.'],
-        // Replaced 10/12 (Mike: 'I don't love this question'): the partner-sheet 'We're doing well... how exposed' Q. Site no longer mirrors the sheet exactly.
+        ['q' => 'Will you just hand us a to-do list?', 'a' => 'No. A list nobody owns is usually how the question got this big in the first place. The Intensive ends with a plan your team can run, in order. Then I stay in it with your team until it\'s done, not as a to-do list left on your desk: the decisions, the vendor calls and the follow-through.'],
+        ['q' => 'How do we know we can trust you?', 'a' => 'Don\'t take my word for it. The price is fixed and it\'s on this page before we ever talk. The track record shows what changed, in numbers. And the Intensive ends at the readout, so you find out what working with me is like before you commit to anything longer.'],
+        ['q' => 'Are we signing up for you forever?', 'a' => 'No. The Intensive is three weeks at a fixed price, and it stands on its own. If you keep me on after, it\'s a monthly retainer with a three-month minimum. And when you\'re ready for a full-time CTO or CISO, I\'ll help you hire them. My job is to get you to the point where you don\'t need me.'],
         ['q' => 'We already have an IT provider. Why would we need you?', 'a' => 'Keep them. They run your systems; I make the calls they\'re waiting on someone to make: what to buy, what to stop, what "secure enough" means for a company like yours, and whether the contract covers what you think it covers. The good ones are glad to have someone on your side who speaks both languages.'],
-        // Rewritten 10/12 (Mike): most of the ICP has no board, so 'someone we answer to' (investors, lender, co-owner, big customer).
-        ['q' => 'Someone we answer to asked what we\'re doing about cybersecurity. What do I tell them on Monday?', 'a' => 'Three things, in plain language: what\'s protected and what isn\'t, what you\'ve decided to accept and why, and what happens next, with dates. That fits on one page. They aren\'t asking for a list of tools; they\'re asking whether anyone owns the risk. If the honest answer is "not yet," say so and show them the plan. That beats a page full of logos.'],
         ['q' => 'Be honest: will you tell me if we don\'t actually need you yet?', 'a' => 'Yes. If a good IT provider and a few decisions will cover you for now, I\'ll say so on the first call and point you to who can help. That\'s better for both of us than paying for work you don\'t need.'],
-        ['q' => 'Are you a CTO or a CISO?', 'a' => 'Both. At a company your size the questions overlap: the app, the IT contract and the insurance form are one conversation. Splitting them across two part-time people is how gaps happen. When a question needs a deep specialist, a pen tester or a senior developer, I\'ll say so and help you find the right one.'],
-        ['q' => 'Why "Nightglass"?', 'a' => 'A night glass is a telescope built for seeing in the dark: a wide field of view at low magnification. That\'s the job. Look across the whole company, find what\'s hard to see, and tell you what to fix first.'],
+        ['q' => 'We\'ve got two technical recommendations and can\'t tell which is right. How do you decide?', 'a' => 'I start with the decision, not the technology: what it has to do, what it costs to run for the life of the contract, who owns it when the person who proposed it leaves, and what it changes about your security. Usually one option falls out quickly. Sometimes the answer is neither.'],
     ],
 ];

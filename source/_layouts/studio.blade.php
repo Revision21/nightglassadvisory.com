@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $page->title ? $page->title . ' | ' . $page->siteName : $page->siteName . ' | Fractional CTO and CISO for founder-led companies' }}</title>
+    <title>{{ $page->title ? $page->title . ' | ' . $page->siteName : $page->siteName . ' | Technology and security answers for founder-led companies' }}</title>
     <meta name="description" content="{{ $page->description ?? $page->siteDescription }}">
     <link rel="canonical" href="{{ $page->getUrl() }}">
     <meta property="og:site_name" content="{{ $page->siteName }}">
@@ -25,7 +25,7 @@
     <meta property="og:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/brand/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Nightglass Advisory: Fractional CTO and CISO for founder-led companies.">
+    <meta property="og:image:alt" content="Nightglass Advisory: Answer the technology and security questions holding up your deals and renewals.">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
