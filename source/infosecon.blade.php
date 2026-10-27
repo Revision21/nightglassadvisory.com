@@ -16,7 +16,6 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
 --}}
 @php
     $pdf = '/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf';
-    $worksheet = '/assets/downloads/cascade-worksheet.pdf';
     $worksheetThumb = '/assets/downloads/cascade-worksheet-thumb.jpg';
     $moves = [
         ['Draw one edge.', 'Take your worst-scored domain. Write down, by hand, three things in other domains that break if it stays broken. Hand the page to whoever owns the other end of each line and ask: did you know this depended on you?'],
@@ -62,9 +61,10 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
                         <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">One page. Three moves. About an afternoon.</span>
                     </h2>
                     <p class="mt-6 text-lg text-st-text">The Cascade Worksheet turns the talk into something you can fill in: draw your first edge, find the tokens nobody is watching, and rewrite the board slide around what fails first.</p>
-                    <a href="{{ $worksheet }}" class="mt-10 block w-64 sm:w-72" aria-label="Preview of the Cascade Worksheet">
+                    {{-- Preview only: not linked (Mike 10/27), the PDF is behind the form. --}}
+                    <div class="mt-10 w-64 sm:w-72">
                         <img src="{{ $worksheetThumb }}" alt="The Cascade Worksheet, page one" width="576" height="729" class="h-auto w-full" loading="lazy">
-                    </a>
+                    </div>
                 </div>
                 <div class="st-fade">
                     <div class="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-st-ink/10">
