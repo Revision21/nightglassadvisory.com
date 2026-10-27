@@ -10,10 +10,13 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
     Content must match the deck: Monday moves, references and graph numbers mirror deck/reveal/build.py (checked 2026-10-12).
     The PDF is a COPY of projects/infosecon-2026/deck/reveal/When-Everything-Depends-on-Everything.pdf. Re-copy after any
     re-export (BR #210 theme swap, slide fixes) or this page serves stale slides.
-    One ask (Jane 10/12): the newsletter. The room is mostly practitioners, not buyers; "Book a call" stays in the header.
+    One ask (Holly 10/22 -> rework 10/27): the Monday Kit. GHL form "Cascade Worksheet (InfoSeCon 2026)" (l6Gd3eVufMwPhgSBVT1h)
+    -> workflows email the worksheet, tag infosecon-2026, task Mike on a call request, tag newsletter-optin on the box.
+    The newsletter block moved INTO that form (opt-in checkbox), so there is no separate subscribe section any more.
 --}}
 @php
     $pdf = '/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf';
+    $worksheetThumb = '/assets/downloads/cascade-worksheet-thumb.jpg';
     $moves = [
         ['Draw one edge.', 'Take your worst-scored domain. Write down, by hand, three things in other domains that break if it stays broken. Hand the page to whoever owns the other end of each line and ask: did you know this depended on you?'],
         ['Find the tokens.', 'Ask whoever runs your data platform for every integration, service account and API key that can read your top two data stores. Ask your security lead which of those they recognize by name. The difference between the two lists is your Anodot.'],
@@ -28,28 +31,57 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
         <div class="st-fade max-w-3xl">
             <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">Triangle InfoSeCon 2026 &middot; Leadership track</span>
             <h1 class="st-display text-5xl font-medium tracking-tight text-balance text-st-ink sm:text-6xl">When everything depends on everything.</h1>
-            <p class="mt-6 text-xl text-st-text">Security doesn&rsquo;t fail in silos. It fails in cascades. {{ $page->talkSlidesLive ? 'Here are the slides' : 'The slides go up here after the talk. For now:' }} the sources behind every claim, and three things to do Monday morning.</p>
+            <p class="mt-6 text-xl text-st-text">Security doesn&rsquo;t fail in silos. It fails in cascades. Here&rsquo;s the worksheet for the three Monday moves, plus the sources behind every claim in the talk.</p>
             <ul role="list" class="mt-6 flex flex-wrap gap-2">
                 @foreach (['Raleigh Convention Center', 'October 30, 2026', 'Mike Faas'] as $tag)
                     <li class="rounded-full bg-st-indigo-tint px-3 py-1 text-sm font-medium text-st-indigo">{{ $tag }}</li>
                 @endforeach
             </ul>
-            <div class="mt-10">
+            <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <a href="#kit" class="inline-flex items-center gap-x-2 rounded-full bg-st-ink px-5 py-2.5 text-base font-semibold text-st-page transition hover:bg-st-panel-2">
+                    @include('_partials.icon', ['name' => 'arrow-down-tray', 'class' => 'h-5 w-5'])
+                    <span class="relative top-px">Get the Monday Kit</span>
+                </a>
                 @if ($page->talkSlidesLive)
-                    <a href="{{ $pdf }}" class="inline-flex items-center gap-x-2 rounded-full bg-st-ink px-5 py-2.5 text-base font-semibold text-st-page transition hover:bg-st-panel-2">
-                        @include('_partials.icon', ['name' => 'arrow-down-tray', 'class' => 'h-5 w-5'])
-                        <span class="relative top-px">Download the slides (PDF, 10 MB)</span>
-                    </a>
+                    <a href="{{ $pdf }}" class="{{ $link }} text-base">Download the slides (PDF, 10 MB)</a>
                 @else
-                    <p class="inline-flex items-center gap-x-3 rounded-full bg-st-wash px-5 py-2.5 text-base font-semibold text-st-ink ring-1 ring-st-ink/10">
-                        @include('_partials.icon', ['name' => 'calendar-days', 'class' => 'h-5 w-5 text-st-gold-ink'])
-                        <span class="relative top-px">Slides posted here after the talk on October 30</span>
-                    </p>
-                    <p class="mt-3 text-sm text-st-text">Subscribe below and you&rsquo;ll get a note when they&rsquo;re up.</p>
+                    <span class="text-sm text-st-text">Slides go up here after the talk on October 30.</span>
                 @endif
             </div>
         </div>
     </div>
+
+    {{-- The Monday Kit: the one ask. Worksheet preview left, GHL form right. --}}
+    <section id="kit" class="relative isolate mt-24 scroll-mt-24 bg-st-indigo-tint py-20 sm:mt-32 sm:py-28">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+                <div class="st-fade">
+                    <h2>
+                        <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">The Monday Kit</span>
+                        <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">One page. Three moves. About an afternoon.</span>
+                    </h2>
+                    <p class="mt-6 text-lg text-st-text">The Cascade Worksheet turns the talk into something you can fill in: draw your first edge, find the tokens nobody is watching, and rewrite the board slide around what fails first.</p>
+                    {{-- Preview only: not linked (Mike 10/27), the PDF is behind the form. --}}
+                    <div class="mt-10 w-64 sm:w-72">
+                        <img src="{{ $worksheetThumb }}" alt="The Cascade Worksheet, page one" width="576" height="729" class="h-auto w-full" loading="lazy">
+                    </div>
+                </div>
+                <div class="st-fade">
+                    <div class="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-st-ink/10">
+                        {{-- GHL inline form embed (form_embed.js resizes it to data-height). --}}
+                        <iframe src="https://apicrm.ctox.com/widget/form/l6Gd3eVufMwPhgSBVT1h"
+                            style="width: 100%; height: 100%; min-height: 760px; border: none;"
+                            id="inline-l6Gd3eVufMwPhgSBVT1h" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value=""
+                            data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value=""
+                            data-form-name="Cascade Worksheet (InfoSeCon 2026)" data-height="760" data-layout-iframe-id="inline-l6Gd3eVufMwPhgSBVT1h"
+                            data-form-id="l6Gd3eVufMwPhgSBVT1h" title="Get the Cascade Worksheet"></iframe>
+                    </div>
+                    <p class="mt-4 text-sm text-st-text">It lands in your inbox from Mike, and there&rsquo;s a direct download right after you submit. No sequence, no drip.</p>
+                    <script src="https://apicrm.ctox.com/js/form_embed.js" type="text/javascript"></script>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{-- Monday morning (gold band) --}}
     <section class="relative isolate mt-24 bg-st-gold-tint py-20 sm:mt-32 sm:py-28">
@@ -95,14 +127,9 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
         <div class="st-fade st-border max-w-3xl pt-12">
             <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">The speaker</span>
             <p class="st-display text-2xl/9 font-medium text-st-ink">I&rsquo;m Mike Faas. {{ $page->declaration }}</p>
+            <p class="mt-6 text-lg text-st-text">When the line you draw on Monday turns into a question nobody inside can answer, that&rsquo;s the work I do. <a href="/schedule/" class="{{ $link }}">Book 30 minutes</a> and bring the worksheet.</p>
             <p class="mt-6 text-base text-st-text"><a href="/" class="{{ $link }}">How I work</a> &middot; <a href="{{ $page->linkedin }}" class="{{ $link }}">LinkedIn</a></p>
         </div>
     </div>
 
-    {{-- The one ask --}}
-    @include('_partials.newsletter', [
-        'nlHeading' => 'Liked the talk? There\'s one of these every Sunday.',
-        'nlBody' => 'Signal vs. Noise: one short email a week on the security and technology news worth your attention, and the one question to ask your team about it. No vendor hype, no fear-mongering.',
-        'nlSource' => 'infosecon-2026',
-    ])
 @stop
