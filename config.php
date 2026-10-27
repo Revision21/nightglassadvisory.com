@@ -41,7 +41,7 @@ return [
 
     // /infosecon slides gate (Mike 10/12: post AFTER the talk, Fri 10/30 3:35pm). To publish: copy the deck PDF to
     // source/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf, set true, push.
-    'talkSlidesLive' => false,
+    'talkSlidesLive' => true,  // flipped 10/27 (Mike: go live early; the talk close promises slides via the QR)
 
     // Offer name (Mike 10/12, 'for now'): The Intensive, CTOx's term for the one-time $7.5K-20K gateway slot.
     // Config key stays 'diagnostic' (internal only); the page anchor is #how-it-works.

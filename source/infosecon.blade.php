@@ -43,7 +43,7 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
                     <span class="relative top-px">Get the Monday Kit</span>
                 </a>
                 @if ($page->talkSlidesLive)
-                    <a href="{{ $pdf }}" class="{{ $link }} text-base">Download the slides (PDF, 10 MB)</a>
+                    <a href="{{ $pdf }}" class="{{ $link }} text-base">Download the slides (PDF, 7 MB)</a>
                 @else
                     <span class="text-sm text-st-text">Slides go up here after the talk on October 30.</span>
                 @endif
