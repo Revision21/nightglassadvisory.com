@@ -67,6 +67,28 @@ title:
         </div>
     </div>
 
+    {{-- Who I work with (ICP 10/23: two segments, the filter is a gap, not a size). Band stays in the declaration until the offer-letter covenants are read. --}}
+    <div id="who" class="{{ $c }} mt-24 scroll-mt-12 sm:mt-32 lg:mt-40">
+        <div class="st-fade st-border max-w-2xl pt-12">
+            <h2>
+                <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">Who I work with</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">Two kinds of companies, one gap.</span>
+            </h2>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
+            @foreach ([
+                ['B2B software selling upmarket', 'You have a CTO. Nobody owns security. A bigger customer wants proof, and the deal is waiting.'],
+                ['Regulated and professional services', 'Life sciences, healthcare, engineering, legal, accounting. No technology leader, an IT provider, and an insurance form nobody can answer honestly.'],
+            ] as $i => [$k, $v])
+                <div class="st-fade rounded-3xl bg-st-wash p-6 ring-1 ring-st-ink/5 sm:p-8" style="transition-delay: {{ $i * 80 }}ms">
+                    <p class="st-display text-2xl font-semibold text-st-ink">{{ $k }}</p>
+                    <p class="mt-4 text-base text-st-text">{{ $v }}</p>
+                </div>
+            @endforeach
+        </div>
+        <p class="st-fade mt-8 text-base text-st-text"><strong class="font-semibold text-st-ink">Also welcome:</strong> investor-backed companies heading into a transaction.</p>
+    </div>
+
     {{-- Proof band: one verified result (was the JD Helms quote until 10/22) --}}
     <div class="relative isolate mt-24 bg-st-gold-tint py-16 sm:mt-32 sm:py-28 md:py-32 lg:mt-40">
         @include('_partials.studio-grid', ['id' => 'st-grid-quote', 'class' => 'absolute inset-0 -z-10 h-full w-full mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] fill-st-gold/25 stroke-st-gold-ink/15'])

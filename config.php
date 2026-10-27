@@ -11,7 +11,7 @@ return [
     'production' => false,
     'siteName' => 'Nightglass Advisory',
     // D1-A (Mike 10/23): the 'fractional CTO and CISO' label stays HERE (search, schema), leads with the problem.
-    'siteDescription' => 'Answers to the technology and security questions holding up your deals and renewals. Fractional CTO and CISO for founder-led companies between $2.5M and $25M.',
+    'siteDescription' => 'Fractional CTO and CISO for founder-led companies between $2.5M and $25M: B2B software selling upmarket, and regulated and professional services firms.',
     'siteAuthor' => 'Mike Faas',
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',

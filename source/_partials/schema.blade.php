@@ -59,7 +59,7 @@
             'provider' => ['@id' => $base . '/#organization'],
             'audience' => [
                 '@type' => 'BusinessAudience',
-                'audienceType' => 'Founder-led companies between $2.5M and $25M in revenue',
+                'audienceType' => 'Founder-led companies between $2.5M and $25M in revenue: B2B software and tech-enabled companies selling upmarket, and regulated and professional services firms (life sciences, healthcare, engineering, legal, accounting)',
             ],
             'hasOfferCatalog' => [
                 '@type' => 'OfferCatalog',

@@ -127,6 +127,7 @@ description: Slides, sources and the Monday-morning moves from Mike Faas's Trian
         <div class="st-fade st-border max-w-3xl pt-12">
             <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">The speaker</span>
             <p class="st-display text-2xl/9 font-medium text-st-ink">I&rsquo;m Mike Faas. {{ $page->declaration }}</p>
+            <p class="mt-6 text-lg text-st-text">Most of my work is with two kinds of companies. <strong class="font-semibold text-st-ink">B2B software firms selling to bigger customers</strong>, who have a CTO but nobody who owns security. And <strong class="font-semibold text-st-ink">regulated and professional services firms</strong> (life sciences, healthcare, engineering, legal, accounting) with no technology leader at all, just an IT provider and an office manager holding it together.</p>
             <p class="mt-6 text-lg text-st-text">When the line you draw on Monday turns into a question nobody inside can answer, that&rsquo;s the work I do. <a href="/schedule/" class="{{ $link }}">Book 30 minutes</a> and bring the worksheet.</p>
             <p class="mt-6 text-base text-st-text"><a href="/" class="{{ $link }}">How I work</a> &middot; <a href="{{ $page->linkedin }}" class="{{ $link }}">LinkedIn</a></p>
         </div>
