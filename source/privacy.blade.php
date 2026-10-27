@@ -38,20 +38,24 @@ description: What Nightglass Advisory collects when you subscribe, book a call o
                     <span><strong class="font-semibold text-st-ink">If you book a call:</strong> what you enter in the booking form, such as your name, email, company and the time you pick. It&rsquo;s used to hold the call, send the invite and reminders, and follow up about what we discussed.</span>
                 </li>
                 <li class="{{ $li }}">
+                    @include('_partials.icon', ['name' => 'arrow-down-tray', 'class' => 'mt-0.5 h-6 w-6 flex-none text-st-gold-ink'])
+                    <span><strong class="font-semibold text-st-ink">If you request the Cascade Worksheet:</strong> your name, email, and the two answers you pick (which move you&rsquo;ll try first, and whether you&rsquo;d like a call). It&rsquo;s used to email you the worksheet and, only if you ask for a call, to follow up about one. You&rsquo;re added to the newsletter only if you tick that box.</span>
+                </li>
+                <li class="{{ $li }}">
                     @include('_partials.icon', ['name' => 'chat-bubble-left-right', 'class' => 'mt-0.5 h-6 w-6 flex-none text-st-gold-ink'])
                     <span><strong class="font-semibold text-st-ink">If you email me:</strong> your message and address, kept like any business correspondence.</span>
                 </li>
                 <li class="{{ $li }}">
                     @include('_partials.icon', ['name' => 'shield-check', 'class' => 'mt-0.5 h-6 w-6 flex-none text-st-gold-ink'])
-                    <span><strong class="font-semibold text-st-ink">To keep out spam:</strong> when you submit the newsletter form, your IP address is checked against a short rate limit and then discarded. It&rsquo;s only written to a log when a submission looks automated.</span>
+                    <span><strong class="font-semibold text-st-ink">To keep out spam:</strong> when you submit the newsletter form, your IP address is checked against a short rate limit and then discarded. It&rsquo;s only written to a log when a submission looks automated. The worksheet form runs an invisible Cloudflare check that you&rsquo;re a person, not a bot.</span>
                 </li>
             </ul>
 
             <h2 class="{{ $h2 }}">Who else handles it</h2>
             <p class="{{ $p }}">A few services do the work behind the site. Each gets only what it needs for its job:</p>
             <ul role="list" class="mt-4 list-disc space-y-2 pl-5 text-base text-st-text marker:text-st-gold">
-                <li><strong class="font-semibold text-st-ink">Beehiiv</strong> sends the newsletter and keeps the subscriber list. Like most newsletters, it counts opens and link clicks so I can see whatsends the newsletter and keeps the subscriber list.</li>rsquo;s worth writing about.</li>
-                <li><strong class="font-semibold text-st-ink">HighLevel</strong> runs the booking calendar and keeps booking and follow-up records. The calendar may set its own cookies when you use it.</li>
+                <li><strong class="font-semibold text-st-ink">Beehiiv</strong> sends the newsletter and keeps the subscriber list. Like most newsletters, it counts opens and link clicks so I can see what&rsquo;s worth writing about.</li>
+                <li><strong class="font-semibold text-st-ink">HighLevel</strong> runs the booking calendar and the worksheet form, sends the worksheet email, and keeps booking and follow-up records. The calendar and the form may set their own cookies when you use them.</li>
                 <li><strong class="font-semibold text-st-ink">Google Workspace</strong> handles email and calendar invites.</li>
                 <li><strong class="font-semibold text-st-ink">Netlify</strong> hosts the site and the newsletter form, and keeps standard server logs.</li>
                 {{-- ADD when Turnstile is on (BR #240): <li><strong>Cloudflare</strong> checks that newsletter sign-ups come from a person, not a bot.</li> --}}
@@ -64,7 +68,7 @@ description: What Nightglass Advisory collects when you subscribe, book a call o
             <ul role="list" class="mt-4 list-disc space-y-2 pl-5 text-base text-st-text marker:text-st-gold">
                 <li>No advertising or retargeting pixels.</li>
                 <li>No selling or renting your information, ever.</li>
-                <li>No cookies set by this site itself. The only ones come from the booking calendar, and only if you use it.</li>
+                <li>No cookies set by this site itself. The only ones come from the booking calendar and the worksheet form, and only if you use them.</li>
             </ul>
 
             <h2 class="{{ $h2 }}">Getting out, or getting it back</h2>
