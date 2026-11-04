@@ -23,10 +23,10 @@ return [
     // analytics line on /privacy, so the policy always matches the site.
     'cfAnalyticsToken' => 'a9dc7591da6147458f18c4643c4b4486',
 
-    // Cloudflare Turnstile site key (public) for the newsletter form. Leave '' until the widget's
-    // Hostnames list includes nightglassadvisory.com + nightglassadvisory.netlify.app; then set it
-    // (echocyber.io uses 0x4AAAAAADG_poOR76T-jTV5) and set TURNSTILE_SECRET_KEY in Netlify env.
-    'turnstileSiteKey' => '',
+    // Cloudflare Turnstile site key (public) for the newsletter form. The widget's Hostnames list must
+    // include nightglassadvisory.com + nightglassadvisory.netlify.app, and TURNSTILE_SECRET_KEY must be
+    // set in Netlify env: netlify/functions/subscribe.mjs rejects every signup without it.
+    'turnstileSiteKey' => '0x4AAAAAADG_poOR76T-jTV5',
 
     // Commercial lane (Mike, 2026-10-12): every booking CTA goes to /schedule.
     'bookingUrl' => '/schedule',
