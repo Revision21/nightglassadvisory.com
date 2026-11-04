@@ -1,6 +1,6 @@
 // Netlify Function: Newsletter subscription (ported from echocyber.io 2026-10-12)
-// Env on the Netlify site: BEEHIIV_API_KEY (required), TURNSTILE_SECRET_KEY (optional; when set,
-// a Turnstile token is required), BEEHIIV_PUB_ID (optional; defaults to Signal vs. Noise).
+// Env on the Netlify site: BEEHIIV_API_KEY (required), TURNSTILE_SECRET_KEY (required; fails closed
+// without it), BEEHIIV_PUB_ID (optional; defaults to Signal vs. Noise).
 // Accepts { email, source?, hp?, ts?, turnstileToken? }, runs anti-spam checks,
 // subscribes to Beehiiv on success.
 
@@ -52,7 +52,8 @@ function sweepCanonicals() {
 }
 
 async function verifyTurnstile(token, ip) {
-  if (!TURNSTILE_SECRET) return { ok: true, skipped: true };
+  // Fail closed: a missing secret once left this form silently open (list-bombed 2026-11).
+  if (!TURNSTILE_SECRET) return { ok: false, reason: 'TURNSTILE_SECRET_KEY not configured' };
   if (!token) return { ok: false, reason: 'missing-token' };
   try {
     const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
@@ -99,12 +100,11 @@ export default async (req, context) => {
   }
 
   // Min-form-fill time — humans take >2s to type an email; instant POSTs are scripts.
-  if (typeof ts === 'number') {
-    const elapsed = Date.now() - ts;
-    if (elapsed < MIN_FILL_TIME_MS) {
-      console.warn(`[subscribe] too-fast submission (${elapsed}ms, ip=${ip})`);
-      return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
-    }
+  // The form always sends ts, so a missing one is a direct POST. Same pretend-success as above.
+  const elapsed = typeof ts === 'number' ? Date.now() - ts : NaN;
+  if (!(elapsed >= MIN_FILL_TIME_MS)) {
+    console.warn(`[subscribe] missing or too-fast ts (${elapsed}ms, ip=${ip})`);
+    return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
   }
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -160,8 +160,7 @@ export default async (req, context) => {
       return new Response(JSON.stringify({ error: 'Subscription failed' }), { status: 502, headers });
     }
 
-    const turnstileNote = turnstile.skipped ? ' [turnstile-skipped]' : '';
-    console.log(`[subscribe] ${email} subscribed (canonical=${canonical}, source=${src})${turnstileNote}`);
+    console.log(`[subscribe] ${email} subscribed (canonical=${canonical}, source=${src})`);
     return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
   } catch (err) {
     console.error(`[subscribe] fetch error: ${err.message}`);

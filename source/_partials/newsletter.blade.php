@@ -1,7 +1,7 @@
 {{--
     Newsletter signup (Tailwind Plus: Newsletter Sections / Simple side-by-side, Studio style).
-    Posts to /.netlify/functions/subscribe -> Beehiiv (Signal vs. Noise). Turnstile renders only
-    when config 'turnstileSiteKey' is set (the widget must list this site's hostnames in Cloudflare).
+    Posts to /.netlify/functions/subscribe -> Beehiiv (Signal vs. Noise). The function requires a
+    Turnstile token, so config 'turnstileSiteKey' must be set (the widget must list this site's hostnames in Cloudflare).
 --}}
 @php
     // Per-page overrides (optional): $nlHeading, $nlBody, $nlSource (utm_source slug, a-z0-9.-).
