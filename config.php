@@ -36,9 +36,10 @@ return [
     'tagline' => 'Winging it worked at 20 people. At 60, with an enterprise customer asking and one person holding everything together, you can\'t. I get you the answers, then make sure what they expose actually gets fixed.',
 
     // The declaration (Mike, 10/12; reworded 10/23, D1-A; 11/13: 'growing companies', Mike's own lines from the Todd Moses
-    // call: 'can no longer wing it', 'I'll help you hire the person to replace me'). No 'three weeks', no 'CTO or CISO' label.
+    // call: 'can no longer wing it'). Hiring my replacement is an after-the-readout option, never the lead (Mike 11/13).
+    // No 'three weeks', no 'CTO or CISO' label.
     // Not rendered on the page; the source line for outreach and bios.
-    'declaration' => 'Growing companies hit a point where they can\'t wing it anymore. I answer the technology and security questions nobody inside owns, and when you need someone full-time, I help you hire my replacement.',
+    'declaration' => 'Growing companies hit a point where they can\'t wing it anymore. I answer the technology and security questions nobody inside owns.',
 
     // /infosecon slides gate (Mike 10/12: post AFTER the talk, Fri 10/30 3:35pm). To publish: copy the deck PDF to
     // source/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf, set true, push.
