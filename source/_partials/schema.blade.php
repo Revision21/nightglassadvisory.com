@@ -55,11 +55,11 @@
             '@id' => $base . '/#intensive',
             'name' => $page->diagnostic['name'],
             'serviceType' => 'Fixed-price technology and security assessment',
-            'description' => 'A three-week, fixed-price engagement that answers the technology or security question in front of a founder-led company, maps how its systems, vendors and security depend on each other, and produces a build, buy and stop plan.',
+            'description' => 'A fixed-price engagement, delivered within three weeks, that answers the technology or security question in front of a growing company, maps how its systems, vendors and security depend on each other, and produces a build, buy and stop plan.',
             'provider' => ['@id' => $base . '/#organization'],
             'audience' => [
                 '@type' => 'BusinessAudience',
-                'audienceType' => 'Founder-led companies between $2.5M and $25M in revenue: B2B software and tech-enabled companies selling upmarket, and regulated and professional services firms (life sciences, healthcare, engineering, legal, accounting)',
+                'audienceType' => 'Growing companies between $2.5M and $25M in revenue: B2B software and tech-enabled companies selling upmarket, and regulated and professional services firms (life sciences, healthcare, engineering, legal, accounting)',
             ],
             'hasOfferCatalog' => [
                 '@type' => 'OfferCatalog',
@@ -79,7 +79,7 @@
         [
             '@type' => 'Offer',
             '@id' => $base . '/#intensive-offer',
-            'name' => $page->diagnostic['name'] . ': ' . $page->diagnostic['weeks'] . ' weeks, fixed price',
+            'name' => $page->diagnostic['name'] . ': fixed price, delivered within ' . $page->diagnostic['weeks'] . ' weeks',
             'itemOffered' => ['@id' => $base . '/#intensive'],
             'price' => (string) $page->diagnostic['price'],
             'priceCurrency' => 'USD',
