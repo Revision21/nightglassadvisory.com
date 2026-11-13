@@ -10,7 +10,7 @@
     $nodes = [
         ['x' => 50, 'y' => 9,  'role' => 'CISO', 'label' => 'Insurance form you can&rsquo;t sign'],
         ['x' => 83, 'y' => 32, 'role' => 'CTO',  'label' => 'IT contract says &ldquo;out of scope&rdquo;'],
-        ['x' => 75, 'y' => 85, 'role' => 'CISO', 'label' => 'Questionnaire stalls the deal'],
+        ['x' => 75, 'y' => 85, 'role' => 'CISO', 'label' => 'Customer deal waits on an answer'],
         ['x' => 25, 'y' => 85, 'role' => 'CTO',  'label' => 'Restore time: unknown'],
         ['x' => 17, 'y' => 32, 'role' => 'BOTH', 'label' => 'Board asks &ldquo;are we OK?&rdquo;'],
     ];

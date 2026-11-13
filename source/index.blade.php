@@ -11,10 +11,10 @@ title:
     $c = 'mx-auto max-w-7xl px-6 lg:px-8';
     $pill = 'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition';
     $topics = [
-        ['document-check', 'Security questionnaires'], ['clipboard-document-list', 'IT contracts'],
-        ['shield-check', 'Cyber insurance and SOC 2'], ['scale', 'Build, buy or stop'],
-        ['cpu-chip', 'AI tools and agents'], ['banknotes', 'The cloud bill'],
-        ['user-plus', 'First senior hires'], ['presentation-chart-line', '"Are we secure?"'],
+        ['scale', 'Build, buy or stop'], ['cpu-chip', 'AI tools and agents'],
+        ['user-plus', 'First senior hires'], ['clipboard-document-list', 'IT contracts'],
+        ['banknotes', 'The cloud bill'], ['presentation-chart-line', '"Are we secure?"'],
+        ['shield-check', 'Cyber insurance and SOC 2'], ['document-check', 'Security questionnaires'],
     ];
 @endphp
 

@@ -199,7 +199,7 @@
     --sp-paper: #f7f6f2;      /* P7 ground (white) */
     --sp-ink: #3b3f63;        /* P7 ink: headings (zinc-800) */
     --sp-text: #555978;       /* body (zinc-600) */
-    --sp-muted: #868aa6;      /* eyebrows, meta (zinc-400) */
+    --sp-muted: #666985;      /* eyebrows, meta; 4.95:1 on paper (was #868aa6, 3.13:1) */
     --sp-line: #e3dfd3;       /* borders (zinc-100) */
     --sp-raise: #efece3;      /* hover wash, chips (zinc-50) */
     --sp-accent: #7d6730;     /* P7 deep gold: links, eyebrows (teal-500) */
@@ -262,7 +262,7 @@
     --color-st-panel: #2a2d4a;    /* dark panels */
     --color-st-panel-2: #353959;  /* neutral-900 hover */
     --color-st-text: #565a78;     /* neutral-600 */
-    --color-st-muted: #8a8da8;    /* neutral-400 */
+    --color-st-muted: #666985;    /* 5.35:1 on white (was #8a8da8, 3.25:1, failed AA) */
     --color-st-gold: #d6bd7a;
     --color-st-gold-ink: #7d6730;
     --radius-4xl: 2.5rem;
