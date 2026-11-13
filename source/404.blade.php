@@ -10,7 +10,7 @@ noindex: true
     $links = [
         ['icon' => 'question-mark-circle', 'title' => 'When founders call', 'body' => 'The questions that usually start the conversation.', 'href' => '/#why'],
         ['icon' => 'chart-bar', 'title' => 'Results', 'body' => 'Anonymized engagements and what changed.', 'href' => '/#track-record'],
-        ['icon' => 'briefcase', 'title' => 'How it works', 'body' => 'The Intensive: three weeks, fixed price, a clear answer.', 'href' => '/#how-it-works'],
+        ['icon' => 'briefcase', 'title' => 'How it works', 'body' => 'The Intensive: one question, a clear answer, a fixed price.', 'href' => '/#how-it-works'],
         ['icon' => 'calendar-days', 'title' => 'Book a call', 'body' => 'Thirty minutes, free, on Google Meet.', 'href' => '/schedule'],
     ];
 @endphp

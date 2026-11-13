@@ -176,7 +176,7 @@ title:
         <div class="st-fade max-w-2xl">
             <h2>
                 <span class="st-display st-eyebrow mb-6 block text-base font-semibold text-st-gold-ink">{{ $page->diagnostic['name'] }}</span>
-                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">How we start: one question, three weeks, a fixed price.</span>
+                <span class="st-display block text-4xl font-medium tracking-tight text-balance text-st-ink sm:text-5xl">How we start: one question, a straight answer, a fixed price.</span>
             </h2>
             <p class="mt-6 text-xl text-st-text">Start with the question that&rsquo;s keeping you up, technology or security. Leave with the answer, and a plan for everything it touches.</p>
         </div>
@@ -205,7 +205,7 @@ title:
                 @endforeach
                 <li class="st-fade mt-10">
                     <div class="st-border pt-10">
-                        <strong class="font-semibold text-st-ink">{{ $page->diagnostic['priceLabel'] }}, fixed.</strong> Agreed before we begin. No retainer to start and no open-ended hours.
+                        <strong class="font-semibold text-st-ink">{{ $page->diagnostic['priceLabel'] }}, fixed.</strong> Agreed before we begin and delivered within three weeks. No retainer to start and no open-ended hours.
                     </div>
                 </li>
                 <li class="st-fade mt-10">

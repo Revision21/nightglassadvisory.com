@@ -11,7 +11,7 @@ return [
     'production' => false,
     'siteName' => 'Nightglass Advisory',
     // D1-A (Mike 10/23): the 'fractional CTO and CISO' label stays HERE (search, schema), leads with the problem.
-    'siteDescription' => 'Fractional CTO and CISO for founder-led companies between $2.5M and $25M: B2B software selling upmarket, and regulated and professional services firms.',
+    'siteDescription' => 'Fractional CTO and CISO for growing companies between $2.5M and $25M: B2B software selling upmarket, and regulated and professional services firms.',
     'siteAuthor' => 'Mike Faas',
     'email' => 'mike@nightglassadvisory.com',
     'linkedin' => 'https://www.linkedin.com/in/mfaas',
@@ -35,9 +35,10 @@ return [
     // Mike 10/23: never claim hands-on-keyboard work ('I fix'); he makes sure it gets fixed.
     'tagline' => 'Winging it worked at 20 people. At 60, with an enterprise customer asking and one person holding everything together, you can\'t. I get you the answers, then make sure what they expose actually gets fixed.',
 
-    // The declaration (Mike, 10/12, CTO + CISO balanced; reworded 10/23, D1-A): no 'three weeks' (reads as 'you only need me for
-    // three weeks') and no 'CTO or CISO' label. Not rendered on the page; the source line for outreach and bios.
-    'declaration' => 'I help founder-led companies between $2.5M and $25M answer the technology and security questions holding up their deals, renewals and growth, and then make sure what the answers expose actually gets fixed.',
+    // The declaration (Mike, 10/12; reworded 10/23, D1-A; 11/13: 'growing companies', Mike's own lines from the Todd Moses
+    // call: 'can no longer wing it', 'I'll help you hire the person to replace me'). No 'three weeks', no 'CTO or CISO' label.
+    // Not rendered on the page; the source line for outreach and bios.
+    'declaration' => 'Growing companies hit a point where they can\'t wing it anymore. I answer the technology and security questions nobody inside owns, and when you need someone full-time, I help you hire my replacement.',
 
     // /infosecon slides gate (Mike 10/12: post AFTER the talk, Fri 10/30 3:35pm). To publish: copy the deck PDF to
     // source/assets/downloads/when-everything-depends-on-everything-infosecon-2026.pdf, set true, push.
@@ -75,7 +76,7 @@ return [
         'name' => 'Ongoing advisory',
         // Plain text for the Service schema only; the page renders 'lead' + 'paths'.
         'body' => 'After the Intensive, I stay in it with your team as your part-time CTO and CISO until the plan is done: a monthly retainer with a three-month minimum and no on-call promise. When you are ready for a full-time leader, I help you hire them.',
-        'lead' => 'Three weeks is how it starts. After the readout, you pick how it goes from there.',
+        'lead' => 'The Intensive is how it starts. After the readout, you pick how it goes from there.',
         'paths' => [
             ['You run the plan.', 'Most teams do. You leave with the answer, the order to do things in, and nothing left waiting on me.'],
             ['I stay in it.', 'A monthly retainer, three-month minimum. I stay in it with your team until it\'s done, not as a to-do list left on your desk.'],
@@ -142,7 +143,7 @@ return [
     'faqs' => [
         ['q' => 'Will you just hand us a to-do list?', 'a' => 'No. A list nobody owns is usually how the question got this big in the first place. The Intensive ends with a plan your team can run, in order. Then I stay in it with your team until it\'s done, not as a to-do list left on your desk: the decisions, the vendor calls and the follow-through.'],
         ['q' => 'How do we know we can trust you?', 'a' => 'Don\'t take my word for it. The price is fixed and it\'s on this page before we ever talk. The track record shows what changed, in numbers. And the Intensive ends at the readout, so you find out what working with me is like before you commit to anything longer.'],
-        ['q' => 'Are we signing up for you forever?', 'a' => 'No. The Intensive is three weeks at a fixed price, and it stands on its own. If you keep me on after, it\'s a monthly retainer with a three-month minimum. And when you\'re ready for a full-time CTO or CISO, I\'ll help you hire them. My job is to get you to the point where you don\'t need me.'],
+        ['q' => 'Are we signing up for you forever?', 'a' => 'No. The Intensive is a fixed price, and it stands on its own. If you keep me on after, it\'s a monthly retainer with a three-month minimum. And when you\'re ready for a full-time CTO or CISO, I\'ll help you hire them. My job is to get you to the point where you don\'t need me.'],
         ['q' => 'We already have an IT provider. Why would we need you?', 'a' => 'Keep them. They run your systems; I make the calls they\'re waiting on someone to make: what to buy, what to stop, what "secure enough" means for a company like yours, and whether the contract covers what you think it covers. The good ones are glad to have someone on your side who speaks both languages.'],
         // Added 10/23 (Segment A, Avatar 3: the technical cofounder/CTO as ally or blocker). Peer, not auditor; no hands-on claim.
         ['q' => 'Our CTO built everything. Won\'t you step on them?', 'a' => 'No. They own the product; I take the security half off their plate so they can get back to building it. Security decisions, the conversations with your customers\' security teams, and the insurer come to me. The architecture stays theirs. If something in the product needs to change, we decide it together, as peers, not as an auditor checking their work.'],

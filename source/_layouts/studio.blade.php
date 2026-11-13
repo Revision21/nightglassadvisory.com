@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $page->title ? $page->title . ' | ' . $page->siteName : $page->siteName . ' | Technology and security answers for founder-led companies' }}</title>
+    <title>{{ $page->title ? $page->title . ' | ' . $page->siteName : $page->siteName . ' | Technology and security answers for growing companies' }}</title>
     <meta name="description" content="{{ $page->description ?? $page->siteDescription }}">
     <link rel="canonical" href="{{ $page->getUrl() }}">
     <meta property="og:site_name" content="{{ $page->siteName }}">
