@@ -183,7 +183,7 @@ title:
     </div>
     <div class="{{ $c }} mt-16">
         <div class="lg:flex lg:items-start lg:justify-end">
-            {{-- What the $7,500 buys (config 'included'; also in the Service schema). Took the photo's place 10/12. --}}
+            {{-- What the Intensive buys (config 'included'; also in the Service schema). Took the photo's place 10/12. --}}
             <div class="lg:sticky lg:top-12 lg:w-1/2 lg:self-start lg:pr-16">
                 <div class="st-fade rounded-3xl bg-white p-6 shadow-sm ring-1 ring-st-ink/10 sm:p-10">
                     <h3 class="st-display text-xl font-semibold text-st-ink">What&rsquo;s included</h3>
@@ -205,7 +205,7 @@ title:
                 @endforeach
                 <li class="st-fade mt-10">
                     <div class="st-border pt-10">
-                        <strong class="font-semibold text-st-ink">{{ $page->diagnostic['priceLabel'] }}, fixed.</strong> Agreed before we begin and delivered within three weeks. No retainer to start and no open-ended hours.
+                        <strong class="font-semibold text-st-ink">{{ $page->diagnostic['priceLabel'] }}, fixed.</strong> {{ $page->diagnostic['priceDetail'] }} Agreed before we begin and delivered within three weeks. No retainer to start and no open-ended hours.
                     </div>
                 </li>
                 <li class="st-fade mt-10">
