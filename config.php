@@ -51,13 +51,13 @@ return [
         'name' => 'The Intensive',
         // DECIDED (Mike 10/12): price shown publicly. Fixed price only reassures if it's visible. The retainer stays
         // unpriced (value-priced, per CTOx); the partner sheet stays priceless (partners introduce, the site prices).
-        // REPRICED (Mike 11/24, CTOx Money Now 'two doors'): $8,500 focused / $10,000 all four areas. Doors are named by
+        // REPRICED (Mike 11/24, CTOx Money Now 'two doors'): $8,500 focused (up to TWO areas, locked 11/24) / $10,000 all four areas. Doors are named by
         // SCOPE, never hours. The $5,000 'essentials' door (work removed) is a conversation move, NOT published.
         'price' => 8500,
         'priceMax' => 10000,
         'priceLabel' => 'From $8,500',
         // Rendered after the price label in How it works. The four areas = offer menu (nightglass/offers/offer-menu-2026-11-24.md).
-        'priceDetail' => '$8,500 for the areas that fit you, $10,000 for all four: who owns what, risk, spend and AI.',
+        'priceDetail' => '$8,500 for the two areas that fit you best, $10,000 for all four: who owns what, risk, spend and AI.',
         'weeks' => 3,
     ],
 
